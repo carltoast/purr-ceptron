@@ -1,0 +1,19 @@
+# docker compose run --rm test
+# docker compose run --rm cli --help
+services:
+  test:
+    build: .
+    command: pytest
+
+  # Runs the CLI. Mounts keep the (large) dataset/model caches on the host
+  # so they survive container rebuilds; ./photos is your input. Currently
+  # only `scrape-aspca-details` is wired up; the PlantNet-trained
+  # species-ID commands land with the training pipeline (see README).
+  cli:
+    build: .
+    entrypoint: ["python", "-m", "bouquet_checker"]
+    command: ["--help"]
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./photos:/photos:ro

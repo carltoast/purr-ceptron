@@ -1,0 +1,9 @@
+torch
+torchvision
+transformers
+huggingface_hub
+pillow
+pillow-heif
+beautifulsoup4
+scipy
+pytest

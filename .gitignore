@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Large / downloaded artifacts (see README: "Data & models")
+data/raw/
+models/*
+!models/.gitkeep
+
+# Local scratch
+*.log
+.env
+
+# Personal photos/videos used for local testing
+data/images/
+data/videos/
+photos/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model weights that libraries sometimes drop in the working directory
+*.pt
+mobileclip*.ts

@@ -1,0 +1,14 @@
+.git
+.venv
+.pytest_cache
+.ruff_cache
+__pycache__
+*.egg-info
+data/raw
+models/hf
+data/images
+data/videos
+photos
+notebooks
+.ipynb_checkpoints
+requirements-notebook.txt
