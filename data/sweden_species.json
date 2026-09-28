@@ -1,0 +1,616 @@
+{
+  "_readme": "Curated cat-toxicity table of cut flowers and pots commonly found in sweden",
+  "schema_version": 1,
+  "species": [
+    {
+      "swedish_name": "Rosor",
+      "english_name": "rose",
+      "scientific_name": "Rosa spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rose"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Tulpan",
+      "english_name": "tulip",
+      "scientific_name": "Tulipa spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/tulip"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Nejlika",
+      "english_name": "carnation",
+      "scientific_name": "Dianthus caryophyllus",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "moderate",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/carnation"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Lilja",
+      "english_name": "lily",
+      "scientific_name": "Lilium spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/lily"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Krysantemum",
+      "english_name": "chrysanthemum",
+      "scientific_name": "Chrysanthemum spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/chrysanthemum"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Hortensia",
+      "english_name": "hydrangea",
+      "scientific_name": "Hydrangea macrophylla",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/hortensia"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Pion",
+      "english_name": "peony",
+      "scientific_name": "Paeonia spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/peony"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Dahlia",
+      "english_name": "dahlia",
+      "scientific_name": "Dahlia spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "moderate",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/dahlia"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Germini",
+      "english_name": "gerbera",
+      "scientific_name": "Gerbera jamesonii",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/gerber-daisy"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Alstromeria",
+      "english_name": "alstroemeria",
+      "scientific_name": "Alstroemeria spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/peruvian-lily"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Sommaraster",
+      "english_name": "China aster",
+      "scientific_name": "Callistephus chinensis",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/china-aster"],
+      "verified": true
+    },
+        {
+      "swedish_name": "Höstaster",
+      "english_name": "Aster",
+      "scientific_name": "symphyotrichum spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/news/do-you-know-which-flowers-and-plants-are-toxic-pets-our-experts-explain"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Solros",
+      "english_name": "sunflower",
+      "scientific_name": "Helianthus spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/news/do-you-know-which-flowers-and-plants-are-toxic-pets-our-experts-explain"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Gladiolus",
+      "english_name": "gladiolus",
+      "scientific_name": "Gladiolus spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "moderate",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/gladiola"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Eukalyptus",
+      "english_name": "eucalyptus",
+      "scientific_name": "Eucalyptus spp.",
+      "type": "foliage",
+      "toxic_to_cats": true,
+      "severity": "moderate",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/eucalyptus"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Brudslöja",
+      "english_name": "baby's breath",
+      "scientific_name": "Gypsophila paniculata",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "moderate",
+      "source": ["https://www.farmersalmanac.com/babys-breath-white-flower"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Lövkoja",
+      "english_name": "stock flower",
+      "scientific_name": "Matthiola incana",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/news/mothers-day-bouquets-whats-safe-pets"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Zinnia",
+      "english_name": "zinnia",
+      "scientific_name": "Zinnia elegans",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/zinnia"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Luktärt",
+      "english_name": "sweet pea",
+      "scientific_name": "Lathyrus odoratus",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "moderate",
+      "source": ["https://www.cats.org.uk/media/gb1jkhcr/cats_protection-safe-plants-guide.pdf"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Rosenskära",
+      "english_name": "cosmos",
+      "scientific_name": "Cosmos bipinnatus",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.getgrowli.app/pet-safe/cosmos"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Ringblomma",
+      "english_name": "pot marigold",
+      "scientific_name": "Calendula officinalis",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/holligold"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Riddarsporre",
+      "english_name": "larkspur",
+      "scientific_name": "Delphinium spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/larkspur"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Praktvädd",
+      "english_name": "scabious",
+      "scientific_name": "Scabiosa spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/scabious"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Rudbeckia",
+      "english_name": "coneflower",
+      "scientific_name": "Rudbeckia spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://acenitec.com/pet-safety/pet-safe-gardening-which-plants-are-toxic-to-dogs-and-cats/"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Risp",
+      "english_name": "sea lavender",
+      "scientific_name": "Limonium spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.getgrowli.app/toxic-to/cats/tiny-sea-lavender"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Julstjärna",
+      "english_name": "poinsettia",
+      "scientific_name": "Euphorbia pulcherrima",
+      "type": "potted",
+      "toxic_to_cats": true,
+      "severity": "moderate",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/poinsettia"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Amaryllis",
+      "english_name": "amaryllis",
+      "scientific_name": "Hippeastrum spp.",
+      "type": "potted",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/amaryllis"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Hyacint",
+      "english_name": "hyacinth",
+      "scientific_name": "Hyacinthus orientalis",
+      "type": "potted",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.gardenia.net/guide/are-hyacinths-poisonous-to-cats"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Liljekonvalje",
+      "english_name": "lily of the valley",
+      "scientific_name": "Convallaria majalis",
+      "type": "potted",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/lily-valley"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Påsklilja",
+      "english_name": "daffodil",
+      "scientific_name": "Narcissus spp.",
+      "type": "potted",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/daffodil"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Krokus",
+      "english_name": "crocus",
+      "scientific_name": "Crocus spp.",
+      "type": "potted",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.aspca.org/news/keeping-your-springtime-garden-safe-your-pets"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Julkaktus",
+      "english_name": "christmas cactus",
+      "scientific_name": "Schlumbergera spp.",
+      "type": "potted",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/christmas-cactus"],
+      "verified": false
+    },
+    {
+      "swedish_name": "Alpviol",
+      "english_name": "cyclamen",
+      "scientific_name": "Cyclamen persicum",
+      "type": "potted",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://firstvet.com/us/articles/poisonous-plants-for-dogs-and-cats-cyclamen"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Azalea",
+      "english_name": "azalea",
+      "scientific_name": "Rhododendron simsii",
+      "type": "potted",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://wagwalking.com/cat/condition/rhododendron-poisoning"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Fridslilja",
+      "english_name": "peace lily",
+      "scientific_name": "Spathiphyllum spp.",
+      "type": "potted",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.animalpoisons.com.au/news/peace-lily-cat/"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Murgröna",
+      "english_name": "ivy",
+      "scientific_name": "Hedera helix",
+      "type": "potted",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/branching-ivy"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Kalanchoe",
+      "english_name": "kalanchoe",
+      "scientific_name": "Kalanchoe blossfeldiana",
+      "type": "potted",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/kalanchoe"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Orkidé",
+      "english_name": "orchid",
+      "scientific_name": "Orchidaceae",
+      "type": "potted",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/pet-care/animal-poison-control/cats-plant-list"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Ruscus",
+      "english_name": "ruscus",
+      "scientific_name": "Ruscus spp.",
+      "type": "foliage",
+      "toxic_to_cats": true,
+      "severity": "moderate",
+      "source": ["https://www.smallmiraclesanimalhospital.vet/post/valentines"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Monstera",
+      "english_name": "monstera (cut leaf)",
+      "scientific_name": "Monstera deliciosa",
+      "type": "foliage",
+      "toxic_to_cats": true,
+      "severity": "moderate",
+      "source": ["https://www.southerncrosspet.co.nz/pet-hub/tips-and-tricks/toxic-houseplants/"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Salal",
+      "english_name": "salal",
+      "scientific_name": "Gaultheria shallon",
+      "type": "foliage",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.getgrowli.app/toxic-to/cats/salal"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Läderbräken",
+      "english_name": "leatherleaf fern",
+      "scientific_name": "Rumohra adiantiformis",
+      "type": "foliage",
+      "toxic_to_cats": true,
+      "severity": "moderate",
+      "source": ["https://www.getgrowli.app/toxic-to/cats/leatherleaf-fern"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Myrten",
+      "english_name": "myrtle",
+      "scientific_name": "Myrtus communis",
+      "type": "foliage",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.vpisglobal.com/wp-content/uploads/2023/08/Pet-safe-plants-v2-with-logo.pdf"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Fjädersparris",
+      "english_name": "asparagus fern",
+      "scientific_name": "Asparagus densiflorus cv sprengeri",
+      "type": "foliage",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/asparagus-fern"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Olivgrenar",
+      "english_name": "olive branches",
+      "scientific_name": "Olea europaea",
+      "type": "foliage",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.picturethisai.com/toxic-to-pets/Olea_europaea.html"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Björkris",
+      "english_name": "birch twigs",
+      "scientific_name": "Betula pendula",
+      "type": "foliage",
+      "toxic_to_cats": true,
+      "severity": "mildly",
+      "source": ["https://www.getgrowli.app/pet-safe/betula-pendula"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Pilkvistar",
+      "english_name": "pussy willow",
+      "scientific_name": "Salix caprea",
+      "type": "foliage",
+      "toxic_to_cats": true,
+      "severity": "mildly",
+      "source": ["https://www.catster.com/cat-health-care/are-pussy-willows-poisonous-to-cats/"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Silverek",
+      "english_name": "dusty miller",
+      "scientific_name": "Jacobaea maritima",
+      "type": "foliage",
+      "toxic_to_cats": true,
+      "severity": "moderate",
+      "source": ["https://www.getgrowli.app/plant-care/silver-ragwort"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Skimmia",
+      "english_name": "skimmia",
+      "scientific_name": "Skimmia japonica",
+      "type": "foliage",
+      "toxic_to_cats": true,
+      "severity": "mildly",
+      "source": ["https://www.getgrowli.app/pet-safe/skimmia-japonica-rubella"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Björngräs",
+      "english_name": "bear grass",
+      "scientific_name": "Xerophyllum tenax",
+      "type": "foliage",
+      "toxic_to_cats": true,
+      "severity": "moderate",
+      "source": ["https://www.whiskerdocs.com/toxins/bear-grass"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Pampasgräs",
+      "english_name": "pampas grass",
+      "scientific_name": "Cortaderia selloana",
+      "type": "foliage",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/pampas-grass"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Hallongrenar",
+      "english_name": "raspberry branches",
+      "scientific_name": "Rubus idaeus",
+      "type": "foliage",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.adoptapet.com/blog/nutrition/can-my-cat-eat-raspberries"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Daggkåpa",
+      "english_name": "lady's mantle",
+      "scientific_name": "Alchemilla mollis",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.gardenersworld.com/plants/alchemilla-mollis/"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Slöjsilja",
+      "english_name": "astilbe",
+      "scientific_name": "Astilbe spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.cats.org.uk/media/gb1jkhcr/cats_protection-safe-plants-guide.pdf"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Blomstermorot",
+      "english_name": "false queen anne's lace",
+      "scientific_name": "Ammi majus",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://wagwalking.com/cat/condition/false-queen-annes-lace-poisoning-1"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Lejongap",
+      "english_name": "snapdragon",
+      "scientific_name": "Antirrhinum majus",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/common-snapdragon"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Solidago",
+      "english_name": "goldenrod",
+      "scientific_name": "Solidago spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.getgrowli.app/toxic-to/cats/showy-goldenrod"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Vaxblomma",
+      "english_name": "waxflower",
+      "scientific_name": "Chamelaucium uncinatum",
+      "type": "cut_flower",
+      "toxic_to_cats": false,
+      "severity": null,
+      "source": ["https://www.cats.org.uk/media/gb1jkhcr/cats_protection-safe-plants-guide.pdf"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Hypericumbär",
+      "english_name": "hypericum berries",
+      "scientific_name": "Hypericum androsaemum",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://www.getgrowli.app/pet-ate/cats/tutsan"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Kinesiska lyktor",
+      "english_name": "chinese lantern",
+      "scientific_name": "Physalis alkekengi",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "moderate",
+      "source": ["https://www.getgrowli.app/toxic-to/cats/chinese-lantern-plant"],
+      "verified": true
+    },
+    {
+      "swedish_name": "Vallmo",
+      "english_name": "poppy",
+      "scientific_name": "Papaver spp.",
+      "type": "cut_flower",
+      "toxic_to_cats": true,
+      "severity": "high",
+      "source": ["https://mewguard.app/en/toxins/plants/poppy/"],
+      "verified": true
+    }
+  ]
+}
