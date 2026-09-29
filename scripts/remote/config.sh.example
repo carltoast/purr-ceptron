@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Machine-specific config for scripts/remote/*.sh.
+#
+# Copy this file to config.sh (gitignored, never committed) and edit it
+# for your own setup:
+#   cp scripts/remote/config.sh.example scripts/remote/config.sh
+
+# SSH host alias for the remote training machine, as set up in your own
+# ~/.ssh/config (key auth, port forwarding, etc. - scripts/remote/ never
+# touches any of that, it just calls `ssh $SSH_HOST ...`).
+SSH_HOST="homepc"
+
+# Username on the remote machine.
+REMOTE_USER="carl_toast"
+
+# Remote home directory. Uncomment and override only if it isn't the
+# usual /home/$REMOTE_USER (e.g. an unusual WSL setup).
+# REMOTE_HOME="/home/$REMOTE_USER"

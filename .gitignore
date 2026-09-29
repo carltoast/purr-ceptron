@@ -14,6 +14,10 @@ models/*
 *.log
 .env
 
+# Machine-specific remote-training config (SSH host, remote username);
+# see scripts/remote/config.sh.example
+scripts/remote/config.sh
+
 # Personal photos/videos used for local testing
 data/images/
 data/videos/

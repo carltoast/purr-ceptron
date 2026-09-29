@@ -77,3 +77,36 @@ CI runs `ruff` and builds the Docker image and runs `pytest` inside it.
 docstrings in tests are not (descriptive test names instead). torch /
 transformers are imported lazily so the table, verdict logic and tests run
 without loading them.
+
+## Remote training
+
+This laptop has no GPU worth training on. When the user says "train on
+the home PC" / "run on the PC" (or anything equivalent), use
+`scripts/remote/train.sh` - never start a training run locally on this
+laptop.
+
+- Before the first run of a session, check the GPU is actually visible:
+  ```bash
+  ssh homepc "source /home/carl_toast/miniconda3/etc/profile.d/conda.sh && conda activate ml && python -c 'import torch; print(torch.cuda.is_available())'"
+  ```
+- Hardware limits (GTX 1070, Pascal/sm_61, 8 GB VRAM, ~7 GB usable): no
+  bf16, and fp16 AMP gives little speedup on this GPU generation. Size
+  batch sizes to fit, and prefer gradient accumulation over risking an
+  OOM rather than raising batch size to "make it faster."
+- Training code must read datasets from `~/data/` on the PC (they already
+  live there permanently - never upload a dataset via `sync.sh`, which
+  excludes `data/` for exactly this reason) and write results to
+  `outputs/` and `checkpoints/` under the remote project dir, which is
+  what `pull.sh` fetches back by default.
+- If a new Python package is needed on the PC, install it into the `ml`
+  conda env over ssh (`ssh homepc "source .../conda.sh && conda activate
+  ml && pip install <package>"`) rather than adding it only to this
+  laptop's environment.
+- After launching a run with `train.sh`, report the run name it prints.
+  Use `scripts/remote/status.sh [run-name]` when asked how a run is
+  going; it shows tmux sessions, the tail of that run's log, and GPU
+  memory/utilization. Don't poll it repeatedly on your own initiative -
+  check once when asked.
+- The scripts (`scripts/remote/{sync,train,status,pull,stop}.sh`) do not
+  touch SSH/Tailscale/port-forwarding config; that is already set up and
+  out of scope for anything run from here.
