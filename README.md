@@ -20,13 +20,13 @@ photo ──► [1] species classifier (ML) ──► species + confidence
 ```
 
 Two separate stages, deliberately never merged into one "toxic vs
-non-toxic" model — toxicity is a property of species/genus, not a visual
+non-toxic" model: toxicity is a property of species/genus, not a visual
 pattern.
 
-1. **Species ID** — image → species name + confidence distribution.
-2. **Toxicity lookup** (`toxicity.py`) — species → toxic / non-toxic /
+1. **Species ID**: image -> species name + confidence distribution.
+2. **Toxicity lookup** (`toxicity.py`): species -> toxic / non-toxic /
    unknown + severity + symptoms, from a curated JSON table.
-3. **Verdict** (`verdict.py`) — combines the two under the safety rule
+3. **Verdict** (`verdict.py`): combines the two under the safety rule
    below.
 
 **Safety rule:** unknown species or low confidence means assume toxic,
@@ -40,24 +40,24 @@ can only be tightened by a caller, never loosened. See
 Species ID is being trained on **PlantNet-300K** (1,000 species, 306k
 images), with a cat-toxicity-aware training objective built from a
 hand-scraped **ASPCA** dataset (982 plants, per-species dogs/cats/horses
-toxicity) — species confusions that cross the toxic/non-toxic line are
+toxicity), so species confusions that cross the toxic/non-toxic line are
 penalized more than same-side ones, while the model still only ever
 predicts species. `toxicity.py` and `verdict.py` are ready to plug a
-classifier into; none exists yet, so there's no `check` command yet —
+classifier into; none exists yet, so there's no `check` command yet.
 `cli.py` currently only has `scrape-aspca-details`.
 
 ## Data
 
 | What | Source |
 |---|---|
-| Species images | [PlantNet-300K-v2](https://zenodo.org/records/10419064) — 1,000 species, 306k images, `data/raw/plantnet/` (git-ignored) |
-| Toxicity | your own scrape of [ASPCA's per-plant pages](https://www.aspca.org/pet-care/animal-poison-control/cats-plant-list) — `data/raw/aspca/` (git-ignored, unverified first draft) |
+| Species images | [PlantNet-300K-v2](https://zenodo.org/records/10419064), 1,000 species, 306k images, `data/raw/plantnet/` (git-ignored) |
+| Toxicity | scraped from [ASPCA's per-plant pages](https://www.aspca.org/pet-care/animal-poison-control/cats-plant-list), `data/raw/aspca/` (git-ignored, unverified first draft) |
 
 `python -m plant_toxicity_checker scrape-aspca-details` scrapes each ASPCA
 plant's own page (toxic/non-toxic per species, principles, clinical
 signs). Resumable and rate-limited to ASPCA's `robots.txt` crawl-delay
-(~2.7h for all 983 pages). The output is unverified — never copied into a
-shipped toxicity table as `verified: true` without a human check.
+(~2.7h for all 983 pages). The output is unverified: it is never copied
+into a shipped toxicity table as `verified: true` without a human check.
 
 ## Toxicity table schema
 
@@ -97,7 +97,7 @@ ruff check .
 docker build -t plant-toxicity-checker . && docker run --rm plant-toxicity-checker
 ```
 
-Training runs on a home PC's GPU over SSH, not locally — see
+Training runs on a home PC's GPU over SSH, not locally. See
 `scripts/remote/`.
 
 ### Notebooks
@@ -108,7 +108,7 @@ pip install -r requirements-notebook.txt
 
 `notebooks/01_plantnet_class_distribution.ipynb` matches PlantNet-300K's
 1,000 species against the scraped ASPCA data by scientific name (exact
-genus+species, or genus-only — never by common name, to avoid the "lily
+genus+species, or genus-only, never by common name, to avoid the "lily
 problem": *Lilium*, *Hemerocallis*, *Hippeastrum* and *Spathiphyllum* are
 all "lily" in English, four different genera with different toxicity).
 Findings: PlantNet is strongly imbalanced (mean 306 images/species, median
@@ -132,15 +132,15 @@ tests/                    pytest suite, offline by default
 
 ## Roadmap
 
-1. **PlantNet-300K baseline** — a real training pipeline replicating the
+1. **PlantNet-300K baseline**: a real training pipeline replicating the
    official paper's ResNet-18 setup, trained remotely (GTX 1070).
-2. **Imbalance-aware variants** — Class-Balanced Loss / Balanced Softmax /
+2. **Imbalance-aware variants**: Class-Balanced Loss / Balanced Softmax /
    decoupled retraining, compared side by side.
-3. **Toxicity-aware training** — a cost-sensitive loss penalizing
-   toxic↔non-toxic species confusions more than same-side ones, over the
-   full label space, still only ever predicting species. A hand-verified
-   ASPCA subset (starting from the ~34 exact matches in notebook 01)
-   becomes the first real `verified: true` entries.
-4. **Results** — a results table and programmatically selected
+3. **Toxicity-aware training**: a cost-sensitive loss penalizing toxic vs.
+   non-toxic species confusions more than same-side ones, over the full
+   label space, still only ever predicting species. A hand-verified ASPCA
+   subset (starting from the ~34 exact matches in notebook 01) becomes the
+   first real `verified: true` entries.
+4. **Results**: a results table and programmatically selected
    correct-catch and failure-case examples, not hand-picked. `check`
    becomes a real command.
