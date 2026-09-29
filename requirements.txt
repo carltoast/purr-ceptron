@@ -1,9 +1,9 @@
+# torch/torchvision: for the PlantNet-300K training pipeline (Roadmap
+# Phase 1+); nothing currently imports them, but they're about to be
+# needed, not leftover from removed code.
 torch
 torchvision
-transformers
-huggingface_hub
 pillow
 pillow-heif
 beautifulsoup4
-scipy
 pytest

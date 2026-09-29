@@ -3,20 +3,7 @@
 #   pip install -r requirements-notebook.txt
 matplotlib
 pandas
-scikit-learn
-scikit-image
-umap-learn
-plotly
+networkx
 ipykernel
-ipywidgets
 nbformat
 nbclient
-yt-dlp
-opencv-python-headless
-requests
-networkx
-
-# Segmentation (notebook 03). Ultralytics must be installed WITHOUT its
-# dependencies (it would pull a second OpenCV build); pip requirements files
-# cannot say that, so run this by hand:
-#   pip install ultralytics --no-deps polars ultralytics-thop psutil pyyaml requests

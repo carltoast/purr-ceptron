@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Build Docker image
-        run: docker build -t bouquet-checker .
+        run: docker build -t plant-toxicity-checker .
 
       - name: Run tests in Docker
-        run: docker run --rm bouquet-checker
+        run: docker run --rm plant-toxicity-checker

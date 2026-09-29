@@ -15,11 +15,11 @@ is never accepted as safe.
 from dataclasses import dataclass, field
 from enum import Enum
 
-from bouquet_checker.config import CANDIDATE_FLOOR, MIN_CONFIDENCE
+from plant_toxicity_checker.config import CANDIDATE_FLOOR, MIN_CONFIDENCE
 
 SCOPE_NOTE = (
-    "Only the single most prominent flower in the photo was assessed. "
-    "Other flowers in a bouquet are NOT checked."
+    "Only the single most prominent plant in the photo was assessed. "
+    "Other plants in the photo are NOT checked."
 )
 
 # Float slack when comparing accumulated probability mass to the floor.

@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from bouquet_checker.toxicity import ToxicityTableError, load_table
+from plant_toxicity_checker.toxicity import ToxicityTableError, load_table
 
 
 def write_table(tmp_path, *species):

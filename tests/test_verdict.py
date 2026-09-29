@@ -2,7 +2,7 @@
 
 import pytest
 
-from bouquet_checker.verdict import Prediction, Status, assess
+from plant_toxicity_checker.verdict import Prediction, Status, assess
 
 
 def preds(*pairs):

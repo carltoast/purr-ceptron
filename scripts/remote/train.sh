@@ -7,7 +7,7 @@
 #
 # Example:
 #   scripts/remote/train.sh \
-#     "python -m bouquet_checker train-plantnet --config configs/plantnet_baseline.json" \
+#     "python -m plant_toxicity_checker train-plantnet --config configs/plantnet_baseline.json" \
 #     plantnet-baseline
 set -euo pipefail
 

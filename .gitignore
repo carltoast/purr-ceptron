@@ -18,9 +18,8 @@ models/*
 # see scripts/remote/config.sh.example
 scripts/remote/config.sh
 
-# Personal photos/videos used for local testing
+# Personal photos used for local testing
 data/images/
-data/videos/
 photos/
 
 # Jupyter
@@ -28,4 +27,3 @@ photos/
 
 # Model weights that libraries sometimes drop in the working directory
 *.pt
-mobileclip*.ts

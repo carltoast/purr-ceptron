@@ -4,8 +4,8 @@ from pathlib import Path
 
 from PIL import Image, ImageOps
 
-from bouquet_checker.config import CANDIDATE_FLOOR, MIN_CONFIDENCE
-from bouquet_checker.verdict import assess
+from plant_toxicity_checker.config import CANDIDATE_FLOOR, MIN_CONFIDENCE
+from plant_toxicity_checker.verdict import assess
 
 try:  # optional: lets PIL open iPhone .heic photos
     from pillow_heif import register_heif_opener

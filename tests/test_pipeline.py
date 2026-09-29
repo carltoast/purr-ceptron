@@ -13,9 +13,13 @@ import pytest
 from conftest import FakeClassifier
 from PIL import Image
 
-from bouquet_checker import cli
-from bouquet_checker.pipeline import ImageLoadError, check_image, load_image
-from bouquet_checker.verdict import SCOPE_NOTE, Status
+from plant_toxicity_checker import cli
+from plant_toxicity_checker.pipeline import (
+    ImageLoadError,
+    check_image,
+    load_image,
+)
+from plant_toxicity_checker.verdict import SCOPE_NOTE, Status
 
 
 def test_check_image_accepts_pil_image(table):
@@ -89,10 +93,10 @@ def test_top_k_only_trims_the_displayed_predictions(table):
     assert data["status"] == verdict.status.value
 
 
-def test_format_verdict_says_only_main_flower_was_assessed(table):
+def test_format_verdict_says_only_main_plant_was_assessed(table):
     classifier = FakeClassifier([("rose", 0.99), ("sunflower", 0.01)])
     verdict = check_image(Image.new("RGB", (8, 8)), classifier, table)
     text = cli.format_verdict(verdict)
-    assert "LIKELY SAFE for the main flower only" in text
+    assert "LIKELY SAFE for the main plant only" in text
     assert "rose" in text
     assert SCOPE_NOTE in text

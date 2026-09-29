@@ -1,6 +1,6 @@
 """Tests for scientific-name matching across datasets."""
 
-from bouquet_checker.species_match import (
+from plant_toxicity_checker.species_match import (
     MatchResult,
     SpeciesIndex,
     parse_scientific_name,

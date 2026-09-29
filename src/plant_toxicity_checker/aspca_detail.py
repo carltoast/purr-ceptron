@@ -45,13 +45,14 @@ from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
 
-from bouquet_checker.config import (
+from plant_toxicity_checker.config import (
     ASPCA_DETAIL_CACHE_DIR,
     ASPCA_DETAILS_JSON_PATH,
 )
 
 USER_AGENT = (
-    "bouquet-checker/0.1 (personal research; one cached request per plant)"
+    "plant-toxicity-checker/0.1 "
+    "(personal research; one cached request per plant)"
 )
 DETAIL_URL_TEMPLATE = (
     "https://www.aspca.org/pet-care/aspca-poison-control/"

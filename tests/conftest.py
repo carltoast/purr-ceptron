@@ -7,8 +7,8 @@ import pytest
 # Plots in tests must never need a display or a Tcl/Tk install.
 os.environ.setdefault("MPLBACKEND", "Agg")
 
-from bouquet_checker.toxicity import ToxicityEntry, ToxicityTable
-from bouquet_checker.verdict import Prediction
+from plant_toxicity_checker.toxicity import ToxicityEntry, ToxicityTable
+from plant_toxicity_checker.verdict import Prediction
 
 
 def make_entry(species, toxic="unknown", verified=False, severity=None):

@@ -11,7 +11,7 @@ services:
   # species-ID commands land with the training pipeline (see README).
   cli:
     build: .
-    entrypoint: ["python", "-m", "bouquet_checker"]
+    entrypoint: ["python", "-m", "plant_toxicity_checker"]
     command: ["--help"]
     volumes:
       - ./data:/app/data

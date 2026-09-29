@@ -5,9 +5,8 @@
 __pycache__
 *.egg-info
 data/raw
-models/hf
+models
 data/images
-data/videos
 photos
 notebooks
 .ipynb_checkpoints

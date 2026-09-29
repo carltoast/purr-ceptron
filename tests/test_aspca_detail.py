@@ -5,8 +5,8 @@ import urllib.request
 
 import pytest
 
-from bouquet_checker import aspca_detail
-from bouquet_checker.aspca_detail import (
+from plant_toxicity_checker import aspca_detail
+from plant_toxicity_checker.aspca_detail import (
     AspcaDetailError,
     PlantRef,
     parse_detail_page,

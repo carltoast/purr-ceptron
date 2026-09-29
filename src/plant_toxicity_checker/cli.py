@@ -1,15 +1,15 @@
-"""Command-line interface: ``python -m bouquet_checker <command>``."""
+"""Command-line interface: ``python -m plant_toxicity_checker <command>``."""
 
 import argparse
 import sys
 
-from bouquet_checker.config import ASPCA_DETAILS_JSON_PATH
-from bouquet_checker.verdict import SCOPE_NOTE, Status
+from plant_toxicity_checker.config import ASPCA_DETAILS_JSON_PATH
+from plant_toxicity_checker.verdict import SCOPE_NOTE, Status
 
 _HEADLINES = {
     Status.TOXIC: "TOXIC TO CATS - keep away from cats",
     Status.CAUTION: "CAUTION - treat as toxic, do not rely on this",
-    Status.LIKELY_SAFE: "LIKELY SAFE for the main flower only "
+    Status.LIKELY_SAFE: "LIKELY SAFE for the main plant only "
     "(verified non-toxic, confident match)",
 }
 
@@ -63,7 +63,7 @@ def format_verdict(verdict, top_k=5):
 
 
 def _run_scrape_aspca_details(args):
-    from bouquet_checker import aspca_detail
+    from plant_toxicity_checker import aspca_detail
 
     entries = aspca_detail.load_entries()
 
@@ -101,7 +101,7 @@ def build_parser():
     above are kept - they are already species-space-agnostic and will back
     the new commands directly.
     """
-    parser = argparse.ArgumentParser(prog="bouquet-checker")
+    parser = argparse.ArgumentParser(prog="plant-toxicity-checker")
     sub = parser.add_subparsers(dest="command", required=True)
 
     scrape_details = sub.add_parser(
