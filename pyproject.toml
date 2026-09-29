@@ -12,7 +12,7 @@ requires-python = ">=3.10"
 plant-toxicity-checker = "plant_toxicity_checker.cli:main"
 
 [tool.setuptools.packages.find]
-where = ["src"]
+include = ["plant_toxicity_checker*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

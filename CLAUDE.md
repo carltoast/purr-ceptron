@@ -23,7 +23,7 @@ current status, plan, limitations and the table schema.
 - Unknown / unverified / missing / low-confidence must resolve to
   caution or toxic, never safe. `LIKELY_SAFE` requires a confident top match
   AND every plausible alternative having a *verified* `"no"` entry
-  (`src/plant_toxicity_checker/verdict.py`). Any change to that logic needs
+  (`plant_toxicity_checker/verdict.py`). Any change to that logic needs
   tests in `tests/test_verdict.py`.
 - Callers must not be able to weaken the safety rule: `assess()` clamps
   thresholds to the `config` defaults (stricter only), `check_image()` always
