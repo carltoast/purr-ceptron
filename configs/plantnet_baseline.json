@@ -1,0 +1,14 @@
+{
+  "model": "resnet18",
+  "pretrained": true,
+  "optimizer": "sgd",
+  "lr": 0.01,
+  "momentum": 0.9,
+  "nesterov": true,
+  "weight_decay": 0.0001,
+  "batch_size": 32,
+  "epochs": 30,
+  "lr_decay_epochs": [20, 25],
+  "lr_decay_factor": 0.1,
+  "loss": "cross_entropy"
+}

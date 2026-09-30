@@ -2,6 +2,7 @@
 
 import argparse
 import sys
+from pathlib import Path
 
 from plant_toxicity_checker.config import ASPCA_DETAILS_JSON_PATH
 from plant_toxicity_checker.verdict import SCOPE_NOTE, Status
@@ -83,6 +84,34 @@ def _run_scrape_aspca_details(args):
     return 0
 
 
+def _run_train_plantnet(args):
+    from plant_toxicity_checker import train
+
+    config = train.load_config(args.config)
+    # Resuming always continues the same run's checkpoint/output
+    # directory - --resume implies the run name, it isn't a separate
+    # choice from --run-name.
+    run_name = args.resume or args.run_name or Path(args.config).stem
+    train.run_training(
+        config, run_name,
+        epochs_override=args.epochs, resume=args.resume is not None,
+    )
+    print(f"done: checkpoints/{run_name}/, outputs/{run_name}/")
+    return 0
+
+
+def _run_evaluate_plantnet(args):
+    from plant_toxicity_checker import train
+
+    result = train.run_evaluation(args.run, args.split)
+    for k in (1, 3, 5, 10):
+        print(
+            f"top-{k}: {result[f'top_{k}']:.1%}   "
+            f"avg-{k}: {result[f'avg_{k}']:.1%}"
+        )
+    return 0
+
+
 def _positive_int(text):
     value = int(text)
     if value < 1:
@@ -91,16 +120,7 @@ def _positive_int(text):
 
 
 def build_parser():
-    """Build the argparse parser.
-
-    This is intentionally thin right now: the previous Oxford-102
-    ``check``/``demo``/``download``/``evaluate`` commands were removed when
-    the project moved to PlantNet-300K + ASPCA as its species/toxicity
-    source (see README/CLAUDE.md); their replacements land with the
-    PlantNet training pipeline. ``verdict_to_dict``/``format_verdict``
-    above are kept - they are already species-space-agnostic and will back
-    the new commands directly.
-    """
+    """Build the argparse parser."""
     parser = argparse.ArgumentParser(prog="plant-toxicity-checker")
     sub = parser.add_subparsers(dest="command", required=True)
 
@@ -120,14 +140,55 @@ def build_parser():
         help="only scrape the first N plants (for a quick test run)",
     )
     scrape_details.set_defaults(func=_run_scrape_aspca_details)
+
+    train_plantnet = sub.add_parser(
+        "train-plantnet",
+        help="Train the PlantNet-300K baseline species classifier "
+             "(Roadmap Phase 1) - run this on the home PC's GPU, not "
+             "locally (see scripts/remote/train.sh)",
+    )
+    train_plantnet.add_argument(
+        "--config", required=True,
+        help="training config JSON, e.g. configs/plantnet_baseline.json",
+    )
+    train_plantnet.add_argument(
+        "--resume", default=None,
+        help="resume this run name from its last checkpoint",
+    )
+    train_plantnet.add_argument(
+        "--epochs", type=_positive_int, default=None,
+        help="override the config's epoch count (e.g. --epochs 1 for a "
+             "timing sanity check before the full run)",
+    )
+    train_plantnet.add_argument(
+        "--run-name", default=None,
+        help="ignored if --resume is given; otherwise defaults to the "
+             "config file's stem",
+    )
+    train_plantnet.set_defaults(func=_run_train_plantnet)
+
+    evaluate_plantnet = sub.add_parser(
+        "evaluate-plantnet",
+        help="Evaluate a trained run's checkpoint: top-1/3/5/10 and "
+             "average-k accuracy",
+    )
+    evaluate_plantnet.add_argument(
+        "--run", required=True, help="run name (checkpoints/<run>/)",
+    )
+    evaluate_plantnet.add_argument(
+        "--split", choices=["val", "test"], default="test",
+    )
+    evaluate_plantnet.set_defaults(func=_run_evaluate_plantnet)
     return parser
 
 
 def main(argv=None):
     """Entry point; returns a process exit code."""
+    from plant_toxicity_checker.train import ConfigError
+
     args = build_parser().parse_args(argv)
     try:
         return args.func(args)
-    except OSError as err:
+    except (OSError, ConfigError) as err:
         print(f"error: {err}", file=sys.stderr)
         return 1

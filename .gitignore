@@ -10,6 +10,12 @@ data/raw/
 models/*
 !models/.gitkeep
 
+# Training runs (scripts/remote/pull.sh fetches these back from the
+# remote PC): checkpoints are large binaries, outputs' small JSON is
+# left untracked for now too - a Phase 4 decision, not an automatic one.
+outputs/
+checkpoints/
+
 # Local scratch
 *.log
 .env

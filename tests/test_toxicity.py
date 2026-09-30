@@ -91,7 +91,7 @@ def test_verified_non_toxic_entry_is_valid(tmp_path):
 
 
 # --- valid_species: the table's schema is reused across species spaces ------
-# (Oxford-102, PlantNet, ...); nothing here hardcodes which one is in use.
+# (PlantNet, ...); nothing here hardcodes which one is in use.
 
 
 def test_without_valid_species_any_name_is_accepted(tmp_path):
