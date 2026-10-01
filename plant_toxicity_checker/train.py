@@ -211,8 +211,27 @@ def run_training(
     from plant_toxicity_checker.plantnet_labels import SpeciesLabels
 
     labels = SpeciesLabels.from_metadata()
-    train_ds = PlantNetDataset("train", labels)
-    val_ds = PlantNetDataset("val", labels)
+    max_species = config.get("max_species")
+    max_images_per_species = config.get("max_images_per_species")
+    train_ds = PlantNetDataset(
+        "train", labels,
+        max_species=max_species,
+        max_images_per_species=max_images_per_species,
+    )
+    val_ds = PlantNetDataset(
+        "val", labels,
+        max_species=max_species,
+        max_images_per_species=max_images_per_species,
+    )
+    print(
+        f"train={len(train_ds)} images  val={len(val_ds)} images"
+        + (f"  max_species={max_species}" if max_species else "")
+        + (
+            f"  max_images_per_species={max_images_per_species}"
+            if max_images_per_species else ""
+        ),
+        flush=True,
+    )
 
     batch_size = config["batch_size"]
     train_loader = make_loader(train_ds, batch_size, shuffle=True)
@@ -295,8 +314,18 @@ def run_evaluation(run_name, split):
     model = build_model(len(labels)).to(device)
     model.load_state_dict(state["model_state_dict"])
 
-    val_ds = PlantNetDataset("val", labels)
-    eval_ds = PlantNetDataset(split, labels)
+    max_species = config.get("max_species")
+    max_images_per_species = config.get("max_images_per_species")
+    val_ds = PlantNetDataset(
+        "val", labels,
+        max_species=max_species,
+        max_images_per_species=max_images_per_species,
+    )
+    eval_ds = PlantNetDataset(
+        split, labels,
+        max_species=max_species,
+        max_images_per_species=max_images_per_species,
+    )
     val_loader = make_loader(val_ds, config["batch_size"], shuffle=False)
     eval_loader = make_loader(eval_ds, config["batch_size"], shuffle=False)
 

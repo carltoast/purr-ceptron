@@ -31,6 +31,44 @@ def rows_for_split(rows, split):
     return [row for row in rows if row["split"] == split]
 
 
+def filter_species_subset(rows, max_species):
+    """Rows belonging only to the ``max_species`` lowest ``species_id``
+    values across ``rows``.
+
+    A fixed, deterministic choice (smallest IDs, not random) so a dev
+    run's species list is reproducible without having to persist it
+    separately, and so calling this independently for the train/val/test
+    splits still lands on the same species subset for all three (the
+    selection only depends on the set of IDs present, not on ``split``).
+    """
+    if max_species is None:
+        return rows
+    keep_ids = sorted({int(row["species_id"]) for row in rows})[:max_species]
+    keep_ids = set(keep_ids)
+    return [row for row in rows if int(row["species_id"]) in keep_ids]
+
+
+def cap_images_per_species(rows, max_images_per_species):
+    """At most ``max_images_per_species`` rows per ``species_id``, taking
+    the first N encountered in ``rows``' existing order.
+
+    Deterministic (no sampling) for the same reason as
+    ``filter_species_subset`` - a dev run's image selection shouldn't
+    depend on a seed to be reproducible.
+    """
+    if max_images_per_species is None:
+        return rows
+    counts = {}
+    kept = []
+    for row in rows:
+        species_id = row["species_id"]
+        seen = counts.get(species_id, 0)
+        if seen < max_images_per_species:
+            kept.append(row)
+            counts[species_id] = seen + 1
+    return kept
+
+
 def species_dir(species_id):
     """The zero-padded 4-digit directory name for a ``species_id``.
 
@@ -87,13 +125,18 @@ class PlantNetDataset:
 
     def __init__(
         self, split, labels, rows=None, images_dir=None, transform=None,
+        max_species=None, max_images_per_species=None,
     ):
         self.split = split
         self.labels = labels
         self.images_dir = images_dir or IMAGES_DIR
         self.transform = transform or build_transforms(train=split == "train")
         all_rows = rows if rows is not None else load_metadata()
+        all_rows = filter_species_subset(all_rows, max_species)
         self.rows = rows_for_split(all_rows, split)
+        self.rows = cap_images_per_species(
+            self.rows, max_images_per_species
+        )
 
     def __len__(self):
         return len(self.rows)
