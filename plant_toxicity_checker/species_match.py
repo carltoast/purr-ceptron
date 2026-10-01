@@ -97,3 +97,41 @@ class SpeciesIndex:
                 "genus_only", None, tuple(self.by_genus[genus])
             )
         return MatchResult("none")
+
+
+def aspca_matched_species_ids(plantnet_rows, aspca_plants):
+    """``species_id`` values (as ints) of ``plantnet_rows`` whose
+    ``genus``/``epithet`` columns (``species_metadata.csv``) are an
+    EXACT match against an ASPCA-scraped plant's own ``scientific_name``
+    (the ``"plants"`` array of ``cats_plant_details.json``).
+
+    Name matching only - this says "ASPCA has a page for this species",
+    nothing about toxicity, and never infers anything about a species
+    from a genus-only match. Used so a training-subset selection (see
+    ``plantnet_dataset.filter_species_subset``'s ``priority_species_ids``)
+    can keep the species this project actually cares about identifying,
+    instead of an arbitrary cut that might exclude all of them.
+    """
+    aspca_rows = []
+    for plant in aspca_plants:
+        parsed = parse_scientific_name(plant.get("scientific_name"))
+        if parsed is None:
+            continue
+        genus, epithet = parsed
+        aspca_rows.append({"genus": genus, "epithet": epithet})
+    index = SpeciesIndex.from_rows(
+        aspca_rows,
+        genus_of=lambda row: row["genus"],
+        epithet_of=lambda row: row["epithet"],
+    )
+
+    matched_ids = set()
+    for row in plantnet_rows:
+        genus = row.get("genus")
+        if not genus:
+            continue
+        epithet = row.get("epithet") or ""
+        result = index.match(f"{genus} {epithet}".strip())
+        if result.status == "exact":
+            matched_ids.add(int(row["species_id"]))
+    return matched_ids

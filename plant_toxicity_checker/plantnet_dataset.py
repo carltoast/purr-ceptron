@@ -31,20 +31,32 @@ def rows_for_split(rows, split):
     return [row for row in rows if row["split"] == split]
 
 
-def filter_species_subset(rows, max_species):
-    """Rows belonging only to the ``max_species`` lowest ``species_id``
-    values across ``rows``.
+def filter_species_subset(rows, max_species, priority_species_ids=None):
+    """Rows belonging only to a ``max_species``-sized subset of the
+    ``species_id`` values present in ``rows``.
 
-    A fixed, deterministic choice (smallest IDs, not random) so a dev
-    run's species list is reproducible without having to persist it
-    separately, and so calling this independently for the train/val/test
-    splits still lands on the same species subset for all three (the
-    selection only depends on the set of IDs present, not on ``split``).
+    Any ID in ``priority_species_ids`` that's actually present in
+    ``rows`` is kept first (sorted, for determinism); remaining slots are
+    filled with the lowest remaining ``species_id`` values. Without
+    ``priority_species_ids`` this is just "keep the ``max_species``
+    lowest IDs". Either way the choice is fixed, not random, so a dev
+    run's species list is reproducible without persisting it separately,
+    and calling this independently for the train/val/test splits still
+    lands on the same subset for all three (the selection only depends
+    on the set of IDs present, not on ``split``).
+
+    If ``priority_species_ids`` alone exceeds ``max_species``, only the
+    lowest-ID ``max_species`` of them are kept - the cap is never
+    silently exceeded.
     """
     if max_species is None:
         return rows
-    keep_ids = sorted({int(row["species_id"]) for row in rows})[:max_species]
-    keep_ids = set(keep_ids)
+    all_ids = sorted({int(row["species_id"]) for row in rows})
+    priority = set(priority_species_ids or ())
+    priority_ids = [i for i in all_ids if i in priority][:max_species]
+    remaining_slots = max_species - len(priority_ids)
+    rest_ids = [i for i in all_ids if i not in priority][:remaining_slots]
+    keep_ids = set(priority_ids) | set(rest_ids)
     return [row for row in rows if int(row["species_id"]) in keep_ids]
 
 
@@ -126,13 +138,16 @@ class PlantNetDataset:
     def __init__(
         self, split, labels, rows=None, images_dir=None, transform=None,
         max_species=None, max_images_per_species=None,
+        priority_species_ids=None,
     ):
         self.split = split
         self.labels = labels
         self.images_dir = images_dir or IMAGES_DIR
         self.transform = transform or build_transforms(train=split == "train")
         all_rows = rows if rows is not None else load_metadata()
-        all_rows = filter_species_subset(all_rows, max_species)
+        all_rows = filter_species_subset(
+            all_rows, max_species, priority_species_ids
+        )
         self.rows = rows_for_split(all_rows, split)
         self.rows = cap_images_per_species(
             self.rows, max_images_per_species

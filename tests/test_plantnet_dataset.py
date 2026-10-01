@@ -68,6 +68,30 @@ def test_filter_species_subset_is_deterministic_regardless_of_order():
     }
 
 
+def test_filter_species_subset_always_keeps_priority_ids():
+    # Without priority, the 2 lowest IDs (7, 12) would be kept, excluding
+    # 999 - priority_species_ids overrides that.
+    kept = filter_species_subset(
+        rows(), max_species=2, priority_species_ids={999},
+    )
+    assert {r["species_id"] for r in kept} == {"999", "7"}
+
+
+def test_filter_species_subset_priority_ids_not_present_are_ignored():
+    kept = filter_species_subset(
+        rows(), max_species=2, priority_species_ids={12345},
+    )
+    assert {r["species_id"] for r in kept} == {"7", "12"}
+
+
+def test_filter_species_subset_priority_alone_can_exceed_max_species():
+    kept = filter_species_subset(
+        rows(), max_species=1, priority_species_ids={12, 999},
+    )
+    # cap is never exceeded; lowest-ID priority species wins the one slot
+    assert {r["species_id"] for r in kept} == {"12"}
+
+
 def test_cap_images_per_species_keeps_first_n_per_species():
     kept = cap_images_per_species(
         multi_image_rows(), max_images_per_species=2

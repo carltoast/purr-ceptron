@@ -3,6 +3,7 @@
 from plant_toxicity_checker.species_match import (
     MatchResult,
     SpeciesIndex,
+    aspca_matched_species_ids,
     parse_scientific_name,
 )
 
@@ -121,3 +122,34 @@ def test_matching_is_symmetric_aspca_index_or_dataset_index():
     result = index.match("Rosa gallica")
     assert result.status == "genus_only"
     assert result.genus_candidates[0]["toxic"] is False
+
+
+# --- aspca_matched_species_ids ------------------------------------------
+
+
+def test_aspca_matched_species_ids_keeps_only_exact_matches():
+    plantnet_rows = [
+        {"species_id": "1", "genus": "Rosa", "epithet": "canina"},
+        {"species_id": "2", "genus": "Rosa", "epithet": "rugosa"},  # genus
+        {"species_id": "3", "genus": "Lilium", "epithet": "longiflorum"},
+    ]
+    aspca_plants = [{"scientific_name": "Rosa canina"}]
+    assert aspca_matched_species_ids(plantnet_rows, aspca_plants) == {1}
+
+
+def test_aspca_matched_species_ids_handles_no_matches():
+    plantnet_rows = [{"species_id": "1", "genus": "Lilium", "epithet": "x"}]
+    aspca_plants = [{"scientific_name": "Rosa canina"}]
+    assert aspca_matched_species_ids(plantnet_rows, aspca_plants) == set()
+
+
+def test_aspca_matched_species_ids_skips_rows_with_no_genus():
+    plantnet_rows = [{"species_id": "1", "genus": "", "epithet": "canina"}]
+    aspca_plants = [{"scientific_name": "Rosa canina"}]
+    assert aspca_matched_species_ids(plantnet_rows, aspca_plants) == set()
+
+
+def test_aspca_matched_species_ids_skips_unparseable_aspca_entries():
+    plantnet_rows = [{"species_id": "1", "genus": "Rosa", "epithet": "canina"}]
+    aspca_plants = [{"scientific_name": ""}, {"scientific_name": None}]
+    assert aspca_matched_species_ids(plantnet_rows, aspca_plants) == set()

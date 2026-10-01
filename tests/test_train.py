@@ -11,7 +11,11 @@ import json
 
 import pytest
 
-from plant_toxicity_checker.train import ConfigError, load_config
+from plant_toxicity_checker.train import (
+    ConfigError,
+    aspca_priority_species_ids,
+    load_config,
+)
 
 BASE_CONFIG = {
     "lr": 0.01,
@@ -43,6 +47,62 @@ def test_load_config_rejects_missing_keys(tmp_path):
     path.write_text(json.dumps({"lr": 0.01}), encoding="utf-8")
     with pytest.raises(ConfigError):
         load_config(path)
+
+
+# --- aspca_priority_species_ids -----------------------------------------
+# Pure JSON/CSV I/O, no torch - stays in the default (non-slow) suite.
+
+
+def _write_species_metadata(tmp_path):
+    path = tmp_path / "species_metadata.csv"
+    path.write_text(
+        "species_id,full_species,species,genus,family,epithet,author\n"
+        "1,Rosa canina L.,Rosa canina,Rosa,Rosaceae,canina,L.\n"
+        "2,Lilium longiflorum Thunb.,Lilium longiflorum,Lilium,Liliaceae,"
+        "longiflorum,Thunb.\n",
+        encoding="utf-8",
+    )
+    return path
+
+
+def _write_aspca_json(tmp_path, scientific_names):
+    path = tmp_path / "aspca.json"
+    path.write_text(
+        json.dumps({
+            "plants": [{"scientific_name": n} for n in scientific_names]
+        }),
+        encoding="utf-8",
+    )
+    return path
+
+
+def test_aspca_priority_species_ids_none_when_not_requested(tmp_path):
+    config = dict(BASE_CONFIG)
+    assert aspca_priority_species_ids(
+        config,
+        species_metadata_path=_write_species_metadata(tmp_path),
+        aspca_json_path=_write_aspca_json(tmp_path, ["Rosa canina"]),
+    ) is None
+
+
+def test_aspca_priority_species_ids_matches_by_exact_name(tmp_path):
+    config = {**BASE_CONFIG, "prioritize_aspca_species": True}
+    ids = aspca_priority_species_ids(
+        config,
+        species_metadata_path=_write_species_metadata(tmp_path),
+        aspca_json_path=_write_aspca_json(tmp_path, ["Rosa canina"]),
+    )
+    assert ids == {1}
+
+
+def test_aspca_priority_species_ids_empty_when_no_overlap(tmp_path):
+    config = {**BASE_CONFIG, "prioritize_aspca_species": True}
+    ids = aspca_priority_species_ids(
+        config,
+        species_metadata_path=_write_species_metadata(tmp_path),
+        aspca_json_path=_write_aspca_json(tmp_path, ["Tulipa gesneriana"]),
+    )
+    assert ids == set()
 
 
 @pytest.mark.slow

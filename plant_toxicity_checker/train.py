@@ -47,6 +47,34 @@ def load_config(path):
     return data
 
 
+def aspca_priority_species_ids(
+    config, species_metadata_path=None, aspca_json_path=None,
+):
+    """``species_id``\\s to prioritize when subsetting species (see
+    ``plantnet_dataset.filter_species_subset``), if the config asks for
+    it via ``"prioritize_aspca_species": true`` - the PlantNet species
+    ASPCA has a scraped page for, so a small ``max_species`` dev subset
+    doesn't accidentally end up with none of them. Returns ``None`` if
+    the config doesn't ask for this (the common case - the paper-replica
+    baseline config never sets it).
+
+    Name matching only, via ``species_match.aspca_matched_species_ids``
+    - this never reads ``toxic_to``/``non_toxic_to``, so it stays outside
+    the toxicity-verdict safety path entirely.
+    """
+    if not config.get("prioritize_aspca_species"):
+        return None
+    from plant_toxicity_checker import species_match
+    from plant_toxicity_checker.config import ASPCA_DETAILS_JSON_PATH
+    from plant_toxicity_checker.plantnet_labels import load_species_rows
+
+    aspca_path = Path(aspca_json_path or ASPCA_DETAILS_JSON_PATH)
+    aspca_doc = json.loads(aspca_path.read_text(encoding="utf-8"))
+    return species_match.aspca_matched_species_ids(
+        load_species_rows(species_metadata_path), aspca_doc["plants"]
+    )
+
+
 def build_model(num_classes):
     """ResNet-18, ImageNet-pretrained, final layer replaced for
     ``num_classes``."""
@@ -213,15 +241,18 @@ def run_training(
     labels = SpeciesLabels.from_metadata()
     max_species = config.get("max_species")
     max_images_per_species = config.get("max_images_per_species")
+    priority_species_ids = aspca_priority_species_ids(config)
     train_ds = PlantNetDataset(
         "train", labels,
         max_species=max_species,
         max_images_per_species=max_images_per_species,
+        priority_species_ids=priority_species_ids,
     )
     val_ds = PlantNetDataset(
         "val", labels,
         max_species=max_species,
         max_images_per_species=max_images_per_species,
+        priority_species_ids=priority_species_ids,
     )
     print(
         f"train={len(train_ds)} images  val={len(val_ds)} images"
@@ -229,6 +260,10 @@ def run_training(
         + (
             f"  max_images_per_species={max_images_per_species}"
             if max_images_per_species else ""
+        )
+        + (
+            f"  aspca_priority_species={len(priority_species_ids)}"
+            if priority_species_ids else ""
         ),
         flush=True,
     )
@@ -316,15 +351,18 @@ def run_evaluation(run_name, split):
 
     max_species = config.get("max_species")
     max_images_per_species = config.get("max_images_per_species")
+    priority_species_ids = aspca_priority_species_ids(config)
     val_ds = PlantNetDataset(
         "val", labels,
         max_species=max_species,
         max_images_per_species=max_images_per_species,
+        priority_species_ids=priority_species_ids,
     )
     eval_ds = PlantNetDataset(
         split, labels,
         max_species=max_species,
         max_images_per_species=max_images_per_species,
+        priority_species_ids=priority_species_ids,
     )
     val_loader = make_loader(val_ds, config["batch_size"], shuffle=False)
     eval_loader = make_loader(eval_ds, config["batch_size"], shuffle=False)

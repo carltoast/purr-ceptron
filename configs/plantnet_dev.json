@@ -12,5 +12,6 @@
   "lr_decay_factor": 0.1,
   "loss": "cross_entropy",
   "max_species": 80,
-  "max_images_per_species": 80
+  "max_images_per_species": 80,
+  "prioritize_aspca_species": true
 }
