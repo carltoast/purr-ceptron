@@ -23,7 +23,7 @@ from plant_toxicity_checker.verdict import SCOPE_NOTE, Status
 
 
 def test_check_image_accepts_pil_image(table):
-    classifier = FakeClassifier([("tiger lily", 0.9)])
+    classifier = FakeClassifier([("Lilium tigrinum", 0.9)])
     verdict = check_image(Image.new("RGB", (8, 8)), classifier, table)
     assert verdict.status is Status.TOXIC
 
@@ -32,7 +32,9 @@ def test_check_image_accepts_path_and_converts_to_rgb(tmp_path, table):
     path = tmp_path / "flower.png"
     Image.new("RGBA", (8, 8)).save(path)
     assert load_image(path).mode == "RGB"
-    classifier = FakeClassifier([("rose", 0.99), ("sunflower", 0.01)])
+    classifier = FakeClassifier(
+        [("Rosa rugosa", 0.99), ("Helianthus annuus", 0.01)]
+    )
     assert check_image(path, classifier, table).status is Status.LIKELY_SAFE
 
 
@@ -46,7 +48,9 @@ def test_check_image_always_uses_the_full_distribution(table):
             seen.append(top_k)
             return super().predict(image, top_k)
 
-    classifier = Recording([("rose", 0.85), ("tiger lily", 0.12)])
+    classifier = Recording(
+        [("Rosa rugosa", 0.85), ("Lilium tigrinum", 0.12)]
+    )
     verdict = check_image(Image.new("RGB", (8, 8)), classifier, table)
     assert seen == [None]
     assert verdict.status is Status.CAUTION
@@ -72,7 +76,9 @@ def test_heic_photos_can_be_loaded(tmp_path):
 
 
 def test_verdict_serialises_to_json(table):
-    classifier = FakeClassifier([("tiger lily", 0.9), ("rose", 0.05)])
+    classifier = FakeClassifier(
+        [("Lilium tigrinum", 0.9), ("Rosa rugosa", 0.05)]
+    )
     verdict = check_image(Image.new("RGB", (8, 8)), classifier, table)
     data = json.loads(json.dumps(cli.verdict_to_dict(verdict)))
     assert data["status"] == "toxic"
@@ -81,22 +87,25 @@ def test_verdict_serialises_to_json(table):
 
 
 def test_top_k_only_trims_the_displayed_predictions(table):
-    classifier = FakeClassifier(
-        [("rose", 0.6), ("sunflower", 0.3), ("tiger lily", 0.1)]
-    )
+    classifier = FakeClassifier([
+        ("Rosa rugosa", 0.6), ("Helianthus annuus", 0.3),
+        ("Lilium tigrinum", 0.1),
+    ])
     verdict = check_image(Image.new("RGB", (8, 8)), classifier, table)
     data = cli.verdict_to_dict(verdict, top_k=1)
     assert len(data["predictions"]) == 1
     shown = cli.format_verdict(verdict, top_k=2)
-    assert "10.0%  tiger lily" not in shown  # trimmed from the list...
-    assert "alternative 'tiger lily'" in shown  # ...but still explained
+    assert "10.0%  Lilium tigrinum" not in shown  # trimmed from the list...
+    assert "alternative 'Lilium tigrinum'" in shown  # ...but still explained
     assert data["status"] == verdict.status.value
 
 
 def test_format_verdict_says_only_main_plant_was_assessed(table):
-    classifier = FakeClassifier([("rose", 0.99), ("sunflower", 0.01)])
+    classifier = FakeClassifier(
+        [("Rosa rugosa", 0.99), ("Helianthus annuus", 0.01)]
+    )
     verdict = check_image(Image.new("RGB", (8, 8)), classifier, table)
     text = cli.format_verdict(verdict)
     assert "LIKELY SAFE for the main plant only" in text
-    assert "rose" in text
+    assert "Rosa rugosa" in text
     assert SCOPE_NOTE in text

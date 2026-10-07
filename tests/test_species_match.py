@@ -3,7 +3,9 @@
 from plant_toxicity_checker.species_match import (
     MatchResult,
     SpeciesIndex,
+    build_toxicity_index,
     is_genus_placeholder,
+    lookup_toxicity,
     match_against_toxicity_table,
     parse_scientific_name,
     toxicity_category,
@@ -136,6 +138,33 @@ def test_matching_is_symmetric_aspca_index_or_dataset_index():
     result = index.match("Rosa gallica")
     assert result.status == "genus_only"
     assert result.genus_candidates[0]["toxic"] is False
+
+
+# --- build_toxicity_index / lookup_toxicity -------------------------------
+
+
+def test_lookup_toxicity_exact_match():
+    index = build_toxicity_index([toxicity_entry("Rosa canina", "yes")])
+    result = lookup_toxicity("Rosa canina", index)
+    assert result.status == "exact"
+    assert result.exact_row.species == "Rosa canina"
+
+
+def test_lookup_toxicity_genus_only_match():
+    index = build_toxicity_index([toxicity_entry("Rosa canina", "yes")])
+    result = lookup_toxicity("Rosa rugosa", index)
+    assert result.status == "genus_only"
+    assert result.genus_candidates[0].species == "Rosa canina"
+
+
+def test_lookup_toxicity_no_match():
+    index = build_toxicity_index([toxicity_entry("Rosa canina", "yes")])
+    assert lookup_toxicity("Lilium longiflorum", index) == MatchResult("none")
+
+
+def test_build_toxicity_index_skips_unparseable_entries():
+    index = build_toxicity_index([toxicity_entry("", "yes")])
+    assert lookup_toxicity("Rosa canina", index) == MatchResult("none")
 
 
 # --- match_against_toxicity_table ---------------------------------------

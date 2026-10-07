@@ -99,29 +99,16 @@ class SpeciesIndex:
         return MatchResult("none")
 
 
-def match_against_toxicity_table(plantnet_rows, toxicity_entries):
-    """Match every row in ``plantnet_rows`` against the toxicity table,
-    by genus+epithet - the one place this project decides how PlantNet
-    species relate to it (never by common name, per this module's
-    "lily problem").
+def build_toxicity_index(toxicity_entries):
+    """A ``SpeciesIndex`` over the toxicity table's entries, keyed by
+    each entry's own scientific name (``.species``).
 
-    ``plantnet_rows`` is ``species_metadata.csv``-shaped (needs
-    ``species_id``, ``genus``, ``epithet``). ``toxicity_entries`` is
-    any iterable of objects with a ``.species`` attribute holding a
-    scientific name - meant to be ``toxicity.load_table(...)``'s
-    ``ToxicityTable`` (or its entries directly), i.e. the real, hand
-    -curated ``data/toxicity.json`` - not the raw ASPCA scrape. Once
-    that table exists, it's the only thing PlantNet species get matched
-    against, so there is exactly one place this project decides "how do
-    these two datasets relate", not a second path that re-reads the
-    scrape with its own matching logic.
-
-    Returns ``{species_id (int): MatchResult}``, with ``exact_row``/
-    ``genus_candidates`` holding the matched ``toxicity_entries``
-    objects directly - callers read ``.toxic_to_cats``/``.verified``
-    straight off them for whatever view they need (dev-subset priority,
-    category stats, which entries to verify first, ...), rather than
-    this function picking one particular view itself.
+    ``toxicity_entries`` is any iterable of objects with a ``.species``
+    attribute holding a scientific name - meant to be
+    ``toxicity.load_table(...)``'s ``ToxicityTable`` (or its entries
+    directly), i.e. the real, hand-curated ``data/toxicity.json`` -
+    never the raw ASPCA scrape directly. Build once, reuse for every
+    ``lookup_toxicity`` call rather than rebuilding per lookup.
     """
     wrapped = []
     for entry in toxicity_entries:
@@ -130,12 +117,55 @@ def match_against_toxicity_table(plantnet_rows, toxicity_entries):
             continue
         genus, epithet = parsed
         wrapped.append({"genus": genus, "epithet": epithet, "entry": entry})
-    index = SpeciesIndex.from_rows(
+    return SpeciesIndex.from_rows(
         wrapped,
         genus_of=lambda row: row["genus"],
         epithet_of=lambda row: row["epithet"],
     )
 
+
+def lookup_toxicity(scientific_name, index):
+    """``MatchResult`` for one scientific name against a
+    ``build_toxicity_index`` index, by genus+epithet (never common
+    name, per this module's "lily problem") - the one place this
+    project decides how a species name relates to the toxicity table,
+    whether that's a whole PlantNet-rows table (see
+    ``match_against_toxicity_table``) or a single classifier
+    prediction (see ``verdict.py``).
+
+    Unlike ``SpeciesIndex.match`` directly, ``exact_row``/
+    ``genus_candidates`` here hold the real toxicity-table entries
+    (``.toxic_to_cats``/``.verified``/...), not the index's internal
+    genus/epithet wrapper.
+    """
+    result = index.match(scientific_name)
+    exact_entry = result.exact_row["entry"] if result.exact_row else None
+    genus_entries = tuple(c["entry"] for c in result.genus_candidates)
+    return MatchResult(result.status, exact_entry, genus_entries)
+
+
+def match_against_toxicity_table(plantnet_rows, toxicity_entries):
+    """Match every row in ``plantnet_rows`` against the toxicity table,
+    by genus+epithet - the one place this project decides how PlantNet
+    species relate to it (never by common name, per this module's
+    "lily problem").
+
+    ``plantnet_rows`` is ``species_metadata.csv``-shaped (needs
+    ``species_id``, ``genus``, ``epithet``). ``toxicity_entries`` as in
+    ``build_toxicity_index``. Once ``data/toxicity.json`` exists, it's
+    the only thing PlantNet species get matched against, so there is
+    exactly one place this project decides "how do these two datasets
+    relate", not a second path that re-reads the scrape with its own
+    matching logic.
+
+    Returns ``{species_id (int): MatchResult}``, with ``exact_row``/
+    ``genus_candidates`` holding the matched ``toxicity_entries``
+    objects directly - callers read ``.toxic_to_cats``/``.verified``
+    straight off them for whatever view they need (dev-subset priority,
+    category stats, which entries to verify first, ...), rather than
+    this function picking one particular view itself.
+    """
+    index = build_toxicity_index(toxicity_entries)
     matches = {}
     for row in plantnet_rows:
         species_id = int(row["species_id"])
@@ -144,13 +174,8 @@ def match_against_toxicity_table(plantnet_rows, toxicity_entries):
             matches[species_id] = MatchResult("none")
             continue
         epithet = row.get("epithet") or ""
-        result = index.match(f"{genus} {epithet}".strip())
-        exact_entry = (
-            result.exact_row["entry"] if result.exact_row else None
-        )
-        genus_entries = tuple(c["entry"] for c in result.genus_candidates)
-        matches[species_id] = MatchResult(
-            result.status, exact_entry, genus_entries
+        matches[species_id] = lookup_toxicity(
+            f"{genus} {epithet}".strip(), index
         )
     return matches
 
