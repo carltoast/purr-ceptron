@@ -110,10 +110,6 @@ def _validate_entry(entry, valid_species=None):
             raise ToxicityTableError(
                 f"{name!r}: verified entries need at least one source"
             )
-        if entry.toxic_to_cats == "yes" and entry.severity is None:
-            raise ToxicityTableError(
-                f"{name!r}: verified toxic entries need a severity"
-            )
 
 
 def _validate_consistency(entry):

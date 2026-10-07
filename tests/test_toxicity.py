@@ -30,7 +30,6 @@ def test_minimal_entry_loads(tmp_path):
     entry(severity="deadly"),
     entry(verified=True),
     entry(verified=True, toxic_to_cats="no"),
-    entry(verified=True, toxic_to_cats="yes", sources=["x"]),
     # verified must be a real boolean: bool("false") is True
     entry(verified="false"),
     entry(verified="no", toxic_to_cats="no", sources=["x"]),
@@ -67,6 +66,18 @@ def test_verified_toxic_with_severity_and_source_is_valid(tmp_path):
         severity="life_threatening", sources=["https://aspca.org"],
     )
     assert load_table(write_table(tmp_path, good)).get("tiger lily").verified
+
+
+def test_verified_toxic_without_severity_is_valid(tmp_path):
+    # severity is optional even once verified - this is a personal
+    # project, not a triage tool; only toxic_to_cats + a source matter.
+    good = entry(
+        species="tiger lily", toxic_to_cats="yes", verified=True,
+        sources=["https://aspca.org"],
+    )
+    entry_loaded = load_table(write_table(tmp_path, good)).get("tiger lily")
+    assert entry_loaded.verified
+    assert entry_loaded.severity is None
 
 
 def test_missing_species_list_is_rejected(tmp_path):
