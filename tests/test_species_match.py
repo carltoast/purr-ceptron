@@ -3,6 +3,7 @@
 from plant_toxicity_checker.species_match import (
     MatchResult,
     SpeciesIndex,
+    is_genus_placeholder,
     match_against_toxicity_table,
     parse_scientific_name,
     toxicity_category,
@@ -26,6 +27,9 @@ def test_parses_a_genus_only_name():
     assert parse_scientific_name("Rosa spp.") == ("rosa", None)
     assert parse_scientific_name("Rosa spp") == ("rosa", None)
     assert parse_scientific_name("Rosa") == ("rosa", None)
+    # "species" (not just "spp"/"sp") is also a real ASPCA-style genus
+    # placeholder, e.g. "Senecio species" in the real scrape.
+    assert parse_scientific_name("Rosa species") == ("rosa", None)
 
 
 def test_a_qualifier_is_not_mistaken_for_an_epithet():
@@ -167,6 +171,18 @@ def test_match_against_toxicity_table_skips_unparseable_entries():
     assert matches[1] == MatchResult("none")
 
 
+# --- is_genus_placeholder -------------------------------------------------
+
+
+def test_is_genus_placeholder_true_for_a_genus_only_name():
+    assert is_genus_placeholder(toxicity_entry("Rosa spp.", "yes"))
+    assert is_genus_placeholder(toxicity_entry("Rosa species", "yes"))
+
+
+def test_is_genus_placeholder_false_for_a_specific_species():
+    assert not is_genus_placeholder(toxicity_entry("Rosa canina", "yes"))
+
+
 # --- toxicity_category ----------------------------------------------------
 
 
@@ -187,21 +203,58 @@ def test_toxicity_category_exact_unknown():
     assert toxicity_category(result) == "exact - unknown"
 
 
-def test_toxicity_category_genus_only_toxic():
+def test_toxicity_category_genus_direct_toxic():
+    # A genus-level PLACEHOLDER entry itself says toxic (ASPCA's own
+    # genus-wide claim) - "direct", parent -> child.
+    result = MatchResult(
+        "genus_only", None, (toxicity_entry("Rosa spp.", "yes"),),
+    )
+    assert toxicity_category(result) == "genus - toxic (direct)"
+
+
+def test_toxicity_category_genus_inferred_toxic():
+    # Only a SPECIFIC sibling species says toxic, no genus placeholder
+    # at all - "inferred", sibling <-> sibling, a weaker basis.
     result = MatchResult(
         "genus_only", None, (toxicity_entry("Rosa canina", "yes"),),
     )
-    assert toxicity_category(result) == "genus - toxic"
+    assert toxicity_category(result) == "genus - toxic (inferred)"
 
 
-def test_toxicity_category_genus_only_mixed():
-    # Two relatives of the same genus disagree on cat toxicity.
+def test_toxicity_category_genus_direct_non_toxic():
+    result = MatchResult(
+        "genus_only", None, (toxicity_entry("Rosa spp.", "no"),),
+    )
+    assert toxicity_category(result) == "genus - non-toxic (direct)"
+
+
+def test_toxicity_category_genus_inferred_non_toxic():
+    result = MatchResult(
+        "genus_only", None, (toxicity_entry("Rosa canina", "no"),),
+    )
+    assert toxicity_category(result) == "genus - non-toxic (inferred)"
+
+
+def test_toxicity_category_toxic_always_wins_over_non_toxic():
+    # A non-toxic sibling must never cancel out a toxic one, regardless
+    # of which kind of candidate carries which signal.
     candidates = (
-        toxicity_entry("Rosa canina", "yes"),
-        toxicity_entry("Rosa gallica", "no"),
+        toxicity_entry("Rosa canina", "no"),
+        toxicity_entry("Rosa gallica", "yes"),
     )
     result = MatchResult("genus_only", None, candidates)
-    assert toxicity_category(result) == "genus - mixed"
+    assert toxicity_category(result) == "genus - toxic (inferred)"
+
+
+def test_toxicity_category_direct_wins_over_inferred_for_the_same_signal():
+    # A placeholder AND a sibling both say toxic - still "direct",
+    # since that's the stronger of the two bases for the same signal.
+    candidates = (
+        toxicity_entry("Rosa spp.", "yes"),
+        toxicity_entry("Rosa canina", "no"),
+    )
+    result = MatchResult("genus_only", None, candidates)
+    assert toxicity_category(result) == "genus - toxic (direct)"
 
 
 def test_toxicity_category_genus_only_unknown():

@@ -18,7 +18,7 @@ import collections
 import re
 from dataclasses import dataclass
 
-_NOT_AN_EPITHET = {"spp", "sp", "cv", "x", "var", "ssp"}
+_NOT_AN_EPITHET = {"spp", "sp", "cv", "x", "var", "ssp", "species"}
 
 
 def parse_scientific_name(text):
@@ -158,29 +158,65 @@ def match_against_toxicity_table(plantnet_rows, toxicity_entries):
 _CATS_LABEL = {"yes": "toxic", "no": "non-toxic", "unknown": "unknown"}
 
 
+def is_genus_placeholder(entry):
+    """Whether a toxicity-table entry is itself a genus-level
+    placeholder (e.g. ``"Ranunculus spp."``, ``"Senecio species"``)
+    rather than a specific species - exactly the entries
+    ``parse_scientific_name`` can't find an epithet for.
+
+    This distinguishes two different kinds of genus-only match:
+    ASPCA's own genus-wide claim (a placeholder entry) vs. us noticing
+    that some *other*, specific species in the same genus happens to be
+    toxic. See ``toxicity_category``.
+    """
+    parsed = parse_scientific_name(entry.species)
+    return parsed is not None and parsed[1] is None
+
+
 def toxicity_category(result):
     """A human-readable category label for one ``MatchResult`` from
     ``match_against_toxicity_table``: ``"exact - toxic"``/``"exact -
-    non-toxic"``/``"exact - unknown"``, ``"genus - toxic"``/``"genus -
-    non-toxic"``/``"genus - mixed"``/``"genus - unknown"``, or ``"no
-    match"``.
+    non-toxic"``/``"exact - unknown"``, ``"genus - toxic
+    (direct)"``/``"genus - toxic (inferred)"``/``"genus - non-toxic
+    (direct)"``/``"genus - non-toxic (inferred)"``/``"genus -
+    unknown"``, or ``"no match"``.
 
-    A genus-only match's label is the UNION of every candidate entry's
-    ``toxic_to_cats`` - "genus - mixed" means some relatives are
-    cat-toxic and some aren't. This never infers the species' own
-    toxicity from a relative - it's a label for illustrative analysis
+    Two different relations within a genus-only match, by design (a
+    toxic signal always wins over a non-toxic one, regardless of which
+    kind of candidate it comes from - a non-toxic relative must never
+    cancel out a toxic one):
+
+    - **direct** (parent -> child): a genus-level PLACEHOLDER entry
+      (``is_genus_placeholder``) itself carries the signal - ASPCA is
+      explicitly generalizing across the whole genus, not us.
+    - **inferred** (sibling <-> sibling): only a *specific*, different
+      species in the same genus carries the signal - we're the ones
+      generalizing here, which is a weaker basis than ASPCA's own
+      genus-wide claim.
+
+    This never infers the species' own toxicity from a relative in the
+    sense of a real verdict - it's a label for illustrative analysis
     (e.g. checking how model accuracy varies by table-relevance), not
     the project's real toxicity-verdict path.
     """
     if result.status == "exact":
         return f"exact - {_CATS_LABEL[result.exact_row.toxic_to_cats]}"
     if result.status == "genus_only":
-        signals = {entry.toxic_to_cats for entry in result.genus_candidates}
-        if "yes" in signals and "no" in signals:
-            return "genus - mixed"
-        if "yes" in signals:
-            return "genus - toxic"
-        if "no" in signals:
-            return "genus - non-toxic"
+        placeholders = [
+            e for e in result.genus_candidates if is_genus_placeholder(e)
+        ]
+        siblings = [
+            e for e in result.genus_candidates if not is_genus_placeholder(e)
+        ]
+        placeholder_signals = {e.toxic_to_cats for e in placeholders}
+        sibling_signals = {e.toxic_to_cats for e in siblings}
+        if "yes" in placeholder_signals:
+            return "genus - toxic (direct)"
+        if "yes" in sibling_signals:
+            return "genus - toxic (inferred)"
+        if "no" in placeholder_signals:
+            return "genus - non-toxic (direct)"
+        if "no" in sibling_signals:
+            return "genus - non-toxic (inferred)"
         return "genus - unknown"
     return "no match"
