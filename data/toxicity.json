@@ -34,7 +34,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/copperleaf"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Copperleaf\n[Copperleaf] toxic principles: Diterpene esters | clinical signs: Drooling, vomiting, and diarrhea"
     },
     {
@@ -46,7 +46,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/foxtail"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Foxtail\n[Foxtail] toxic principles: Diterpene esters | clinical signs: Drooling, vomiting, diarrhea"
     },
     {
@@ -197,7 +197,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/hollyhock"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Hollyhock\n[Hollyhock] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -257,7 +257,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/alocasia"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Alocasia\n[Alocasia] toxic principles: Insoluble calcium oxalates | clinical signs: Oral irritation, pain and swelling of mouth, tongue and lips, excessive drooling, vomiting (not horses), difficulty swallowing"
     },
     {
@@ -447,7 +447,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/chlorophytum"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Chlorophytum\n[Chlorophytum] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -459,7 +459,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/saint-bernards-lily"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Saint Bernards Lily\n[Saint Bernards Lily] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -499,7 +499,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/pigtail-plant",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/tail-flower"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Flamingo Flower, Oilcloth Flower, Painter's Pallette, Pigtail Plant, Tail Flower\n[Flamingo Flower] toxic principles: Insoluble calcium oxalates | clinical signs: Oral irritation, pain and swelling of mouth, tongue and lips, excessive drooling, vomiting (not horses), difficulty swallowing\n[Oilcloth Flower] toxic principles: Insoluble calcium oxalates | clinical signs: Oral irritation, intense burning and irritation of mouth, tongue and lips, excessive drooling, vomiting, difficulty swallowing\n[Painter's Pallette] toxic principles: Insoluble calcium oxalates | clinical signs: Oral irritation, intense burning and irritation of mouth, tongue and lips, excessive drooling, vomiting, difficulty swallowing\n[Pigtail Plant] toxic principles: Insoluble calcium oxalates | clinical signs: Oral irritation, intense burning and irritation of mouth, tongue and lips, excessive drooling, vomiting, difficulty swallowing\n[Tail Flower] toxic principles: Insoluble calcium oxalates | clinical signs: Oral irritation, intense burning and irritation of mouth, tongue and lips, excessive drooling, vomiting, difficulty swallowing"
     },
     {
@@ -548,7 +548,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/saffron-spike-zebra"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Saffron Spike Zebra\n[Saffron Spike Zebra] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -586,7 +586,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/angelica-tree",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/hercules-club"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Angelica Tree, Hercules' Club\n[Angelica Tree] toxic principles: Araliin | clinical signs: Skin and oral irritation, hypersalivation, vomiting, diarrhea\n[Hercules' Club] toxic principles: Araliin | clinical signs: Skin and oral irritation, hypersalivation, vomiting, diarrhea"
     },
     {
@@ -761,7 +761,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/yellowrocket"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Yellowrocket\n[Yellowrocket] toxic principles: Isothiocyanates | clinical signs: Gastrointestinal irritation, colic"
     },
     {
@@ -944,7 +944,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/blue-dicks-3"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Blue-dicks 3\n[Blue-dicks 3] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -1095,7 +1095,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/mary-bud",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/pot-marigold"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Garden Marigold, Gold Bloom, Holligold, Mary-Bud, Pot Marigold\n[Garden Marigold] toxic principles: Non-toxic | clinical signs: not listed\n[Gold Bloom] toxic principles: Non-toxic | clinical signs: not listed\n[Holligold] toxic principles: Non-toxic | clinical signs: not listed\n[Mary-Bud] toxic principles: Non-toxic | clinical signs: not listed\n[Pot Marigold] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -1159,7 +1159,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/mariposa-lily",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/sego-lily"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Mariposa Lily, Sego Lily\n[Mariposa Lily] toxic principles: Non-toxic | clinical signs: not listed\n[Sego Lily] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -1172,7 +1172,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/calochortus-nuttalli",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/cat-ear"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Calochortus nuttalli, Cat Ear\n[Calochortus nuttalli] toxic principles: not listed | clinical signs: not listed\n[Cat Ear] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -1516,7 +1516,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/old-man-cactus"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Old Man Cactus\n[Old Man Cactus] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -2181,7 +2181,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/bur-gourd",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/west-indian-gherkin"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Bur Gourd, West Indian Gherkin\n[Bur Gourd] toxic principles: not listed | clinical signs: not listed\n[West Indian Gherkin] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -2194,7 +2194,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/hedgehog-gourd",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/teasel-gourd"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Hedgehog Gourd, Teasel Gourd\n[Hedgehog Gourd] toxic principles: Non-toxic | clinical signs: not listed\n[Teasel Gourd] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -2209,7 +2209,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/muskmelon",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/true-cantaloupe"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Casaba Melon, Honeydew Melon, Muskmelon, True Cantaloupe\n[Casaba Melon] toxic principles: not listed | clinical signs: not listed\n[Honeydew Melon] toxic principles: Non-toxic | clinical signs: not listed\n[Muskmelon] toxic principles: Non-toxic | clinical signs: not listed\n[True Cantaloupe] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -2222,7 +2222,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/cucumber",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/gherkins"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Cucumber, Gherkins\n[Cucumber] toxic principles: not listed | clinical signs: not listed\n[Gherkins] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -2247,7 +2247,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/fig-leaf-gourd",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/malabar-gourd"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Fig Leaf Gourd, Malabar Gourd\n[Fig Leaf Gourd] toxic principles: Non-toxic | clinical signs: not listed\n[Malabar Gourd] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -2259,7 +2259,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/buttercup-squash"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Buttercup Squash\n[Buttercup Squash] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -2271,7 +2271,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/butternut-squash"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Butternut Squash\n[Butternut Squash] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -2283,7 +2283,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/turban-squash"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Turban Squash\n[Turban Squash] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -2295,7 +2295,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/banana-squash"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Banana Squash\n[Banana Squash] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -2307,7 +2307,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/hubbard-squash"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Hubbard Squash\n[Hubbard Squash] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -2319,7 +2319,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/acorn-squash"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Acorn Squash\n[Acorn Squash] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -2331,7 +2331,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/yellow-flowered-gourd"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Yellow-Flowered Gourd\n[Yellow-Flowered Gourd] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -2380,7 +2380,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/kenilworth-ivy"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Kenilworth Ivy\n[Kenilworth Ivy] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -2456,7 +2456,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/carrot-flower"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Carrot Flower\n[Carrot Flower] toxic principles: not listed | clinical signs: Contains psoralens that have been known to cause skin irritation; the taproot is edible, as it is the common garden carrot."
     },
     {
@@ -2506,7 +2506,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/leopard-orchid"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Leopard Orchid\n[Leopard Orchid] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -3041,7 +3041,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/great-willow-herb",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/willow-herb"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Blooming Sally, Fire Weed, Great Willow Herb, Willow Herb\n[Blooming Sally] toxic principles: not listed | clinical signs: not listed\n[Fire Weed] toxic principles: Non-toxic | clinical signs: not listed\n[Great Willow Herb] toxic principles: Non-toxic | clinical signs: not listed\n[Willow Herb] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -3288,7 +3288,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/nerve-plant"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Nerve Plant\n[Nerve Plant] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -3312,7 +3312,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/wild-strawberry"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Wild Strawberry\n[Wild Strawberry] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -3324,7 +3324,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/strawberry"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Strawberry\n[Strawberry] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -3499,7 +3499,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/purple-velvet-plant",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/velvet-plant"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Purple Passion Vine, Purple Velvet Plant, Velvet Plant\n[Purple Passion Vine] toxic principles: not listed | clinical signs: Non-toxic\n[Purple Velvet Plant] toxic principles: not listed | clinical signs: Non-toxic\n[Velvet Plant] toxic principles: not listed | clinical signs: Non-toxic"
     },
     {
@@ -3511,7 +3511,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/babys-breath"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Baby’s Breath\n[Baby’s Breath] toxic principles: Non-toxic | clinical signs: Mild GI upset such as vomiting, and diarrhea may be seen if ingested."
     },
     {
@@ -3902,7 +3902,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/klamath-weed",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/st-johns-wort"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Klamath Weed, St. John’s Wort\n[Klamath Weed] toxic principles: Hypericin | clinical signs: Photosensitization (ulcerative and exudative dermatitis).\n[St. John’s Wort] toxic principles: Hypericin | clinical signs: Photosensitization (ulcerative and exudative dermatitis)."
     },
     {
@@ -4218,7 +4218,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/torch-lily"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Torch Lily\n[Torch Lily] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -4502,7 +4502,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/tulip-poplar"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Tulip Poplar\n[Tulip Poplar] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -4514,7 +4514,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/turf-lily"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Turf Lily\n[Turf Lily] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -4526,7 +4526,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/living-stones"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Living Stones\n[Living Stones] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -4786,7 +4786,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/nandina",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/sacred-bamboo"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Heavenly Bamboo, Nandina, Sacred Bamboo\n[Heavenly Bamboo] toxic principles: Cyanogenic glycosides | clinical signs: Weakness, incoordination, seizures, coma, respiratory failure, death (rare in pets).\n[Nandina] toxic principles: Cyanogenic glycosides | clinical signs: Weakness, incoordination, seizures, coma, respiratory failure, death (rare in pets).\n[Sacred Bamboo] toxic principles: Cyanogenic glycosides | clinical signs: Weakness, incoordination, seizures, coma, respiratory failure, death (rare in pets)."
     },
     {
@@ -4887,7 +4887,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/verona-lace-fern",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/whitman-fern"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Bold Sword Fern, Crisped Feather Fern, Dallas Fern, Roosevelt Fern, Sword Fern, Tall Feather Fern, Verona Fern, Verona Lace Fern, Whitman Fern\n[Bold Sword Fern] toxic principles: not listed | clinical signs: not listed\n[Crisped Feather Fern] toxic principles: not listed | clinical signs: not listed\n[Dallas Fern] toxic principles: not listed | clinical signs: not listed\n[Roosevelt Fern] toxic principles: not listed | clinical signs: not listed\n[Sword Fern] toxic principles: not listed | clinical signs: not listed\n[Tall Feather Fern] toxic principles: not listed | clinical signs: not listed\n[Verona Fern] toxic principles: not listed | clinical signs: not listed\n[Verona Lace Fern] toxic principles: not listed | clinical signs: not listed\n[Whitman Fern] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -4899,7 +4899,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/dwarf-feather-palm"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Dwarf Feather Palm\n[Dwarf Feather Palm] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -4911,7 +4911,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/boston-fern"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Boston Fern\n[Boston Fern] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -4923,7 +4923,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/feather-palm"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Feather Palm\n[Feather Palm] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -5178,7 +5178,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/scented-geranium"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Scented Geranium\n[Scented Geranium] toxic principles: Essential Oils | clinical signs: Primarily GI upset. Could also see ataxia, muscle weakness, depression or hypothermia in larger exposures, cats are most sensitive."
     },
     {
@@ -5190,7 +5190,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/geranium"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Geranium\n[Geranium] toxic principles: Geraniol, linalool | clinical signs: Vomiting, anorexia, depression, dermatitis"
     },
     {
@@ -5239,7 +5239,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/watermelon-begonia",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/watermelon-peperomia"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Watermelon Begonia, Watermelon Peperomia\n[Watermelon Begonia] toxic principles: not listed | clinical signs: not listed\n[Watermelon Peperomia] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -5255,7 +5255,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/metallic-peperomia",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/silver-heart"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Emerald Ripple Peperomia, Green Ripple Peperomia, Little Fantasy Peperomia, Metallic Peperomia, Silver Heart\n[Emerald Ripple Peperomia] toxic principles: Non-toxic | clinical signs: not listed\n[Green Ripple Peperomia] toxic principles: Non-toxic | clinical signs: not listed\n[Little Fantasy Peperomia] toxic principles: Non-toxic | clinical signs: not listed\n[Metallic Peperomia] toxic principles: Non-toxic | clinical signs: not listed\n[Silver Heart] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -5267,7 +5267,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/red-edge-peperomia"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Red Edge Peperomia\n[Red Edge Peperomia] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -5279,7 +5279,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/leather-peperomia"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Leather Peperomia\n[Leather Peperomia] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -5293,7 +5293,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/peperomia-hederifolia",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/platinum-peperomia"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Ivy Peperomia, Peperomia Hederifolia, Platinum Peperomia\n[Ivy Peperomia] toxic principles: Non-toxic | clinical signs: not listed\n[Peperomia Hederifolia] toxic principles: Non-toxic | clinical signs: not listed\n[Platinum Peperomia] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -5309,7 +5309,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/pepper-face",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rhynchophorum"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): American Rubber Plant, Baby Rubber Plant, Blunt Leaf Peperomia, Pepper Face, Rhynchophorum\n[American Rubber Plant] toxic principles: not listed | clinical signs: not listed\n[Baby Rubber Plant] toxic principles: not listed | clinical signs: not listed\n[Blunt Leaf Peperomia] toxic principles: not listed | clinical signs: not listed\n[Pepper Face] toxic principles: not listed | clinical signs: not listed\n[Rhynchophorum] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -5321,7 +5321,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/peperomia-peltfolia"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Peperomia Peltfolia\n[Peperomia Peltfolia] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -5333,7 +5333,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/trailing-peperomia"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Trailing Peperomia\n[Trailing Peperomia] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -5346,7 +5346,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/peperomia-rotundifolia",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/yorba-linda"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Peperomia Rotundifolia, Yorba Linda\n[Peperomia Rotundifolia] toxic principles: Non-toxic | clinical signs: not listed\n[Yorba Linda] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -5358,7 +5358,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/peperomia-sandersii"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Peperomia Sandersii\n[Peperomia Sandersii] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -5370,7 +5370,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/vining-peperomia"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Vining Peperomia\n[Vining Peperomia] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -5854,7 +5854,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/cinquefoil"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Cinquefoil\n[Cinquefoil] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -5890,7 +5890,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/algaroba"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Algaroba\n[Algaroba] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -5998,7 +5998,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/figwort"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Figwort\n[Figwort] toxic principles: Protoanemonin (an irritant) | clinical signs: Vomiting, diarrhea, depression, anorexia, hypersalivation and wobbly gait."
     },
     {
@@ -6010,7 +6010,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/buttercup"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Buttercup\n[Buttercup] toxic principles: Protoanemonin (an irritant) | clinical signs: Vomiting, diarrhea, depression, anorexia, hypersalivation, oral ulcers and wobbly gait."
     },
     {
@@ -6220,7 +6220,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/scarlet-sage",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/texas-sage"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Scarlet Sage, Texas Sage\n[Scarlet Sage] toxic principles: not listed | clinical signs: not listed\n[Texas Sage] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -6232,7 +6232,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/sage"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Sage\n[Sage] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -6295,7 +6295,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/schefflera"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Schefflera\n[Schefflera] toxic principles: Calcium oxalate crystals | clinical signs: Oral irritation, intense burning and irritation of the mouth, lips, tongue, excessive drooling, vomiting, difficulty in swallowing."
     },
     {
@@ -6307,7 +6307,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/octopus-tree"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Octopus Tree\n[Octopus Tree] toxic principles: Terpenoids, saponins, insoluble oxalates | clinical signs: Mild vomiting, diarrhea."
     },
     {
@@ -6391,7 +6391,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/hardy-baby-tears"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Hardy Baby Tears\n[Hardy Baby Tears] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -6403,7 +6403,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/burros-tail"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Burro's Tail\n[Burro's Tail] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -6415,7 +6415,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/ghost-plant"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Ghost Plant\n[Ghost Plant] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -6446,7 +6446,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/groundsel",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/ragwort"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Golden Ragwort, Groundsel, Ragwort\n[Golden Ragwort] toxic principles: Pyrrolizidine alkaloids | clinical signs: Horses: liver disease (must be ingested in large amount or over a long time period)\n[Groundsel] toxic principles: Pyrrolizidine alkaloids | clinical signs: The plant is not very palatable, but will be eaten by animals with no other forage; poisonings typically occur from ingestion of green plant material or material in hay. The toxic components can cause liver failure, referred to as \"walking disease\" or \"sleepy staggers\". Signs include weight loss, weakness, sleepiness, yawning, incoordination, yellowish discoloration to mucous membranes (icterus), neurologic problems secondary to liver failure (aimless walking, chewing motions, head pressing). Animals may appear to be normal at first, then become suddenly affected; the syndrome progresses rapidly over a few days to a week. Liver damage, depression, anorexia, vomiting, diarrhea, muddy mucous membranes, weakness, ataxia.\n[Ragwort] toxic principles: Pyrrolizidine alkaloids | clinical signs: The plant is not very palatable, but will be eaten by animals with no other forage; poisonings typically occur from ingestion of green plant material or material in hay. The toxic components can cause liver failure, referred to as \"walking disease\" or \"sleepy staggers\". Signs include weight loss, weakness, sleepiness, yawning, incoordination, yellowish discoloration to mucous membranes (icterus), neurologic problems secondary to liver failure (aimless walking, chewing motions, head pressing). Animals may appear to be normal at first, then become suddenly affected; the syndrome progresses rapidly over a few days to a week. Liver damage, depression, anorexia, vomiting, diarrhea, muddy mucous membranes, weakness, ataxia."
     },
     {
@@ -6491,7 +6491,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/ti-hu-ling",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/tu-fu-ling"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Cat Brier, Chin-lao-shu, China Root, Greenbrier, Kuang-yen-pa-hsieh, Shan Ku'ei-lai, Ti hu-ling, Tu Fu-Ling\n[Cat Brier] toxic principles: not listed | clinical signs: not listed\n[Chin-lao-shu] toxic principles: not listed | clinical signs: not listed\n[China Root] toxic principles: not listed | clinical signs: not listed\n[Greenbrier] toxic principles: not listed | clinical signs: not listed\n[Kuang-yen-pa-hsieh] toxic principles: not listed | clinical signs: not listed\n[Shan Ku'ei-lai] toxic principles: not listed | clinical signs: not listed\n[Ti hu-ling] toxic principles: not listed | clinical signs: not listed\n[Tu Fu-Ling] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -6504,7 +6504,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/sawbrier",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/wild-sasparilla"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Sawbrier, Wild Sasparilla\n[Sawbrier] toxic principles: not listed | clinical signs: not listed\n[Wild Sasparilla] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -6517,7 +6517,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/carrion-flower",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/jacobs-ladder"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Carrion Flower, Jacob's Ladder\n[Carrion Flower] toxic principles: not listed | clinical signs: not listed\n[Jacob's Ladder] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -6532,7 +6532,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/hellfetter",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/smilax-tamnoides-vas"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Bristly Greenbrier, Hagbrier, Hellfetter, Smilax Tamnoides Vas\n[Bristly Greenbrier] toxic principles: not listed | clinical signs: not listed\n[Hagbrier] toxic principles: Non-toxic | clinical signs: not listed\n[Hellfetter] toxic principles: Non-toxic | clinical signs: not listed\n[Smilax Tamnoides Vas] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -6544,7 +6544,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/jackson-brier"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Jackson Brier\n[Jackson Brier] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -6558,7 +6558,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/blaspheme-vine",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/laurel-leaved-greenbrier"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Bamboo Vine, Blaspheme Vine, Laurel-Leaved Greenbrier\n[Bamboo Vine] toxic principles: not listed | clinical signs: not listed\n[Blaspheme Vine] toxic principles: not listed | clinical signs: not listed\n[Laurel-Leaved Greenbrier] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -6572,7 +6572,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/common-catbrier",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/common-greenbrier"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Bullbrier, Common Catbrier, Common Greenbrier\n[Bullbrier] toxic principles: not listed | clinical signs: not listed\n[Common Catbrier] toxic principles: not listed | clinical signs: not listed\n[Common Greenbrier] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -6584,7 +6584,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/mulberry-bush-greenbrier"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Mulberry Bush Greenbrier\n[Mulberry Bush Greenbrier] toxic principles: Non-toxic | clinical signs: not listed"
     },
     {
@@ -6596,7 +6596,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/red-berried-greenbrier"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Red Berried Greenbrier\n[Red Berried Greenbrier] toxic principles: Non-toxic | clinical signs: Vomiting, diarrhea and depression. Leaves and berries are low toxicity."
     },
     {
@@ -6970,7 +6970,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/confederate-jasmine",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/star-jasmine"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Confederate Jasmine, Star Jasmine\n[Confederate Jasmine] toxic principles: not listed | clinical signs: not listed\n[Star Jasmine] toxic principles: not listed | clinical signs: not listed"
     },
     {
@@ -6997,7 +6997,7 @@
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/variegated-inch-plant",
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/variegated-laurel"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Inch Plant, Variegated Inch Plant, Variegated Laurel\n[Inch Plant] toxic principles: not listed | clinical signs: Dermatitis\n[Variegated Inch Plant] toxic principles: not listed | clinical signs: Dermatitis\n[Variegated Laurel] toxic principles: not listed | clinical signs: Dermatitis"
     },
     {
@@ -7156,7 +7156,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/cardboard-cycad"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Cardboard Cycad\n[Cardboard Cycad] toxic principles: Cycasin, B-methylamino-l-alanine, unidentified neurotoxin (cattle) | clinical signs: Vomiting (may be bloody), dark stools, jaundice, increased thirst, bloody diarrhea, bruising, liver failure, death. 1-2 seeds can be fatal."
     },
     {
@@ -7168,7 +7168,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/coontie-palm"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Coontie Palm\n[Coontie Palm] toxic principles: Cycasin, B-methylamino-l-alanine, unidentified neurotoxin (cattle) | clinical signs: Vomiting (may be bloody), dark stools, jaundice, increased thirst, bloody diarrhea, bruising, liver failure, death. 1-2 seeds can be fatal."
     },
     {
@@ -7260,7 +7260,7 @@
       "sources": [
         "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/tahitian-bridal-veil"
       ],
-      "verified": false,
+      "verified": true,
       "notes": "ASPCA common name(s): Tahitian Bridal Veil\n[Tahitian Bridal Veil] toxic principles: not listed | clinical signs: Can cause mild gastrointestinal signs and dermatitis."
     }
   ]
