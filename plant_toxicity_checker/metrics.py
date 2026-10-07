@@ -23,6 +23,35 @@ def top_k_accuracy(probas, labels, k):
     return float(hits.mean())
 
 
+def per_class_accuracy(probas, labels):
+    """Per-class sample count and top-1/top-5 correctness.
+
+    ``probas``/``labels`` as in ``top_k_accuracy``. Returns
+    ``{class_index: {"n", "top1_correct", "top5_correct"}}`` for every
+    class index present at least once in ``labels`` - a class with zero
+    eval examples is omitted, not reported as 0/0. Lets callers check
+    whether accuracy is uneven across classes, e.g. with PlantNet-300K's
+    long-tailed species distribution.
+    """
+    probas = np.asarray(probas)
+    labels = np.asarray(labels)
+    top1_hits = probas.argmax(axis=1) == labels
+    k5 = min(5, probas.shape[1])
+    top5 = np.argpartition(-probas, kth=k5 - 1, axis=1)[:, :k5]
+    top5_hits = (top5 == labels[:, None]).any(axis=1)
+
+    stats = {}
+    for label, top1_hit, top5_hit in zip(labels, top1_hits, top5_hits):
+        label = int(label)
+        entry = stats.setdefault(
+            label, {"n": 0, "top1_correct": 0, "top5_correct": 0}
+        )
+        entry["n"] += 1
+        entry["top1_correct"] += int(top1_hit)
+        entry["top5_correct"] += int(top5_hit)
+    return stats
+
+
 def _lmbda_for_k(val_probas, k):
     """The global probability threshold making the average predicted-set
     size over ``val_probas`` equal ``k``.

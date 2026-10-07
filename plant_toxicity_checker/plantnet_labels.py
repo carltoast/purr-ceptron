@@ -64,6 +64,7 @@ class SpeciesLabels:
         self._index_of_species_id = {
             row["species_id"]: i for i, row in enumerate(rows)
         }
+        self._species_ids = tuple(row["species_id"] for row in rows)
 
     @classmethod
     def from_metadata(cls, path=None):
@@ -89,3 +90,9 @@ class SpeciesLabels:
         """Species name for ``index``; raises ``IndexError`` if out of
         range."""
         return self.names[index]
+
+    def species_id_of(self, index):
+        """Raw ``species_id`` string for ``index`` (the inverse of
+        ``index_of_species_id``); raises ``IndexError`` if out of
+        range."""
+        return self._species_ids[index]

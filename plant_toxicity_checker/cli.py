@@ -112,6 +112,25 @@ def _run_evaluate_plantnet(args):
     return 0
 
 
+def _run_species_breakdown(args):
+    from plant_toxicity_checker import train
+
+    result = train.run_species_breakdown(args.run, args.split)
+    print(f"{len(result['species'])} species, split={args.split}")
+    for name, stats in result["buckets"].items():
+        if stats["n_species"] == 0:
+            continue
+        print(
+            f"  train_count {name:>7}: {stats['n_species']:4d} species  "
+            f"top1={stats['top1_accuracy']:.1%}  "
+            f"top5={stats['top5_accuracy']:.1%}  "
+            f"(n={stats['n']})"
+        )
+    out_path = f"outputs/{args.run}/species_breakdown_{args.split}.json"
+    print(f"full per-species breakdown written to {out_path}")
+    return 0
+
+
 def _positive_int(text):
     value = int(text)
     if value < 1:
@@ -179,6 +198,20 @@ def build_parser():
         "--split", choices=["val", "test"], default="test",
     )
     evaluate_plantnet.set_defaults(func=_run_evaluate_plantnet)
+
+    species_breakdown = sub.add_parser(
+        "species-breakdown",
+        help="Per-species accuracy for a trained run, bucketed by "
+             "training-image count - checks whether low-data species "
+             "are dragging accuracy down, no retraining needed",
+    )
+    species_breakdown.add_argument(
+        "--run", required=True, help="run name (checkpoints/<run>/)",
+    )
+    species_breakdown.add_argument(
+        "--split", choices=["val", "test"], default="val",
+    )
+    species_breakdown.set_defaults(func=_run_species_breakdown)
     return parser
 
 

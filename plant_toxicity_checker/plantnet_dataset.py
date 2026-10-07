@@ -81,6 +81,18 @@ def cap_images_per_species(rows, max_images_per_species):
     return kept
 
 
+def images_per_species(rows):
+    """``{species_id (int): image count}`` across ``rows`` (e.g. the
+    train split), for analyses like checking per-species accuracy
+    against how much training support each species had.
+    """
+    counts = {}
+    for row in rows:
+        species_id = int(row["species_id"])
+        counts[species_id] = counts.get(species_id, 0) + 1
+    return counts
+
+
 def species_dir(species_id):
     """The zero-padded 4-digit directory name for a ``species_id``.
 

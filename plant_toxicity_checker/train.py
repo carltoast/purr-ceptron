@@ -33,6 +33,17 @@ REQUIRED_CONFIG_KEYS = (
 # rather than claiming every core.
 NUM_WORKERS = 8
 
+# Buckets for rolling per-species accuracy up by training support, to
+# check whether PlantNet-300K's long-tailed species distribution is
+# dragging accuracy down specifically for low-data species. (name, lo,
+# hi) - hi=None means unbounded.
+TRAIN_COUNT_BUCKETS = (
+    ("<20", 0, 20),
+    ("20-49", 20, 50),
+    ("50-199", 50, 200),
+    ("200+", 200, None),
+)
+
 
 class ConfigError(ValueError):
     """A training config is missing a required key or has a bad value."""
@@ -73,6 +84,49 @@ def aspca_priority_species_ids(
     return species_match.aspca_matched_species_ids(
         load_species_rows(species_metadata_path), aspca_doc["plants"]
     )
+
+
+def _bucket_for(train_count, buckets=TRAIN_COUNT_BUCKETS):
+    """Which bucket name ``train_count`` falls into."""
+    for name, lo, hi in buckets:
+        if train_count >= lo and (hi is None or train_count < hi):
+            return name
+    raise ValueError(f"no bucket for train_count={train_count}")
+
+
+def aggregate_by_train_count_bucket(
+    per_class_stats, train_counts, buckets=TRAIN_COUNT_BUCKETS,
+):
+    """Roll ``metrics.per_class_accuracy``'s per-class stats up into
+    buckets by each species' training-image count.
+
+    ``per_class_stats`` and ``train_counts`` are both keyed by
+    ``species_id`` (not class index - callers join on that first). A
+    species absent from ``train_counts`` (zero training images) counts
+    as bucket ``"<20"``. Returns ``{bucket_name: {"n_species", "n",
+    "top1_correct", "top5_correct", "top1_accuracy", "top5_accuracy"}}``
+    for every bucket, even ones with zero species (accuracy ``None``
+    then, not a divide-by-zero).
+    """
+    result = {
+        name: {"n_species": 0, "n": 0, "top1_correct": 0, "top5_correct": 0}
+        for name, _, _ in buckets
+    }
+    for species_id, stats in per_class_stats.items():
+        bucket = _bucket_for(train_counts.get(species_id, 0), buckets)
+        agg = result[bucket]
+        agg["n_species"] += 1
+        agg["n"] += stats["n"]
+        agg["top1_correct"] += stats["top1_correct"]
+        agg["top5_correct"] += stats["top5_correct"]
+    for agg in result.values():
+        agg["top1_accuracy"] = (
+            agg["top1_correct"] / agg["n"] if agg["n"] else None
+        )
+        agg["top5_accuracy"] = (
+            agg["top5_correct"] / agg["n"] if agg["n"] else None
+        )
+    return result
 
 
 def build_model(num_classes):
@@ -386,6 +440,91 @@ def run_evaluation(run_name, split):
     out_dir = OUTPUTS_DIR / run_name
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / f"eval_{split}.json").write_text(
+        json.dumps(result, indent=2), encoding="utf-8"
+    )
+    return result
+
+
+def run_species_breakdown(run_name, split="val"):
+    """Per-species accuracy for a trained run's checkpoint, bucketed by
+    each species' training-image count.
+
+    No retraining involved - just a different slice through the same
+    checkpoint and eval split ``run_evaluation`` already uses. Exists to
+    check, cheaply, whether PlantNet-300K's long-tailed species
+    distribution (hundreds of species with under 20 training images) is
+    dragging accuracy down specifically for those low-data species,
+    before committing to an actual imbalance-aware retrain (Phase 2).
+    """
+    import torch
+
+    from plant_toxicity_checker import metrics
+    from plant_toxicity_checker.plantnet_dataset import (
+        PlantNetDataset,
+        images_per_species,
+        load_metadata,
+        rows_for_split,
+    )
+    from plant_toxicity_checker.plantnet_labels import SpeciesLabels
+
+    labels = SpeciesLabels.from_metadata()
+    state = torch.load(
+        CHECKPOINTS_DIR / run_name / "latest.pt", map_location="cpu"
+    )
+    config = state["config"]
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = build_model(len(labels)).to(device)
+    model.load_state_dict(state["model_state_dict"])
+
+    max_species = config.get("max_species")
+    max_images_per_species = config.get("max_images_per_species")
+    priority_species_ids = aspca_priority_species_ids(config)
+    eval_ds = PlantNetDataset(
+        split, labels,
+        max_species=max_species,
+        max_images_per_species=max_images_per_species,
+        priority_species_ids=priority_species_ids,
+    )
+    eval_loader = make_loader(eval_ds, config["batch_size"], shuffle=False)
+    eval_probas, eval_labels = _predict_probas(model, eval_loader, device)
+
+    per_class_stats = metrics.per_class_accuracy(eval_probas, eval_labels)
+
+    train_rows = rows_for_split(load_metadata(), "train")
+    train_counts = images_per_species(train_rows)
+
+    stats_by_species_id = {}
+    species_rows = []
+    for index, stats in per_class_stats.items():
+        species_id = int(labels.species_id_of(index))
+        train_count = train_counts.get(species_id, 0)
+        stats_by_species_id[species_id] = stats
+        species_rows.append({
+            "species_id": species_id,
+            "name": labels.name_of(index),
+            "train_count": train_count,
+            "n_eval": stats["n"],
+            "top1_accuracy": stats["top1_correct"] / stats["n"],
+            "top5_accuracy": stats["top5_correct"] / stats["n"],
+        })
+    species_rows.sort(key=lambda row: row["train_count"])
+
+    buckets = aggregate_by_train_count_bucket(
+        stats_by_species_id, train_counts
+    )
+
+    result = {
+        "run": run_name,
+        "split": split,
+        "trained_epoch": state["epoch"],
+        "buckets": buckets,
+        "species": species_rows,
+    }
+
+    out_dir = OUTPUTS_DIR / run_name
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / f"species_breakdown_{split}.json").write_text(
         json.dumps(result, indent=2), encoding="utf-8"
     )
     return result

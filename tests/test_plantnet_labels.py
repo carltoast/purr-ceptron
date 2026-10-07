@@ -63,6 +63,22 @@ def test_index_of_species_id_does_not_assume_dense_ids(tmp_path):
     assert labels.index_of_species_id(7) == 1
 
 
+def test_species_id_of_is_the_inverse_of_index_of_species_id(tmp_path):
+    path = write_species_csv(
+        tmp_path, ("42", "Rosa canina L."), ("7", "Lilium bulbiferum L."),
+    )
+    labels = SpeciesLabels.from_metadata(path)
+    assert labels.species_id_of(0) == "42"
+    assert labels.species_id_of(1) == "7"
+
+
+def test_species_id_of_out_of_range_raises_index_error(tmp_path):
+    path = write_species_csv(tmp_path, ("0", "Rosa canina L."))
+    labels = SpeciesLabels.from_metadata(path)
+    with pytest.raises(IndexError):
+        labels.species_id_of(5)
+
+
 def test_index_of_unknown_name_raises_key_error(tmp_path):
     path = write_species_csv(tmp_path, ("0", "Rosa canina L."))
     labels = SpeciesLabels.from_metadata(path)

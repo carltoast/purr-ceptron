@@ -13,6 +13,7 @@ import pytest
 
 from plant_toxicity_checker.train import (
     ConfigError,
+    aggregate_by_train_count_bucket,
     aspca_priority_species_ids,
     load_config,
 )
@@ -103,6 +104,59 @@ def test_aspca_priority_species_ids_empty_when_no_overlap(tmp_path):
         aspca_json_path=_write_aspca_json(tmp_path, ["Tulipa gesneriana"]),
     )
     assert ids == set()
+
+
+# --- aggregate_by_train_count_bucket -------------------------------------
+# Pure dict manipulation, no torch/numpy - stays in the default suite.
+
+
+def test_aggregate_by_train_count_bucket_sorts_species_into_buckets():
+    # species 1: 5 train images -> "<20"; species 2: 30 -> "20-49";
+    # species 3: 500 -> "200+".
+    per_class_stats = {
+        1: {"n": 10, "top1_correct": 5, "top5_correct": 9},
+        2: {"n": 10, "top1_correct": 8, "top5_correct": 10},
+        3: {"n": 10, "top1_correct": 9, "top5_correct": 10},
+    }
+    train_counts = {1: 5, 2: 30, 3: 500}
+
+    buckets = aggregate_by_train_count_bucket(per_class_stats, train_counts)
+
+    assert buckets["<20"]["n_species"] == 1
+    assert buckets["<20"]["top1_accuracy"] == 0.5
+    assert buckets["20-49"]["n_species"] == 1
+    assert buckets["20-49"]["top1_accuracy"] == 0.8
+    assert buckets["200+"]["n_species"] == 1
+    assert buckets["200+"]["top1_accuracy"] == 0.9
+
+
+def test_aggregate_by_train_count_bucket_species_absent_from_train_counts():
+    # A species with zero training images (not in train_counts at all)
+    # counts as the "<20" bucket, not an error.
+    per_class_stats = {99: {"n": 4, "top1_correct": 1, "top5_correct": 2}}
+    buckets = aggregate_by_train_count_bucket(per_class_stats, {})
+    assert buckets["<20"]["n_species"] == 1
+    assert buckets["<20"]["n"] == 4
+
+
+def test_aggregate_by_train_count_bucket_empty_bucket_has_none_accuracy():
+    buckets = aggregate_by_train_count_bucket({}, {})
+    for stats in buckets.values():
+        assert stats["n_species"] == 0
+        assert stats["top1_accuracy"] is None
+        assert stats["top5_accuracy"] is None
+
+
+def test_aggregate_by_train_count_bucket_aggregates_multiple_species():
+    per_class_stats = {
+        1: {"n": 10, "top1_correct": 5, "top5_correct": 8},
+        2: {"n": 10, "top1_correct": 7, "top5_correct": 9},
+    }
+    train_counts = {1: 1, 2: 2}  # both "<20"
+    buckets = aggregate_by_train_count_bucket(per_class_stats, train_counts)
+    assert buckets["<20"]["n_species"] == 2
+    assert buckets["<20"]["n"] == 20
+    assert buckets["<20"]["top1_accuracy"] == 12 / 20
 
 
 @pytest.mark.slow

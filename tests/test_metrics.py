@@ -2,7 +2,11 @@
 
 import numpy as np
 
-from plant_toxicity_checker.metrics import average_k_accuracy, top_k_accuracy
+from plant_toxicity_checker.metrics import (
+    average_k_accuracy,
+    per_class_accuracy,
+    top_k_accuracy,
+)
 
 # 3 samples, 4 classes.
 # sample 0: true=0, rank 1 (top prob) - correct at every k.
@@ -45,3 +49,34 @@ def test_average_k_accuracy_worked_example():
         val_probas, val_labels, test_probas, test_labels, k=1,
     )
     assert acc == 2 / 3
+
+
+# per_class_accuracy: 5 samples, 6 classes (needs >5 classes for a real
+# top-1/top-5 distinction - top_k_accuracy's 4-class fixture above
+# trivially puts every class in a "top 5").
+#   sample 0: true=0, top1 correct, top5 correct.
+#   sample 1: true=0, top1 WRONG (argmax=1), top5 correct (rank 3).
+#   sample 2: true=1, top1 correct, top5 correct.
+#   sample 3: true=2, top1 WRONG, top5 WRONG (class 2 is the unique min).
+#   sample 4: true=0, top1 correct, top5 correct.
+_CLASS_PROBAS = np.array([
+    [0.90, 0.02, 0.02, 0.02, 0.02, 0.02],
+    [0.10, 0.50, 0.08, 0.08, 0.08, 0.16],
+    [0.02, 0.90, 0.02, 0.02, 0.02, 0.02],
+    [0.30, 0.30, 0.01, 0.13, 0.13, 0.13],
+    [0.80, 0.04, 0.04, 0.04, 0.04, 0.04],
+])
+_CLASS_LABELS = np.array([0, 0, 1, 2, 0])
+
+
+def test_per_class_accuracy_counts_and_correctness_per_class():
+    stats = per_class_accuracy(_CLASS_PROBAS, _CLASS_LABELS)
+
+    assert stats[0] == {"n": 3, "top1_correct": 2, "top5_correct": 3}
+    assert stats[1] == {"n": 1, "top1_correct": 1, "top5_correct": 1}
+    assert stats[2] == {"n": 1, "top1_correct": 0, "top5_correct": 0}
+
+
+def test_per_class_accuracy_omits_classes_absent_from_labels():
+    stats = per_class_accuracy(_CLASS_PROBAS, _CLASS_LABELS)
+    assert set(stats) == {0, 1, 2}

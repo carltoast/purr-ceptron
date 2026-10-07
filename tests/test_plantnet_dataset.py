@@ -8,6 +8,7 @@ from plant_toxicity_checker.plantnet_dataset import (
     cap_images_per_species,
     filter_species_subset,
     image_path,
+    images_per_species,
     rows_for_split,
     species_dir,
 )
@@ -110,3 +111,11 @@ def test_cap_images_per_species_leaves_species_under_the_cap_alone():
         multi_image_rows(), max_images_per_species=10
     )
     assert kept == multi_image_rows()
+
+
+def test_images_per_species_counts_correctly():
+    assert images_per_species(multi_image_rows()) == {7: 3, 12: 2}
+
+
+def test_images_per_species_empty_rows_returns_empty_dict():
+    assert images_per_species([]) == {}
