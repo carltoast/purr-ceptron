@@ -33,3 +33,6 @@ photos/
 
 # Model weights that libraries sometimes drop in the working directory
 *.pt
+
+# Agent instructions - kept local only, not published
+CLAUDE.md
