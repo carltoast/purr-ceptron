@@ -6,6 +6,7 @@ from pathlib import Path
 
 from plant_toxicity_checker.plantnet_dataset import (
     cap_images_per_species,
+    filter_species_ids,
     filter_species_subset,
     image_path,
     images_per_species,
@@ -119,3 +120,17 @@ def test_images_per_species_counts_correctly():
 
 def test_images_per_species_empty_rows_returns_empty_dict():
     assert images_per_species([]) == {}
+
+
+def test_filter_species_ids_keeps_only_the_named_species():
+    kept = filter_species_ids(rows(), species_ids={7, 999})
+    assert {r["species_id"] for r in kept} == {"7", "999"}
+
+
+def test_filter_species_ids_accepts_string_or_int_ids():
+    kept = filter_species_ids(rows(), species_ids={"7"})
+    assert {r["species_id"] for r in kept} == {"7"}
+
+
+def test_filter_species_ids_empty_set_keeps_nothing():
+    assert filter_species_ids(rows(), species_ids=set()) == []

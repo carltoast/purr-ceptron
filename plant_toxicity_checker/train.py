@@ -528,3 +528,74 @@ def run_species_breakdown(run_name, split="val"):
         json.dumps(result, indent=2), encoding="utf-8"
     )
     return result
+
+
+def predict_for_species(run_name, species_ids, split="val", out_name=None):
+    """Per-image predictions for a specific, named handful of species -
+    not just the per-species aggregate ``run_species_breakdown`` gives.
+
+    For each image: its on-disk path (relative to the images dir), the
+    true species, the predicted top-5 (name + probability each), and
+    top1/top5 correctness. Meant for picking out a few illustrative
+    examples (a clean hit, a top-5-but-not-top-1 near miss, a complete
+    miss) and for a small confusion matrix restricted to ``species_ids``
+    - not a full per-class evaluation, which ``run_species_breakdown``
+    already covers more cheaply in aggregate.
+    """
+    import numpy as np
+    import torch
+
+    from plant_toxicity_checker.plantnet_dataset import (
+        PlantNetDataset,
+        filter_species_ids,
+        load_metadata,
+        species_dir,
+    )
+    from plant_toxicity_checker.plantnet_labels import SpeciesLabels
+
+    labels = SpeciesLabels.from_metadata()
+    state = torch.load(
+        CHECKPOINTS_DIR / run_name / "latest.pt", map_location="cpu"
+    )
+    config = state["config"]
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = build_model(len(labels)).to(device)
+    model.load_state_dict(state["model_state_dict"])
+
+    rows = filter_species_ids(load_metadata(), species_ids)
+    eval_ds = PlantNetDataset(split, labels, rows=rows)
+    eval_loader = make_loader(eval_ds, config["batch_size"], shuffle=False)
+    eval_probas, eval_labels = _predict_probas(model, eval_loader, device)
+
+    predictions = []
+    # eval_ds.rows is in the same order the (shuffle=False) loader
+    # iterated it in, so this zip lines each row up with its own result.
+    for row, proba, true_index in zip(
+        eval_ds.rows, eval_probas, eval_labels,
+    ):
+        top5_idx = np.argsort(-proba)[:5]
+        true_index = int(true_index)
+        predictions.append({
+            "species_id": int(row["species_id"]),
+            "true_name": labels.name_of(true_index),
+            "split": row["split"],
+            "image_path": (
+                f"{row['split']}/{species_dir(row['species_id'])}/"
+                f"{row['PN_hash']}.jpg"
+            ),
+            "top1_correct": bool(top5_idx[0] == true_index),
+            "top5_correct": bool(true_index in top5_idx),
+            "top5": [
+                {"name": labels.name_of(int(i)), "proba": float(proba[i])}
+                for i in top5_idx
+            ],
+        })
+
+    out_dir = OUTPUTS_DIR / run_name
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_name = out_name or f"predictions_{split}"
+    (out_dir / f"{out_name}.json").write_text(
+        json.dumps(predictions, indent=2), encoding="utf-8"
+    )
+    return predictions

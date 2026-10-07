@@ -31,6 +31,16 @@ def rows_for_split(rows, split):
     return [row for row in rows if row["split"] == split]
 
 
+def filter_species_ids(rows, species_ids):
+    """Rows whose ``species_id`` is in ``species_ids`` (an explicit
+    allowlist), for pulling out a specific handful of species - e.g. to
+    inspect per-image predictions for a small, named set rather than an
+    arbitrary count-based subset (see ``filter_species_subset``).
+    """
+    wanted = {int(species_id) for species_id in species_ids}
+    return [row for row in rows if int(row["species_id"]) in wanted]
+
+
 def filter_species_subset(rows, max_species, priority_species_ids=None):
     """Rows belonging only to a ``max_species``-sized subset of the
     ``species_id`` values present in ``rows``.

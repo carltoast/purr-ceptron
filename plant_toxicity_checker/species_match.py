@@ -135,3 +135,80 @@ def aspca_matched_species_ids(plantnet_rows, aspca_plants):
         if result.status == "exact":
             matched_ids.add(int(row["species_id"]))
     return matched_ids
+
+
+def _cats_signal(plant):
+    """``{"toxic"}`` / ``{"non_toxic"}`` / ``set()`` for one ASPCA plant,
+    from whether "cats" appears in its ``toxic_to``/``non_toxic_to``."""
+    if "cats" in plant.get("toxic_to", []):
+        return {"toxic"}
+    if "cats" in plant.get("non_toxic_to", []):
+        return {"non_toxic"}
+    return set()
+
+
+def categorize_cat_toxicity(plantnet_rows, aspca_plants):
+    """For every row in ``plantnet_rows``, its relationship to ASPCA's
+    cat-toxicity scrape: match level (exact / genus / no match) crossed
+    with cat-toxicity signal.
+
+    Returns ``{species_id (int): category}``, one of ``"exact -
+    toxic"``, ``"exact - non-toxic"``, ``"exact - unknown"``, ``"genus -
+    toxic"``, ``"genus - non-toxic"``, ``"genus - mixed"``, ``"genus -
+    unknown"``, or ``"no match"``.
+
+    An exact match's signal comes from that one ASPCA entry directly; a
+    genus-only match's signal is the UNION of every ASPCA entry sharing
+    that genus - "genus - mixed" means some relatives are cat-toxic and
+    some aren't, "genus - unknown" means ASPCA addresses none of them
+    for cats. This never infers "safe"/"toxic" for the species itself
+    from a relative - it's illustrative analysis (e.g. for checking how
+    model accuracy varies by ASPCA-relevance), not the project's real,
+    hand-curated toxicity-verdict path.
+    """
+    aspca_rows = []
+    for plant in aspca_plants:
+        parsed = parse_scientific_name(plant.get("scientific_name"))
+        if parsed is None:
+            continue
+        genus, epithet = parsed
+        aspca_rows.append({"genus": genus, "epithet": epithet, "plant": plant})
+    index = SpeciesIndex.from_rows(
+        aspca_rows,
+        genus_of=lambda row: row["genus"],
+        epithet_of=lambda row: row["epithet"],
+    )
+
+    categories = {}
+    for row in plantnet_rows:
+        species_id = int(row["species_id"])
+        genus = row.get("genus")
+        if not genus:
+            categories[species_id] = "no match"
+            continue
+        epithet = row.get("epithet") or ""
+        result = index.match(f"{genus} {epithet}".strip())
+
+        if result.status == "exact":
+            signal = _cats_signal(result.exact_row["plant"])
+            if signal == {"toxic"}:
+                categories[species_id] = "exact - toxic"
+            elif signal == {"non_toxic"}:
+                categories[species_id] = "exact - non-toxic"
+            else:
+                categories[species_id] = "exact - unknown"
+        elif result.status == "genus_only":
+            signals = set()
+            for candidate in result.genus_candidates:
+                signals |= _cats_signal(candidate["plant"])
+            if signals == {"toxic"}:
+                categories[species_id] = "genus - toxic"
+            elif signals == {"non_toxic"}:
+                categories[species_id] = "genus - non-toxic"
+            elif signals == {"toxic", "non_toxic"}:
+                categories[species_id] = "genus - mixed"
+            else:
+                categories[species_id] = "genus - unknown"
+        else:
+            categories[species_id] = "no match"
+    return categories
