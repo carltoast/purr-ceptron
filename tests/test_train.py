@@ -14,8 +14,8 @@ import pytest
 from plant_toxicity_checker.train import (
     ConfigError,
     aggregate_by_train_count_bucket,
-    aspca_priority_species_ids,
     load_config,
+    toxicity_priority_species_ids,
 )
 
 BASE_CONFIG = {
@@ -50,7 +50,7 @@ def test_load_config_rejects_missing_keys(tmp_path):
         load_config(path)
 
 
-# --- aspca_priority_species_ids -----------------------------------------
+# --- toxicity_priority_species_ids ---------------------------------------
 # Pure JSON/CSV I/O, no torch - stays in the default (non-slow) suite.
 
 
@@ -66,42 +66,47 @@ def _write_species_metadata(tmp_path):
     return path
 
 
-def _write_aspca_json(tmp_path, scientific_names):
-    path = tmp_path / "aspca.json"
+def _write_toxicity_table(tmp_path, scientific_names):
+    path = tmp_path / "toxicity.json"
     path.write_text(
         json.dumps({
-            "plants": [{"scientific_name": n} for n in scientific_names]
+            "species": [
+                {"species": n, "toxic_to_cats": "unknown"}
+                for n in scientific_names
+            ]
         }),
         encoding="utf-8",
     )
     return path
 
 
-def test_aspca_priority_species_ids_none_when_not_requested(tmp_path):
+def test_toxicity_priority_species_ids_none_when_not_requested(tmp_path):
     config = dict(BASE_CONFIG)
-    assert aspca_priority_species_ids(
+    assert toxicity_priority_species_ids(
         config,
         species_metadata_path=_write_species_metadata(tmp_path),
-        aspca_json_path=_write_aspca_json(tmp_path, ["Rosa canina"]),
+        toxicity_table_path=_write_toxicity_table(tmp_path, ["Rosa canina"]),
     ) is None
 
 
-def test_aspca_priority_species_ids_matches_by_exact_name(tmp_path):
-    config = {**BASE_CONFIG, "prioritize_aspca_species": True}
-    ids = aspca_priority_species_ids(
+def test_toxicity_priority_species_ids_matches_by_exact_name(tmp_path):
+    config = {**BASE_CONFIG, "prioritize_toxicity_species": True}
+    ids = toxicity_priority_species_ids(
         config,
         species_metadata_path=_write_species_metadata(tmp_path),
-        aspca_json_path=_write_aspca_json(tmp_path, ["Rosa canina"]),
+        toxicity_table_path=_write_toxicity_table(tmp_path, ["Rosa canina"]),
     )
     assert ids == {1}
 
 
-def test_aspca_priority_species_ids_empty_when_no_overlap(tmp_path):
-    config = {**BASE_CONFIG, "prioritize_aspca_species": True}
-    ids = aspca_priority_species_ids(
+def test_toxicity_priority_species_ids_empty_when_no_overlap(tmp_path):
+    config = {**BASE_CONFIG, "prioritize_toxicity_species": True}
+    ids = toxicity_priority_species_ids(
         config,
         species_metadata_path=_write_species_metadata(tmp_path),
-        aspca_json_path=_write_aspca_json(tmp_path, ["Tulipa gesneriana"]),
+        toxicity_table_path=_write_toxicity_table(
+            tmp_path, ["Tulipa gesneriana"]
+        ),
     )
     assert ids == set()
 

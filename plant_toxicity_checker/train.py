@@ -58,32 +58,38 @@ def load_config(path):
     return data
 
 
-def aspca_priority_species_ids(
-    config, species_metadata_path=None, aspca_json_path=None,
-):
+def toxicity_priority_species_ids(config, species_metadata_path=None,
+                                   toxicity_table_path=None):
     """``species_id``\\s to prioritize when subsetting species (see
     ``plantnet_dataset.filter_species_subset``), if the config asks for
-    it via ``"prioritize_aspca_species": true`` - the PlantNet species
-    ASPCA has a scraped page for, so a small ``max_species`` dev subset
-    doesn't accidentally end up with none of them. Returns ``None`` if
-    the config doesn't ask for this (the common case - the paper-replica
-    baseline config never sets it).
+    it via ``"prioritize_toxicity_species": true`` - the PlantNet
+    species with an EXACT match in the real toxicity table, so a small
+    ``max_species`` dev subset doesn't accidentally end up with none of
+    them. Returns ``None`` if the config doesn't ask for this (the
+    common case - the paper-replica baseline config never sets it).
 
-    Name matching only, via ``species_match.aspca_matched_species_ids``
-    - this never reads ``toxic_to``/``non_toxic_to``, so it stays outside
-    the toxicity-verdict safety path entirely.
+    Matches against ``data/toxicity.json`` (``species_match
+    .match_against_toxicity_table``) - the one place this project
+    decides how PlantNet species relate to the toxicity table, not the
+    raw ASPCA scrape directly. Name matching only, never reads
+    ``toxic_to_cats`` here, so this stays outside the toxicity-verdict
+    safety path entirely.
     """
-    if not config.get("prioritize_aspca_species"):
+    if not config.get("prioritize_toxicity_species"):
         return None
     from plant_toxicity_checker import species_match
-    from plant_toxicity_checker.config import ASPCA_DETAILS_JSON_PATH
+    from plant_toxicity_checker.config import TOXICITY_TABLE_PATH
     from plant_toxicity_checker.plantnet_labels import load_species_rows
+    from plant_toxicity_checker.toxicity import load_table
 
-    aspca_path = Path(aspca_json_path or ASPCA_DETAILS_JSON_PATH)
-    aspca_doc = json.loads(aspca_path.read_text(encoding="utf-8"))
-    return species_match.aspca_matched_species_ids(
-        load_species_rows(species_metadata_path), aspca_doc["plants"]
+    table = load_table(toxicity_table_path or TOXICITY_TABLE_PATH)
+    matches = species_match.match_against_toxicity_table(
+        load_species_rows(species_metadata_path), table
     )
+    return {
+        species_id for species_id, result in matches.items()
+        if result.status == "exact"
+    }
 
 
 def _bucket_for(train_count, buckets=TRAIN_COUNT_BUCKETS):
@@ -295,7 +301,7 @@ def run_training(
     labels = SpeciesLabels.from_metadata()
     max_species = config.get("max_species")
     max_images_per_species = config.get("max_images_per_species")
-    priority_species_ids = aspca_priority_species_ids(config)
+    priority_species_ids = toxicity_priority_species_ids(config)
     train_ds = PlantNetDataset(
         "train", labels,
         max_species=max_species,
@@ -316,7 +322,7 @@ def run_training(
             if max_images_per_species else ""
         )
         + (
-            f"  aspca_priority_species={len(priority_species_ids)}"
+            f"  toxicity_priority_species={len(priority_species_ids)}"
             if priority_species_ids else ""
         ),
         flush=True,
@@ -405,7 +411,7 @@ def run_evaluation(run_name, split):
 
     max_species = config.get("max_species")
     max_images_per_species = config.get("max_images_per_species")
-    priority_species_ids = aspca_priority_species_ids(config)
+    priority_species_ids = toxicity_priority_species_ids(config)
     val_ds = PlantNetDataset(
         "val", labels,
         max_species=max_species,
@@ -479,7 +485,7 @@ def run_species_breakdown(run_name, split="val"):
 
     max_species = config.get("max_species")
     max_images_per_species = config.get("max_images_per_species")
-    priority_species_ids = aspca_priority_species_ids(config)
+    priority_species_ids = toxicity_priority_species_ids(config)
     eval_ds = PlantNetDataset(
         split, labels,
         max_species=max_species,

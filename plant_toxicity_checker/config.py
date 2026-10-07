@@ -16,6 +16,12 @@ PLANTNET_DIR = DATASET_DIR / "plantnet"
 PROCESSED_DIR = DATA_DIR / "processed"
 PLANTNET_ASPCA_SIDES_PATH = PROCESSED_DIR / "plantnet_aspca_sides.csv"
 
+# The real, hand-curated toxicity table (toxicity.load_table's schema) -
+# seeded from the ASPCA scrape (toxicity_seed.py) but the only thing
+# anything should match PlantNet species against from here on; see
+# species_match.match_against_toxicity_table.
+TOXICITY_TABLE_PATH = DATA_DIR / "toxicity.json"
+
 # Safety thresholds (see verdict.py). Erring high is deliberate: a low
 # threshold only ever risks a false "it's fine".
 MIN_CONFIDENCE = 0.80

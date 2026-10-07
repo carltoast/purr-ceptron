@@ -13,5 +13,5 @@
   "loss": "cross_entropy",
   "max_species": 80,
   "max_images_per_species": 80,
-  "prioritize_aspca_species": true
+  "prioritize_toxicity_species": true
 }

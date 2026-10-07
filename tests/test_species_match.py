@@ -3,10 +3,19 @@
 from plant_toxicity_checker.species_match import (
     MatchResult,
     SpeciesIndex,
-    aspca_matched_species_ids,
-    categorize_cat_toxicity,
+    match_against_toxicity_table,
     parse_scientific_name,
+    toxicity_category,
 )
+from plant_toxicity_checker.toxicity import ToxicityEntry
+
+
+def toxicity_entry(species, toxic_to_cats):
+    return ToxicityEntry(
+        species=species, scientific_name=species,
+        toxic_to_cats=toxic_to_cats, severity=None, symptoms=(),
+        sources=(), verified=False, notes="",
+    )
 
 
 def test_parses_a_plain_binomial():
@@ -125,108 +134,82 @@ def test_matching_is_symmetric_aspca_index_or_dataset_index():
     assert result.genus_candidates[0]["toxic"] is False
 
 
-# --- aspca_matched_species_ids ------------------------------------------
+# --- match_against_toxicity_table ---------------------------------------
 
 
-def test_aspca_matched_species_ids_keeps_only_exact_matches():
+def test_match_against_toxicity_table_exact_match():
     plantnet_rows = [
         {"species_id": "1", "genus": "Rosa", "epithet": "canina"},
         {"species_id": "2", "genus": "Rosa", "epithet": "rugosa"},  # genus
         {"species_id": "3", "genus": "Lilium", "epithet": "longiflorum"},
     ]
-    aspca_plants = [{"scientific_name": "Rosa canina"}]
-    assert aspca_matched_species_ids(plantnet_rows, aspca_plants) == {1}
+    toxicity_entries = [toxicity_entry("Rosa canina", "yes")]
+    matches = match_against_toxicity_table(plantnet_rows, toxicity_entries)
+
+    assert matches[1].status == "exact"
+    assert matches[1].exact_row.species == "Rosa canina"
+    assert matches[2].status == "genus_only"
+    assert matches[2].genus_candidates[0].species == "Rosa canina"
+    assert matches[3].status == "none"
 
 
-def test_aspca_matched_species_ids_handles_no_matches():
-    plantnet_rows = [{"species_id": "1", "genus": "Lilium", "epithet": "x"}]
-    aspca_plants = [{"scientific_name": "Rosa canina"}]
-    assert aspca_matched_species_ids(plantnet_rows, aspca_plants) == set()
-
-
-def test_aspca_matched_species_ids_skips_rows_with_no_genus():
+def test_match_against_toxicity_table_skips_rows_with_no_genus():
     plantnet_rows = [{"species_id": "1", "genus": "", "epithet": "canina"}]
-    aspca_plants = [{"scientific_name": "Rosa canina"}]
-    assert aspca_matched_species_ids(plantnet_rows, aspca_plants) == set()
+    toxicity_entries = [toxicity_entry("Rosa canina", "yes")]
+    matches = match_against_toxicity_table(plantnet_rows, toxicity_entries)
+    assert matches[1] == MatchResult("none")
 
 
-def test_aspca_matched_species_ids_skips_unparseable_aspca_entries():
+def test_match_against_toxicity_table_skips_unparseable_entries():
     plantnet_rows = [{"species_id": "1", "genus": "Rosa", "epithet": "canina"}]
-    aspca_plants = [{"scientific_name": ""}, {"scientific_name": None}]
-    assert aspca_matched_species_ids(plantnet_rows, aspca_plants) == set()
+    toxicity_entries = [toxicity_entry("", "yes")]
+    matches = match_against_toxicity_table(plantnet_rows, toxicity_entries)
+    assert matches[1] == MatchResult("none")
 
 
-# --- categorize_cat_toxicity ---------------------------------------------
+# --- toxicity_category ----------------------------------------------------
 
 
-def test_categorize_cat_toxicity_exact_match():
-    plantnet_rows = [{"species_id": "1", "genus": "Rosa", "epithet": "canina"}]
-    aspca_plants = [{
-        "scientific_name": "Rosa canina",
-        "toxic_to": ["cats"], "non_toxic_to": [],
-    }]
-    cats = categorize_cat_toxicity(plantnet_rows, aspca_plants)
-    assert cats == {1: "exact - toxic"}
+def test_toxicity_category_exact_toxic():
+    result = MatchResult("exact", toxicity_entry("Rosa canina", "yes"), ())
+    assert toxicity_category(result) == "exact - toxic"
 
 
-def test_categorize_cat_toxicity_exact_match_non_toxic():
-    plantnet_rows = [{"species_id": "1", "genus": "Rosa", "epithet": "canina"}]
-    aspca_plants = [{
-        "scientific_name": "Rosa canina",
-        "toxic_to": [], "non_toxic_to": ["cats"],
-    }]
-    cats = categorize_cat_toxicity(plantnet_rows, aspca_plants)
-    assert cats == {1: "exact - non-toxic"}
+def test_toxicity_category_exact_non_toxic():
+    result = MatchResult("exact", toxicity_entry("Rosa canina", "no"), ())
+    assert toxicity_category(result) == "exact - non-toxic"
 
 
-def test_categorize_cat_toxicity_exact_match_unknown_for_cats():
-    # ASPCA addresses this plant, but never mentions cats specifically
-    # (e.g. only dogs/horses) - a real tri-state, not inferred.
-    plantnet_rows = [{"species_id": "1", "genus": "Rosa", "epithet": "canina"}]
-    aspca_plants = [{
-        "scientific_name": "Rosa canina",
-        "toxic_to": ["dogs"], "non_toxic_to": [],
-    }]
-    cats = categorize_cat_toxicity(plantnet_rows, aspca_plants)
-    assert cats == {1: "exact - unknown"}
+def test_toxicity_category_exact_unknown():
+    result = MatchResult(
+        "exact", toxicity_entry("Rosa canina", "unknown"), (),
+    )
+    assert toxicity_category(result) == "exact - unknown"
 
 
-def test_categorize_cat_toxicity_genus_only_toxic():
-    plantnet_rows = [{"species_id": "1", "genus": "Rosa", "epithet": "rugosa"}]
-    aspca_plants = [{
-        "scientific_name": "Rosa canina",
-        "toxic_to": ["cats"], "non_toxic_to": [],
-    }]
-    cats = categorize_cat_toxicity(plantnet_rows, aspca_plants)
-    assert cats == {1: "genus - toxic"}
+def test_toxicity_category_genus_only_toxic():
+    result = MatchResult(
+        "genus_only", None, (toxicity_entry("Rosa canina", "yes"),),
+    )
+    assert toxicity_category(result) == "genus - toxic"
 
 
-def test_categorize_cat_toxicity_genus_only_mixed():
-    # Two ASPCA relatives of the same genus disagree on cat toxicity.
-    plantnet_rows = [{"species_id": "1", "genus": "Rosa", "epithet": "rugosa"}]
-    aspca_plants = [
-        {"scientific_name": "Rosa canina",
-         "toxic_to": ["cats"], "non_toxic_to": []},
-        {"scientific_name": "Rosa gallica",
-         "toxic_to": [], "non_toxic_to": ["cats"]},
-    ]
-    cats = categorize_cat_toxicity(plantnet_rows, aspca_plants)
-    assert cats == {1: "genus - mixed"}
+def test_toxicity_category_genus_only_mixed():
+    # Two relatives of the same genus disagree on cat toxicity.
+    candidates = (
+        toxicity_entry("Rosa canina", "yes"),
+        toxicity_entry("Rosa gallica", "no"),
+    )
+    result = MatchResult("genus_only", None, candidates)
+    assert toxicity_category(result) == "genus - mixed"
 
 
-def test_categorize_cat_toxicity_no_match():
-    plantnet_rows = [
-        {"species_id": "1", "genus": "Lilium", "epithet": "longiflorum"},
-    ]
-    aspca_plants = [{
-        "scientific_name": "Rosa canina",
-        "toxic_to": ["cats"], "non_toxic_to": [],
-    }]
-    cats = categorize_cat_toxicity(plantnet_rows, aspca_plants)
-    assert cats == {1: "no match"}
+def test_toxicity_category_genus_only_unknown():
+    result = MatchResult(
+        "genus_only", None, (toxicity_entry("Rosa canina", "unknown"),),
+    )
+    assert toxicity_category(result) == "genus - unknown"
 
 
-def test_categorize_cat_toxicity_no_genus_is_no_match():
-    plantnet_rows = [{"species_id": "1", "genus": "", "epithet": ""}]
-    cats = categorize_cat_toxicity(plantnet_rows, [])
-    assert cats == {1: "no match"}
+def test_toxicity_category_no_match():
+    assert toxicity_category(MatchResult("none")) == "no match"
