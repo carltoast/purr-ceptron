@@ -5,6 +5,8 @@ plain arrays by the time they get here, so this module (and its tests)
 never needs torch installed.
 """
 
+import collections
+
 import numpy as np
 
 
@@ -50,6 +52,90 @@ def per_class_accuracy(probas, labels):
         entry["top1_correct"] += int(top1_hit)
         entry["top5_correct"] += int(top5_hit)
     return stats
+
+
+def toxic_confusion_rate(probas, labels, species_sides):
+    """How often a confident top-1 prediction crosses the toxic/
+    non-toxic boundary - the metric a toxicity-aware training
+    objective (Phase 3) specifically targets, since top-1/top-5
+    accuracy alone wouldn't necessarily show it moving.
+
+    ``probas``/``labels`` as in ``top_k_accuracy``. ``species_sides``
+    is a per-class-index array (``species_match.species_sides``'
+    output) of ``1`` (toxic) / ``0`` (non-toxic) / ``-1`` (unknown).
+
+    Only samples whose TRUE class has a known side are scored at all -
+    a species with no toxicity signal can't have its confusions judged
+    by a side it doesn't have. Among those, a top-1 prediction that
+    itself lands on an unknown-side class is neither a confirmed same-
+    side nor cross-side outcome - counted separately as
+    ``ambiguous_rate``, not silently folded into either.
+
+    Returns ``{"confusion_rate", "ambiguous_rate", "n_known_side"}``;
+    the two rates are fractions of ``n_known_side`` (true-side-known
+    samples), not of the whole dataset. Both rates are ``None`` if no
+    sample has a known true side at all.
+    """
+    probas = np.asarray(probas)
+    labels = np.asarray(labels)
+    sides = np.asarray(species_sides)
+
+    true_sides = sides[labels]
+    known_mask = true_sides != -1
+    n_known_side = int(known_mask.sum())
+    if n_known_side == 0:
+        return {
+            "confusion_rate": None, "ambiguous_rate": None,
+            "n_known_side": 0,
+        }
+
+    pred_sides = sides[probas.argmax(axis=1)]
+    known_true_sides = true_sides[known_mask]
+    known_pred_sides = pred_sides[known_mask]
+
+    ambiguous = known_pred_sides == -1
+    confusion = ~ambiguous & (known_pred_sides != known_true_sides)
+
+    return {
+        "confusion_rate": float(confusion.mean()),
+        "ambiguous_rate": float(ambiguous.mean()),
+        "n_known_side": n_known_side,
+    }
+
+
+def toxic_confusion_pairs(probas, labels, species_sides):
+    """Per-pair detail behind ``toxic_confusion_rate``'s aggregate
+    number: for samples whose true class has a known side, every
+    (true class index, predicted class index) pair where the top-1
+    prediction crosses to the opposite known side. A prediction
+    landing on an unknown-side class is excluded here too (ambiguous,
+    not a confirmed cross-side confusion - same convention as
+    ``toxic_confusion_rate``).
+
+    Repeat confusions (the same species pair crossed by multiple eval
+    images) collapse into one row. Returns a list of ``(true_index,
+    pred_index, count)``, sorted by count descending - the species
+    names behind each index are a caller concern (this module stays
+    index-only, matching every other function here).
+    """
+    probas = np.asarray(probas)
+    labels = np.asarray(labels)
+    sides = np.asarray(species_sides)
+
+    true_sides = sides[labels]
+    preds = probas.argmax(axis=1)
+    pred_sides = sides[preds]
+
+    confused = (
+        (true_sides != -1) & (pred_sides != -1) & (pred_sides != true_sides)
+    )
+    pairs = zip(labels[confused].tolist(), preds[confused].tolist())
+    counts = collections.Counter(pairs)
+    return sorted(
+        ((t, p, c) for (t, p), c in counts.items()),
+        key=lambda row: row[2],
+        reverse=True,
+    )
 
 
 def _lmbda_for_k(val_probas, k):

@@ -1,0 +1,14 @@
+{
+  "loss": "balanced_softmax",
+  "balanced_softmax_tau": 0.5,
+  "toxicity_cost_weight": 10.0,
+  "optimizer": "sgd",
+  "lr": 0.1,
+  "momentum": 0.9,
+  "nesterov": true,
+  "weight_decay": 0.0001,
+  "lr_decay_epochs": [30, 40],
+  "lr_decay_factor": 0.1,
+  "epochs": 50,
+  "batch_size": 512
+}

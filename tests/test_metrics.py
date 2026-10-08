@@ -6,6 +6,8 @@ from plant_toxicity_checker.metrics import (
     average_k_accuracy,
     per_class_accuracy,
     top_k_accuracy,
+    toxic_confusion_pairs,
+    toxic_confusion_rate,
 )
 
 # 3 samples, 4 classes.
@@ -80,3 +82,67 @@ def test_per_class_accuracy_counts_and_correctness_per_class():
 def test_per_class_accuracy_omits_classes_absent_from_labels():
     stats = per_class_accuracy(_CLASS_PROBAS, _CLASS_LABELS)
     assert set(stats) == {0, 1, 2}
+
+
+# toxic_confusion_rate: 4 classes, sides = [toxic, non_toxic, unknown, toxic].
+#   sample 0: true=0 (toxic),   pred=0 (toxic)   -> same side
+#   sample 1: true=0 (toxic),   pred=1 (non_tox) -> CROSS-SIDE CONFUSION
+#   sample 2: true=1 (non_tox), pred=2 (unknown) -> AMBIGUOUS
+#   sample 3: true=2 (unknown) -> excluded entirely (no known true side)
+#   sample 4: true=3 (toxic),   pred=3 (toxic)   -> same side
+_SIDE_PROBAS = np.array([
+    [0.70, 0.10, 0.10, 0.10],
+    [0.20, 0.60, 0.10, 0.10],
+    [0.10, 0.20, 0.60, 0.10],
+    [0.25, 0.25, 0.25, 0.25],
+    [0.10, 0.10, 0.10, 0.70],
+])
+_SIDE_LABELS = np.array([0, 0, 1, 2, 3])
+_SPECIES_SIDES = [1, 0, -1, 1]
+
+
+def test_toxic_confusion_rate_excludes_unknown_true_side():
+    result = toxic_confusion_rate(_SIDE_PROBAS, _SIDE_LABELS, _SPECIES_SIDES)
+    assert result["n_known_side"] == 4
+
+
+def test_toxic_confusion_rate_counts_cross_side_predictions():
+    result = toxic_confusion_rate(_SIDE_PROBAS, _SIDE_LABELS, _SPECIES_SIDES)
+    assert result["confusion_rate"] == 1 / 4
+
+
+def test_toxic_confusion_rate_counts_ambiguous_separately():
+    result = toxic_confusion_rate(_SIDE_PROBAS, _SIDE_LABELS, _SPECIES_SIDES)
+    assert result["ambiguous_rate"] == 1 / 4
+
+
+def test_toxic_confusion_rate_none_when_no_known_true_side():
+    all_unknown_sides = [-1, -1, -1, -1]
+    result = toxic_confusion_rate(
+        _SIDE_PROBAS, _SIDE_LABELS, all_unknown_sides,
+    )
+    assert result == {
+        "confusion_rate": None, "ambiguous_rate": None, "n_known_side": 0,
+    }
+
+
+def test_toxic_confusion_pairs_finds_the_cross_side_pair():
+    # Same fixture as toxic_confusion_rate's tests above: only sample 1
+    # (true=0, pred=1) is a confirmed cross-side confusion.
+    pairs = toxic_confusion_pairs(_SIDE_PROBAS, _SIDE_LABELS, _SPECIES_SIDES)
+    assert pairs == [(0, 1, 1)]
+
+
+def test_toxic_confusion_pairs_counts_repeats_and_sorts_by_count():
+    # classes 0 (toxic) / 1 (non_toxic): two (true=0, pred=1)
+    # confusions, one (true=1, pred=0), one correct prediction.
+    probas = np.array([
+        [0.1, 0.9],
+        [0.2, 0.8],
+        [0.9, 0.1],
+        [0.6, 0.4],
+    ])
+    labels = np.array([0, 0, 1, 0])
+    sides = [1, 0]
+    pairs = toxic_confusion_pairs(probas, labels, sides)
+    assert pairs == [(0, 1, 2), (1, 0, 1)]

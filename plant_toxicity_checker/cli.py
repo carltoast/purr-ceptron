@@ -131,6 +131,67 @@ def _run_species_breakdown(args):
     return 0
 
 
+def _run_extract_features(args):
+    from plant_toxicity_checker import decoupled
+
+    out_path = decoupled.extract_features(args.run, args.split)
+    print(f"done: {out_path}")
+    return 0
+
+
+def _run_train_classifier(args):
+    from plant_toxicity_checker import decoupled
+
+    config = decoupled.load_config(args.config)
+    features_file = decoupled.features_path(args.features_run, "train")
+    run_name = args.run_name or Path(args.config).stem
+    head_path = decoupled.train_classifier_head(
+        features_file, config, run_name, args.features_run,
+    )
+    print(f"done: {head_path}")
+    return 0
+
+
+def _run_evaluate_classifier(args):
+    from plant_toxicity_checker import decoupled
+
+    result = decoupled.evaluate_classifier_head(args.run, args.split)
+    for k in (1, 3, 5, 10):
+        print(
+            f"top-{k}: {result[f'top_{k}']:.1%}   "
+            f"avg-{k}: {result[f'avg_{k}']:.1%}"
+        )
+    confusion = result["toxic_confusion"]
+    if confusion["n_known_side"]:
+        print(
+            f"toxic confusion: {confusion['confusion_rate']:.1%}  "
+            f"ambiguous: {confusion['ambiguous_rate']:.1%}  "
+            f"(n={confusion['n_known_side']})"
+        )
+    else:
+        print("toxic confusion: no samples with a known side")
+    return 0
+
+
+def _run_classifier_species_breakdown(args):
+    from plant_toxicity_checker import decoupled
+
+    result = decoupled.classifier_head_species_breakdown(args.run, args.split)
+    print(f"{len(result['species'])} species, split={args.split}")
+    for name, stats in result["buckets"].items():
+        if stats["n_species"] == 0:
+            continue
+        print(
+            f"  train_count {name:>7}: {stats['n_species']:4d} species  "
+            f"top1={stats['top1_accuracy']:.1%}  "
+            f"top5={stats['top5_accuracy']:.1%}  "
+            f"(n={stats['n']})"
+        )
+    out_path = f"outputs/{args.run}/species_breakdown_{args.split}.json"
+    print(f"full per-species breakdown written to {out_path}")
+    return 0
+
+
 def _positive_int(text):
     value = int(text)
     if value < 1:
@@ -212,6 +273,71 @@ def build_parser():
         "--split", choices=["val", "test"], default="val",
     )
     species_breakdown.set_defaults(func=_run_species_breakdown)
+
+    extract_features = sub.add_parser(
+        "extract-features",
+        help="Cache a trained backbone's penultimate-layer features for "
+             "one split (Roadmap Phase 2) - run this on the home PC's "
+             "GPU, not locally",
+    )
+    extract_features.add_argument(
+        "--run", required=True,
+        help="backbone run name (checkpoints/<run>/)",
+    )
+    extract_features.add_argument(
+        "--split", choices=["train", "val", "test"], required=True,
+    )
+    extract_features.set_defaults(func=_run_extract_features)
+
+    train_classifier = sub.add_parser(
+        "train-classifier",
+        help="Train a classifier head on cached backbone features "
+             "(Roadmap Phase 2/3) - cheap enough for CPU, no GPU needed",
+    )
+    train_classifier.add_argument(
+        "--config", required=True,
+        help="decoupled-training config JSON, e.g. "
+             "configs/decoupled_cb_loss.json",
+    )
+    train_classifier.add_argument(
+        "--features-run", required=True,
+        help="backbone run whose cached train-split features to use "
+             "(see extract-features)",
+    )
+    train_classifier.add_argument(
+        "--run-name", default=None,
+        help="defaults to the config file's stem",
+    )
+    train_classifier.set_defaults(func=_run_train_classifier)
+
+    evaluate_classifier = sub.add_parser(
+        "evaluate-classifier",
+        help="Evaluate a trained classifier head: top-1/3/5/10, "
+             "average-k, and toxic/non-toxic confusion rate",
+    )
+    evaluate_classifier.add_argument(
+        "--run", required=True, help="run name (checkpoints/<run>/)",
+    )
+    evaluate_classifier.add_argument(
+        "--split", choices=["val", "test"], default="test",
+    )
+    evaluate_classifier.set_defaults(func=_run_evaluate_classifier)
+
+    classifier_species_breakdown = sub.add_parser(
+        "classifier-species-breakdown",
+        help="Per-species accuracy for a trained classifier head, "
+             "bucketed by training-image count - the Phase 2/3 "
+             "equivalent of species-breakdown, from cached features",
+    )
+    classifier_species_breakdown.add_argument(
+        "--run", required=True, help="run name (checkpoints/<run>/)",
+    )
+    classifier_species_breakdown.add_argument(
+        "--split", choices=["val", "test"], default="val",
+    )
+    classifier_species_breakdown.set_defaults(
+        func=_run_classifier_species_breakdown,
+    )
     return parser
 
 

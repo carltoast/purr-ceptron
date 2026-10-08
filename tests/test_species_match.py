@@ -8,7 +8,9 @@ from plant_toxicity_checker.species_match import (
     lookup_toxicity,
     match_against_toxicity_table,
     parse_scientific_name,
+    species_sides,
     toxicity_category,
+    toxicity_side,
 )
 from plant_toxicity_checker.toxicity import ToxicityEntry
 
@@ -295,3 +297,76 @@ def test_toxicity_category_genus_only_unknown():
 
 def test_toxicity_category_no_match():
     assert toxicity_category(MatchResult("none")) == "no match"
+
+
+# --- toxicity_side / species_sides -----------------------------------------
+
+
+def test_toxicity_side_toxic_for_any_toxic_category():
+    result = MatchResult("exact", toxicity_entry("Rosa canina", "yes"), ())
+    assert toxicity_side(result) == "toxic"
+
+    genus_direct = MatchResult(
+        "genus_only", None, (toxicity_entry("Rosa spp.", "yes"),),
+    )
+    assert toxicity_side(genus_direct) == "toxic"
+
+    genus_inferred = MatchResult(
+        "genus_only", None, (toxicity_entry("Rosa canina", "yes"),),
+    )
+    assert toxicity_side(genus_inferred) == "toxic"
+
+
+def test_toxicity_side_non_toxic_for_any_non_toxic_category():
+    result = MatchResult("exact", toxicity_entry("Rosa canina", "no"), ())
+    assert toxicity_side(result) == "non_toxic"
+
+
+def test_toxicity_side_none_for_no_match():
+    assert toxicity_side(MatchResult("none")) is None
+
+
+def test_toxicity_side_none_for_unknown():
+    result = MatchResult(
+        "exact", toxicity_entry("Rosa canina", "unknown"), (),
+    )
+    assert toxicity_side(result) is None
+
+
+class _FakeLabels:
+    """Minimal duck-typed stand-in for plantnet_labels.SpeciesLabels -
+    just the two members species_sides actually uses."""
+
+    def __init__(self, species_ids_in_index_order):
+        self._ids = [str(s) for s in species_ids_in_index_order]
+
+    def __len__(self):
+        return len(self._ids)
+
+    def index_of_species_id(self, species_id):
+        return self._ids.index(str(species_id))
+
+
+def test_species_sides_builds_dense_array_by_class_index():
+    plantnet_rows = [
+        {"species_id": "1", "genus": "Rosa", "epithet": "canina"},
+        {"species_id": "2", "genus": "Lilium", "epithet": "longiflorum"},
+        {"species_id": "3", "genus": "Tulipa", "epithet": "gesneriana"},
+    ]
+    toxicity_entries = [
+        toxicity_entry("Rosa canina", "yes"),
+        toxicity_entry("Lilium longiflorum", "no"),
+    ]
+    # class index 0 -> species_id 3, 1 -> species_id 1, 2 -> species_id 2
+    labels = _FakeLabels(["3", "1", "2"])
+
+    sides = species_sides(plantnet_rows, toxicity_entries, labels)
+
+    assert sides == [-1, 1, 0]
+
+
+def test_species_sides_length_matches_label_space_not_row_count():
+    plantnet_rows = [{"species_id": "1", "genus": "Rosa", "epithet": "canina"}]
+    labels = _FakeLabels(["1", "2", "3"])
+    sides = species_sides(plantnet_rows, [], labels)
+    assert len(sides) == 3

@@ -245,3 +245,59 @@ def toxicity_category(result):
             return "genus - non-toxic (inferred)"
         return "genus - unknown"
     return "no match"
+
+
+_TOXIC_CATEGORIES = {"exact - toxic", "genus - toxic (direct)",
+                      "genus - toxic (inferred)"}
+_NON_TOXIC_CATEGORIES = {"exact - non-toxic", "genus - non-toxic (direct)",
+                          "genus - non-toxic (inferred)"}
+
+
+def toxicity_side(result):
+    """``"toxic"`` / ``"non_toxic"`` / ``None`` for one ``MatchResult``
+    from ``match_against_toxicity_table`` - the binary side a
+    training-time cost term needs, collapsing ``toxicity_category``'s
+    direct/inferred distinction (that distinction is about how
+    confident the *label itself* is, not something a loss term needs
+    to weight differently).
+
+    Per ``CLAUDE.md``'s training-time allowance, this uses the full
+    signal (exact and genus-level, verified or not) - it never touches
+    the verdict/safety path, only shapes a loss term. ``None`` (no
+    signal at all) means exclude the species from that term rather
+    than guess at a side.
+    """
+    category = toxicity_category(result)
+    if category in _TOXIC_CATEGORIES:
+        return "toxic"
+    if category in _NON_TOXIC_CATEGORIES:
+        return "non_toxic"
+    return None
+
+
+def species_sides(plantnet_rows, toxicity_entries, labels):
+    """A dense per-class-index side array for a whole label space, for
+    the toxicity cost term and ``metrics.toxic_confusion_rate`` alike.
+
+    ``plantnet_rows``/``toxicity_entries`` as in
+    ``match_against_toxicity_table``. ``labels`` is a
+    ``plantnet_labels.SpeciesLabels`` (or anything with
+    ``index_of_species_id``/``__len__``), used to place each PlantNet
+    row's side at its class index.
+
+    Returns a list of length ``len(labels)`` with ``1`` (toxic), ``0``
+    (non-toxic), or ``-1`` (unknown/no signal) at each class index -
+    plain Python ints, not a numpy array, so this module stays
+    torch/numpy-free; callers needing an array convert at the edge.
+    """
+    sides = [-1] * len(labels)
+    matches = match_against_toxicity_table(plantnet_rows, toxicity_entries)
+    for row in plantnet_rows:
+        species_id = row["species_id"]
+        index = labels.index_of_species_id(species_id)
+        side = toxicity_side(matches[int(species_id)])
+        if side == "toxic":
+            sides[index] = 1
+        elif side == "non_toxic":
+            sides[index] = 0
+    return sides
