@@ -4,7 +4,11 @@ import argparse
 import sys
 from pathlib import Path
 
-from plant_toxicity_checker.config import ASPCA_DETAILS_JSON_PATH
+from plant_toxicity_checker.config import (
+    ASPCA_DETAILS_JSON_PATH,
+    DEFAULT_BACKBONE_RUN,
+    DEFAULT_HEAD_RUN,
+)
 from plant_toxicity_checker.verdict import SCOPE_NOTE, Status
 
 _HEADLINES = {
@@ -192,6 +196,25 @@ def _run_classifier_species_breakdown(args):
     return 0
 
 
+def _run_check(args):
+    import json
+
+    from plant_toxicity_checker.config import TOXICITY_TABLE_PATH
+    from plant_toxicity_checker.pipeline import check_image
+    from plant_toxicity_checker.plantnet_classifier import PlantNetClassifier
+    from plant_toxicity_checker.toxicity import load_table
+
+    classifier = PlantNetClassifier(args.backbone_run, args.head_run)
+    table = load_table(TOXICITY_TABLE_PATH)
+    verdict = check_image(args.image, classifier, table)
+
+    if args.json:
+        print(json.dumps(verdict_to_dict(verdict, args.top_k)))
+    else:
+        print(format_verdict(verdict, args.top_k or 5))
+    return 0
+
+
 def _positive_int(text):
     value = int(text)
     if value < 1:
@@ -338,16 +361,41 @@ def build_parser():
     classifier_species_breakdown.set_defaults(
         func=_run_classifier_species_breakdown,
     )
+
+    check = sub.add_parser(
+        "check",
+        help="Identify a plant photo and report whether it's toxic to "
+             "cats",
+    )
+    check.add_argument("--image", required=True, help="path to a photo")
+    check.add_argument(
+        "--backbone-run", default=DEFAULT_BACKBONE_RUN,
+        help="species-ID backbone run (checkpoints/<run>/)",
+    )
+    check.add_argument(
+        "--head-run", default=DEFAULT_HEAD_RUN,
+        help="classifier-head run trained on that backbone",
+    )
+    check.add_argument(
+        "--top-k", type=_positive_int, default=None,
+        help="candidates to show (default: 5 for text, all for --json)",
+    )
+    check.add_argument(
+        "--json", action="store_true",
+        help="machine-readable output instead of the text report",
+    )
+    check.set_defaults(func=_run_check)
     return parser
 
 
 def main(argv=None):
     """Entry point; returns a process exit code."""
+    from plant_toxicity_checker.pipeline import ImageLoadError
     from plant_toxicity_checker.train import ConfigError
 
     args = build_parser().parse_args(argv)
     try:
         return args.func(args)
-    except (OSError, ConfigError) as err:
+    except (OSError, ConfigError, ImageLoadError) as err:
         print(f"error: {err}", file=sys.stderr)
         return 1

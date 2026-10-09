@@ -26,3 +26,13 @@ TOXICITY_TABLE_PATH = DATA_DIR / "toxicity.json"
 # threshold only ever risks a false "it's fine".
 MIN_CONFIDENCE = 0.80
 CANDIDATE_FLOOR = 0.05
+
+# The shipped species-ID model (see notebooks/04_decoupled_training_
+# comparison.ipynb's 5 rounds of exploration): the Phase 1 backbone,
+# frozen, with a classifier head retrained with plain CE +
+# toxicity_cost_weight=20 - zero measurable accuracy cost vs. the
+# baseline, toxic/non-toxic confusion cut ~30% relative. One place
+# this decision lives, so picking a different run later is a one-line
+# change here, not a hunt through callers.
+DEFAULT_BACKBONE_RUN = "plantnet-baseline"
+DEFAULT_HEAD_RUN = "decoupled_ce_toxicity_w20.0"

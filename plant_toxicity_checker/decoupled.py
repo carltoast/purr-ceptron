@@ -688,3 +688,112 @@ def baseline_toxic_confusion_detail(backbone_run, split="val"):
     model, labels_obj = _load_backbone_fc(backbone_run)
     probas, eval_labels = _backbone_predict(model, backbone_run, split)
     return toxic_confusion_detail(probas, eval_labels, labels_obj)
+
+
+def load_combined_model(backbone_run, head_run):
+    """Assemble the frozen backbone + a trained classifier head into
+    one model ready for single-image inference - the deployed-model
+    equivalent of what ``extract_features`` + ``evaluate_classifier_head``
+    do as two separate cached-feature stages, combined here since
+    there's no batch of images to cache features for.
+
+    Returns ``(model, labels_obj)``; ``model(image_tensor_batch)``
+    gives raw logits straight from the trained head.
+    """
+    from plant_toxicity_checker.train import CHECKPOINTS_DIR
+
+    backbone_path = CHECKPOINTS_DIR / backbone_run / "latest.pt"
+    if not backbone_path.exists():
+        raise FileNotFoundError(
+            f"no backbone checkpoint at {backbone_path} - train it "
+            f"with `train-plantnet --config ...` or pull it from the "
+            f"remote PC with scripts/remote/pull.sh checkpoints"
+        )
+    head_path = CHECKPOINTS_DIR / head_run / "head.pt"
+    if not head_path.exists():
+        raise FileNotFoundError(
+            f"no classifier head checkpoint at {head_path} - train it "
+            f"with `train-classifier --config ...` or pull it from the "
+            f"remote PC with scripts/remote/pull.sh checkpoints"
+        )
+
+    model, labels_obj = _load_backbone_fc(backbone_run)
+    head, _head_labels_obj, head_backbone_run, _config = (
+        _load_classifier_head(head_run)
+    )
+    if head_backbone_run != backbone_run:
+        raise ValueError(
+            f"head {head_run!r} was trained on backbone_run "
+            f"{head_backbone_run!r}, not {backbone_run!r}"
+        )
+    model.fc = head
+    model.eval()
+    return model, labels_obj
+
+
+def verdict_tier_coverage(probas, labels_obj, table):
+    """Empirical TOXIC/CAUTION/LIKELY_SAFE distribution for one
+    model's predictions, run through the real ``verdict.assess()``
+    safety path - the "verdict-tier coverage" row notebook 00's Key
+    Metrics table carried as ``TBD`` until there was a real classifier
+    (Phase 4) to measure it with. Pure measurement - never used to
+    change ``assess()``'s own behavior, only to report on it.
+    """
+    import collections
+
+    from plant_toxicity_checker.verdict import Prediction, assess
+
+    counts = collections.Counter()
+    for row in probas:
+        predictions = [
+            Prediction(labels_obj.name_of(i), float(confidence))
+            for i, confidence in enumerate(row)
+        ]
+        counts[assess(predictions, table).status.value] += 1
+    total = sum(counts.values())
+    return {status: count / total for status, count in counts.items()}
+
+
+def classifier_head_verdict_tiers(run_name, split="val"):
+    """``verdict_tier_coverage`` for a trained classifier head. Writes
+    ``outputs/<run_name>/verdict_tiers_<split>.json``.
+    """
+    from plant_toxicity_checker.config import TOXICITY_TABLE_PATH
+    from plant_toxicity_checker.toxicity import load_table
+    from plant_toxicity_checker.train import OUTPUTS_DIR
+
+    head, labels_obj, backbone_run, _config = _load_classifier_head(run_name)
+    probas, _eval_labels = _classifier_head_predict(head, backbone_run, split)
+    table = load_table(TOXICITY_TABLE_PATH)
+    tiers = verdict_tier_coverage(probas, labels_obj, table)
+
+    result = {"run": run_name, "split": split, "tiers": tiers}
+    out_dir = OUTPUTS_DIR / run_name
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / f"verdict_tiers_{split}.json").write_text(
+        json.dumps(result, indent=2), encoding="utf-8"
+    )
+    return result
+
+
+def baseline_verdict_tiers(backbone_run, split="val"):
+    """``verdict_tier_coverage`` for the Phase 1 baseline, scored
+    through its original ``fc`` layer on cached features - the same
+    apples-to-apples reasoning as ``baseline_eval_from_features``.
+    """
+    from plant_toxicity_checker.config import TOXICITY_TABLE_PATH
+    from plant_toxicity_checker.toxicity import load_table
+    from plant_toxicity_checker.train import OUTPUTS_DIR
+
+    model, labels_obj = _load_backbone_fc(backbone_run)
+    probas, _eval_labels = _backbone_predict(model, backbone_run, split)
+    table = load_table(TOXICITY_TABLE_PATH)
+    tiers = verdict_tier_coverage(probas, labels_obj, table)
+
+    result = {"run": backbone_run, "split": split, "tiers": tiers}
+    out_dir = OUTPUTS_DIR / backbone_run
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / f"verdict_tiers_{split}.json").write_text(
+        json.dumps(result, indent=2), encoding="utf-8"
+    )
+    return result
