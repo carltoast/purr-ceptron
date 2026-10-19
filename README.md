@@ -296,7 +296,7 @@ tests/                    pytest suite, offline by default
 
 ---
 
-## Credits & citation
+## Sources
 
 **Pl@ntNet-300K-v2** is the dataset used here. Garcin, C., Joly, A., Bonnet,
 P., Affouard, A., Lombardo, J.-C., Chouet, M., Servajean, M., Lorieul, T.,
@@ -312,8 +312,11 @@ long-tailed distribution*, NeurIPS Datasets and Benchmarks, 2021
 **ConvNeXt V2.** Woo, S. et al. *ConvNeXt V2: Co-designing and Scaling
 ConvNets with Masked Autoencoders.* CVPR 2023.
 
-**Decoupled long-tail training.** Kang, B. et al. *Decoupling Representation
-and Classifier for Long-Tailed Recognition.* ICLR 2020.
+**Square-root frequency sampling**, used here for the class imbalance.
+Mahajan, D., Girshick, R., Ramanathan, V., He, K., Paluri, M., Li, Y.,
+Bharambe, A., van der Maaten, L. *Exploring the Limits of Weakly Supervised
+Pretraining.* ECCV 2018
+[[paper]](https://arxiv.org/abs/1805.00932).
 
 **Toxicity data.** [ASPCA Animal Poison Control](https://www.aspca.org/pet-care/animal-poison-control/cats-plant-list),
 scraped while respecting the `robots.txt` crawl-delay.
