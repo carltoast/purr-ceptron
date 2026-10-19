@@ -165,14 +165,14 @@ bottleneck is data coverage, not model accuracy.
 ## Try it
 
 ```bash
-git clone <repo-url> && cd cat-project
+git clone git@github.com:carltoast/purr-ceptron.git && cd purr-ceptron
 python -m venv .venv
 .venv\Scripts\activate            # Windows  (source .venv/bin/activate elsewhere)
 pip install -r requirements.txt && pip install -e .
 ```
 
 Weights are not in the repo. Download both from the
-[latest release](https://github.com/carltoast/cat-project/releases/latest)
+[latest release](https://github.com/carltoast/purr-ceptron/releases/latest)
 and put them where the code looks:
 
 ```bash
@@ -206,7 +206,7 @@ docker build -t purrceptron . && docker run --rm purrceptron
 ```
 
 Checkpoints are not committed; the two the README compares are attached to
-the [latest release](https://github.com/carltoast/cat-project/releases/latest).
+the [latest release](https://github.com/carltoast/purr-ceptron/releases/latest).
 Training runs on a home GPU over SSH via `scripts/remote/`, never locally.
 </details>
 
