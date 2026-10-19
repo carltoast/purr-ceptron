@@ -15,15 +15,37 @@ convention.
 
 
 class PlantNetClassifier:
-    """Wraps a trained backbone+head pair for single-image inference."""
+    """A trained species model, wrapped for single-image inference.
 
-    def __init__(self, backbone_run, head_run):
-        from plant_toxicity_checker import decoupled
+    Two shapes of trained model exist in this project and both are
+    loadable here:
+
+    - ``PlantNetClassifier(run)`` - a whole network trained end to end
+      by ``train-plantnet`` (the shipped ConvNeXt V2-Tiny model).
+    - ``PlantNetClassifier(run, head_run=...)`` - the Phase 1 backbone
+      with a separately trained classifier head bolted on, from the
+      decoupled-training experiments in
+      ``notebooks/04_decoupled_training_comparison.ipynb``.
+    """
+
+    def __init__(self, run, head_run=None, epoch=None, use_ema=False):
         from plant_toxicity_checker.plantnet_dataset import build_transforms
+        from plant_toxicity_checker.plantnet_labels import SpeciesLabels
 
-        self._model, self._labels = decoupled.load_combined_model(
-            backbone_run, head_run,
-        )
+        if head_run is not None:
+            from plant_toxicity_checker import decoupled
+
+            self._model, self._labels = decoupled.load_combined_model(
+                run, head_run,
+            )
+        else:
+            from plant_toxicity_checker.train import load_trained_model
+
+            self._labels = SpeciesLabels.from_metadata()
+            self._model, _config, _epoch = load_trained_model(
+                run, len(self._labels), epoch=epoch, use_ema=use_ema,
+            )
+            self._model.eval()
         self._transform = build_transforms(train=False)
 
     def predict(self, image, top_k=None):

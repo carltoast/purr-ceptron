@@ -80,7 +80,7 @@ def test_verdict_serialises_to_json(table):
         [("Lilium tigrinum", 0.9), ("Rosa rugosa", 0.05)]
     )
     verdict = check_image(Image.new("RGB", (8, 8)), classifier, table)
-    data = json.loads(json.dumps(cli.verdict_to_dict(verdict)))
+    data = json.loads(json.dumps(cli.verdict_to_dict(verdict, table)))
     assert data["status"] == "toxic"
     assert data["toxicity"]["severity"] == "life_threatening"
     assert data["scope_note"] == SCOPE_NOTE
@@ -92,9 +92,9 @@ def test_top_k_only_trims_the_displayed_predictions(table):
         ("Lilium tigrinum", 0.1),
     ])
     verdict = check_image(Image.new("RGB", (8, 8)), classifier, table)
-    data = cli.verdict_to_dict(verdict, top_k=1)
+    data = cli.verdict_to_dict(verdict, table, top_k=1)
     assert len(data["predictions"]) == 1
-    shown = cli.format_verdict(verdict, top_k=2)
+    shown = cli.format_verdict(verdict, table, top_k=2)
     assert "10.0%  Lilium tigrinum" not in shown  # trimmed from the list...
     assert "alternative 'Lilium tigrinum'" in shown  # ...but still explained
     assert data["status"] == verdict.status.value
@@ -105,7 +105,43 @@ def test_format_verdict_says_only_main_plant_was_assessed(table):
         [("Rosa rugosa", 0.99), ("Helianthus annuus", 0.01)]
     )
     verdict = check_image(Image.new("RGB", (8, 8)), classifier, table)
-    text = cli.format_verdict(verdict)
+    text = cli.format_verdict(verdict, table)
     assert "LIKELY SAFE for the main plant only" in text
     assert "Rosa rugosa" in text
     assert SCOPE_NOTE in text
+
+
+def test_each_listed_candidate_says_what_the_table_knows(table):
+    classifier = FakeClassifier([
+        ("Rosa rugosa", 0.4),             # verified "no"
+        ("Petunia hybrida", 0.3),         # "no" but NOT verified
+        ("Lilium tigrinum", 0.2),         # verified "yes"
+        ("Dianthus caryophyllus", 0.05),  # in the table, side unknown
+        ("Quercus robur", 0.05),          # not in the table at all
+    ])
+    verdict = check_image(Image.new("RGB", (8, 8)), classifier, table)
+    lines = cli.format_verdict(verdict, table, top_k=5).splitlines()
+
+    shown = {
+        line.split(": ", 1)[0].split()[-1]: line.split(": ", 1)[1]
+        for line in lines if line.startswith("  ") and ": " in line
+    }
+    assert shown["rugosa"] == "Safe for cats"
+    # The whole point: an unverified "no" must never read as plain safe.
+    assert shown["hybrida"] == "Safe for cats, unverified"
+    assert shown["tigrinum"] == "TOXIC to cats"
+    assert shown["caryophyllus"] == "In the table, toxicity not recorded"
+    assert shown["robur"] == "Not in the toxicity table"
+
+
+def test_json_predictions_carry_the_toxicity_category(table):
+    classifier = FakeClassifier(
+        [("Lilium tigrinum", 0.9), ("Quercus robur", 0.1)]
+    )
+    verdict = check_image(Image.new("RGB", (8, 8)), classifier, table)
+    data = cli.verdict_to_dict(verdict, table)
+    categories = [p["toxicity_category"] for p in data["predictions"]]
+    assert categories == ["exact - toxic", "no match"]
+    # verified is the row's own flag, or None when there's no exact row
+    # to have one - never False, which would read as "checked, not ok".
+    assert [p["verified"] for p in data["predictions"]] == [True, None]

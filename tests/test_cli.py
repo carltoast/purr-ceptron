@@ -17,8 +17,10 @@ from plant_toxicity_checker import cli
 def test_check_parses_arguments_with_defaults():
     args = cli.build_parser().parse_args(["check", "--image", "photo.jpg"])
     assert args.image == "photo.jpg"
-    assert args.backbone_run
-    assert args.head_run
+    assert args.run  # the shipped end-to-end model, not a backbone+head
+    assert args.head_run is None
+    assert args.epoch is None
+    assert args.ema is False
     assert args.top_k is None
     assert args.json is False
 
@@ -29,7 +31,7 @@ def _stub_classifier_and_table(monkeypatch, table, predictions):
 
     monkeypatch.setattr(
         classifier_module, "PlantNetClassifier",
-        lambda backbone_run, head_run: FakeClassifier(predictions),
+        lambda run, **kwargs: FakeClassifier(predictions),
     )
     monkeypatch.setattr(toxicity_module, "load_table", lambda path: table)
 

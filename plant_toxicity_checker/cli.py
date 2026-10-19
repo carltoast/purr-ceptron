@@ -4,10 +4,11 @@ import argparse
 import sys
 from pathlib import Path
 
+from plant_toxicity_checker import species_match
 from plant_toxicity_checker.config import (
     ASPCA_DETAILS_JSON_PATH,
     DEFAULT_BACKBONE_RUN,
-    DEFAULT_HEAD_RUN,
+    DEFAULT_RUN,
 )
 from plant_toxicity_checker.verdict import SCOPE_NOTE, Status
 
@@ -18,14 +19,57 @@ _HEADLINES = {
     "(verified non-toxic, confident match)",
 }
 
+# What the toxicity table says about one candidate, in reading order of
+# how much it actually tells you about *that* species. Genus-level
+# wordings deliberately say the species itself is not listed - the
+# reader is meant to see the gap, not read a relative's entry as this
+# plant's.
+_CANDIDATE_LABELS = {
+    "exact - toxic": "TOXIC to cats",
+    "exact - non-toxic": "Safe for cats",
+    "exact - unknown": "In the table, toxicity not recorded",
+    "genus - toxic (direct)": "TOXIC to cats (whole genus listed)",
+    "genus - toxic (inferred)": "A relative is toxic to cats",
+    "genus - non-toxic (direct)":
+        "Genus listed non-toxic, this species not listed",
+    "genus - non-toxic (inferred)":
+        "A relative is non-toxic, this species not listed",
+    "genus - unknown": "Genus in the table, toxicity not recorded",
+    "no match": "Not in the toxicity table",
+}
 
-def verdict_to_dict(verdict, top_k=None):
+
+def _candidate_toxicity(species, index):
+    """What the toxicity table knows about one predicted species, so a
+    reader can weigh the alternatives themselves instead of trusting
+    the headline alone: ``{"toxicity_category", "toxicity_note",
+    "verified"}``, ready to merge into a prediction dict.
+
+    An exact row that is not ``verified`` never reads as a plain
+    "Safe for cats" - unverified is said out loud, because the whole
+    verdict logic treats unverified as not-safe.
+    """
+    result = species_match.lookup_toxicity(species, index)
+    category = species_match.toxicity_category(result)
+    note = _CANDIDATE_LABELS[category]
+    verified = None if result.status != "exact" else result.exact_row.verified
+    if category in ("exact - toxic", "exact - non-toxic") and not verified:
+        note += ", unverified"
+    return {
+        "toxicity_category": category,
+        "toxicity_note": note,
+        "verified": verified,
+    }
+
+
+def verdict_to_dict(verdict, table, top_k=None):
     """JSON-serialisable form of a ``Verdict``.
 
     ``top_k`` only trims the listed predictions; the verdict itself was
     already computed from the full distribution.
     """
     entry = verdict.entry
+    index = species_match.build_toxicity_index(table)
     return {
         "status": verdict.status.value,
         "species": verdict.species,
@@ -41,14 +85,19 @@ def verdict_to_dict(verdict, top_k=None):
             "verified": entry.verified,
         },
         "predictions": [
-            {"species": p.species, "confidence": p.confidence}
+            {
+                "species": p.species,
+                "confidence": p.confidence,
+                **_candidate_toxicity(p.species, index),
+            }
             for p in verdict.predictions[:top_k]
         ],
     }
 
 
-def format_verdict(verdict, top_k=5):
-    """Human-readable multi-line report (``top_k`` candidates shown)."""
+def format_verdict(verdict, table, top_k=5):
+    """Human-readable multi-line report (``top_k`` candidates shown,
+    each with what the toxicity table says about it)."""
     lines = [_HEADLINES[verdict.status]]
     if verdict.species is not None:
         lines.append(
@@ -59,8 +108,10 @@ def format_verdict(verdict, top_k=5):
     if entry is not None and entry.symptoms:
         lines.append("Symptoms: " + ", ".join(entry.symptoms))
     lines.append("Top candidates:")
+    index = species_match.build_toxicity_index(table)
     lines.extend(
-        f"  {p.confidence:6.1%}  {p.species}"
+        f"  {p.confidence:6.1%}  {p.species}: "
+        f"{_candidate_toxicity(p.species, index)['toxicity_note']}"
         for p in verdict.predictions[:top_k]
     )
     lines.append(f"Note: {SCOPE_NOTE}")
@@ -107,11 +158,30 @@ def _run_train_plantnet(args):
 def _run_evaluate_plantnet(args):
     from plant_toxicity_checker import train
 
-    result = train.run_evaluation(args.run, args.split)
+    result = train.run_evaluation(
+        args.run, args.split, epoch=args.epoch, use_ema=args.ema,
+    )
+    print(
+        f"{args.run}  epoch {result['trained_epoch']}  "
+        f"({result['weights']} weights)  split={args.split}"
+    )
     for k in (1, 3, 5, 10):
         print(
             f"top-{k}: {result[f'top_{k}']:.1%}   "
             f"avg-{k}: {result[f'avg_{k}']:.1%}"
+        )
+    print(
+        f"macro-avg top-1: {result['macro_top_1']:.1%}   "
+        f"macro-avg top-5: {result['macro_top_5']:.1%}"
+        f"   (per-species mean - the paper's headline metric)"
+    )
+    confusion = result["toxic_confusion"]
+    if confusion["confusion_rate"] is not None:
+        print(
+            f"toxic/non-toxic confusion: "
+            f"{confusion['confusion_rate']:.2%}   "
+            f"ambiguous: {confusion['ambiguous_rate']:.2%}   "
+            f"(n={confusion['n_known_side']})"
         )
     return 0
 
@@ -119,7 +189,9 @@ def _run_evaluate_plantnet(args):
 def _run_species_breakdown(args):
     from plant_toxicity_checker import train
 
-    result = train.run_species_breakdown(args.run, args.split)
+    result = train.run_species_breakdown(
+        args.run, args.split, epoch=args.epoch,
+    )
     print(f"{len(result['species'])} species, split={args.split}")
     for name, stats in result["buckets"].items():
         if stats["n_species"] == 0:
@@ -130,7 +202,10 @@ def _run_species_breakdown(args):
             f"top5={stats['top5_accuracy']:.1%}  "
             f"(n={stats['n']})"
         )
-    out_path = f"outputs/{args.run}/species_breakdown_{args.split}.json"
+    suffix = f"_epoch{args.epoch}" if args.epoch is not None else ""
+    out_path = (
+        f"outputs/{args.run}/species_breakdown_{args.split}{suffix}.json"
+    )
     print(f"full per-species breakdown written to {out_path}")
     return 0
 
@@ -204,14 +279,17 @@ def _run_check(args):
     from plant_toxicity_checker.plantnet_classifier import PlantNetClassifier
     from plant_toxicity_checker.toxicity import load_table
 
-    classifier = PlantNetClassifier(args.backbone_run, args.head_run)
+    classifier = PlantNetClassifier(
+        args.run, head_run=args.head_run, epoch=args.epoch,
+        use_ema=args.ema,
+    )
     table = load_table(TOXICITY_TABLE_PATH)
     verdict = check_image(args.image, classifier, table)
 
     if args.json:
-        print(json.dumps(verdict_to_dict(verdict, args.top_k)))
+        print(json.dumps(verdict_to_dict(verdict, table, args.top_k)))
     else:
-        print(format_verdict(verdict, args.top_k or 5))
+        print(format_verdict(verdict, table, args.top_k or 5))
     return 0
 
 
@@ -272,14 +350,24 @@ def build_parser():
 
     evaluate_plantnet = sub.add_parser(
         "evaluate-plantnet",
-        help="Evaluate a trained run's checkpoint: top-1/3/5/10 and "
-             "average-k accuracy",
+        help="Evaluate a trained run's checkpoint: top-1/3/5/10, "
+             "average-k, and toxic/non-toxic confusion rate",
     )
     evaluate_plantnet.add_argument(
         "--run", required=True, help="run name (checkpoints/<run>/)",
     )
     evaluate_plantnet.add_argument(
         "--split", choices=["val", "test"], default="test",
+    )
+    evaluate_plantnet.add_argument(
+        "--epoch", type=_positive_int, default=None,
+        help="evaluate checkpoints/<run>/epoch_<N>.pt instead of latest.pt "
+             "- for comparing candidate checkpoints",
+    )
+    evaluate_plantnet.add_argument(
+        "--ema", action="store_true",
+        help="evaluate the EMA shadow weights instead of the live ones "
+             "(only for runs trained with an 'ema_decay' config key)",
     )
     evaluate_plantnet.set_defaults(func=_run_evaluate_plantnet)
 
@@ -294,6 +382,12 @@ def build_parser():
     )
     species_breakdown.add_argument(
         "--split", choices=["val", "test"], default="val",
+    )
+    species_breakdown.add_argument(
+        "--epoch", type=_positive_int, default=None,
+        help="load checkpoints/<run>/epoch_<N>.pt instead of latest.pt "
+             "- e.g. to compare bucket accuracy across several already"
+             "-trained epochs",
     )
     species_breakdown.set_defaults(func=_run_species_breakdown)
 
@@ -369,12 +463,22 @@ def build_parser():
     )
     check.add_argument("--image", required=True, help="path to a photo")
     check.add_argument(
-        "--backbone-run", default=DEFAULT_BACKBONE_RUN,
-        help="species-ID backbone run (checkpoints/<run>/)",
+        "--run", default=DEFAULT_RUN,
+        help="species-ID run to identify with (checkpoints/<run>/)",
     )
     check.add_argument(
-        "--head-run", default=DEFAULT_HEAD_RUN,
-        help="classifier-head run trained on that backbone",
+        "--head-run", default=None,
+        help="use --run as a frozen backbone and bolt this separately "
+             "trained classifier head on top (the decoupled-training "
+             f"setup; pair it with --run {DEFAULT_BACKBONE_RUN})",
+    )
+    check.add_argument(
+        "--epoch", type=_positive_int, default=None,
+        help="evaluate a specific epoch_<N>.pt instead of latest.pt",
+    )
+    check.add_argument(
+        "--ema", action="store_true",
+        help="use the checkpoint's EMA shadow weights",
     )
     check.add_argument(
         "--top-k", type=_positive_int, default=None,
