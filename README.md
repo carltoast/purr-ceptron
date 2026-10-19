@@ -321,6 +321,8 @@ Pretraining.* ECCV 2018
 **Toxicity data.** [ASPCA Animal Poison Control](https://www.aspca.org/pet-care/animal-poison-control/cats-plant-list),
 scraped while respecting the `robots.txt` crawl-delay.
 
+**Tooling.** Developed with the assistance of Claude Code.
+
 ---
 
 **⚠️ Not veterinary advice.** Purr-ceptron is a personal proof-of-concept
