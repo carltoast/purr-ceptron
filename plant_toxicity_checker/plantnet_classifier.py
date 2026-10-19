@@ -4,10 +4,8 @@
 object with a ``.predict(image, top_k=None)`` method returning
 ``verdict.Prediction`` objects (see ``tests/conftest.py``'s
 ``FakeClassifier`` for the exact contract this mirrors). This module
-is the real implementation, backed by the Phase 1 PlantNet-300K
-backbone plus the Phase 2/3 classifier head (see
-``notebooks/04_decoupled_training_comparison.ipynb`` for how that head
-was chosen).
+is the real implementation, backed by the shipped ConvNeXt V2-Tiny
+run, or by the Phase 1 backbone plus a Phase 2/3 classifier head.
 
 ``torch`` is imported lazily, matching ``train.py``/``decoupled.py``'s
 convention.
@@ -24,8 +22,7 @@ class PlantNetClassifier:
       by ``train-plantnet`` (the shipped ConvNeXt V2-Tiny model).
     - ``PlantNetClassifier(run, head_run=...)`` - the Phase 1 backbone
       with a separately trained classifier head bolted on, from the
-      decoupled-training experiments in
-      ``notebooks/04_decoupled_training_comparison.ipynb``.
+      decoupled-training experiments.
     """
 
     def __init__(self, run, head_run=None, epoch=None, use_ema=False):

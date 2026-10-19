@@ -36,3 +36,13 @@ photos/
 
 # Agent instructions - kept local only, not published
 CLAUDE.md
+
+# Working notebooks from earlier phases, kept on disk but out of the
+# repo: the published set is notebooks/0[0-3]_*.
+notebooks/00_project_overview.ipynb
+notebooks/01_plantnet_class_distribution.ipynb
+notebooks/02_plantnet_baseline_results.ipynb
+notebooks/03_plantnet_results_summary.ipynb
+notebooks/04_decoupled_training_comparison.ipynb
+notebooks/05_convnextv2_training_progress.ipynb
+notebooks/project_overview.ipynb
