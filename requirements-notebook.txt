@@ -3,7 +3,8 @@
 #   pip install -r requirements-notebook.txt
 matplotlib
 pandas
-networkx
 ipykernel
+# nbformat/nbclient are only needed to run the notebooks headlessly
+# (python -m jupyter execute), not to open them.
 nbformat
 nbclient

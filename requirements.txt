@@ -1,12 +1,19 @@
-# torch/torchvision: for the PlantNet-300K training pipeline (Roadmap
-# Phase 1+); nothing currently imports them, but they're about to be
-# needed, not leftover from removed code.
+# Species classifier: training on PlantNet-300K and single-image
+# inference. Imported lazily, so the toxicity table, verdict logic and
+# the offline tests all run without loading them.
 torch
 torchvision
-# timm: only for non-torchvision backbone checkpoints (e.g.
-# convnextv2_tiny.fcmae_ft_in22k_in1k - see train.build_model).
+# timm: the ConvNeXt V2-Tiny backbone is not in torchvision
+# (convnextv2_tiny.fcmae_ft_in22k_in1k - see train.build_model).
 timm
+# numpy: imported directly by metrics.py, train.py and decoupled.py.
+# It happens to arrive with torchvision today, but torch itself does
+# not require it, so it is declared rather than assumed.
+numpy
+# Reading photos, including HEIC off an iPhone.
 pillow
 pillow-heif
+# Parsing the ASPCA plant pages.
 beautifulsoup4
+# The Docker image's CMD is pytest, so it ships with the image.
 pytest
