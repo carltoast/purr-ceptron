@@ -16,6 +16,8 @@ _EPOCH_LINE = re.compile(
     r"train_loss=(?P<train_loss>[\d.]+)\s+"
     r"val_top1=(?P<val_top1>[\d.]+)\s+"
     r"val_top5=(?P<val_top5>[\d.]+)\s+"
+    r"(?:ema_val_top1=(?P<ema_val_top1>[\d.]+)\s+"
+    r"ema_val_top5=(?P<ema_val_top5>[\d.]+)\s+)?"
     r"time=(?P<time_seconds>[\d.]+)s"
 )
 
@@ -26,6 +28,11 @@ def parse_epochs(log_text):
     Only matches the one-line-per-completed-epoch summaries (not the
     more frequent in-epoch batch-progress lines); returns a list of
     dicts in log order, empty if no epoch has completed yet.
+
+    ``ema_val_top1``/``ema_val_top5`` are only present (as floats) for
+    runs trained with ``ema_decay`` set - ``None`` for every other run,
+    rather than the key being missing, so callers can build a
+    DataFrame from a mix of EMA and non-EMA runs without a KeyError.
     """
     records = []
     for line in log_text.splitlines():
@@ -39,6 +46,14 @@ def parse_epochs(log_text):
             "train_loss": float(fields["train_loss"]),
             "val_top1": float(fields["val_top1"]),
             "val_top5": float(fields["val_top5"]),
+            "ema_val_top1": (
+                float(fields["ema_val_top1"])
+                if fields["ema_val_top1"] else None
+            ),
+            "ema_val_top5": (
+                float(fields["ema_val_top5"])
+                if fields["ema_val_top5"] else None
+            ),
             "time_seconds": float(fields["time_seconds"]),
         })
     return records
@@ -65,8 +80,9 @@ def fetch_remote_log(run_name, host=DEFAULT_HOST, remote_dir=None):
 
 
 def list_remote_logs(base_run_name, host=DEFAULT_HOST, remote_dir=None):
-    """Every ``logs/<base_run_name>*.log`` file on the remote host, as
-    bare run names (no directory, no ``.log``).
+    """Every ``logs/<base_run_name>.log`` or ``logs/<base_run_name>-
+    <anything>.log`` file on the remote host, as bare run names (no
+    directory, no ``.log``).
 
     Exists because of how ``--resume`` works: ``train.sh``'s tmux
     session/log is named after its own run-name *argument*, not the
@@ -75,13 +91,25 @@ def list_remote_logs(base_run_name, host=DEFAULT_HOST, remote_dir=None):
     same run's checkpoints but writes to a SEPARATE log file. This finds
     every log fragment a base run has accumulated across such resumes,
     so ``fetch_all_epochs`` can stitch them back into one history.
+
+    Deliberately NOT a bare ``<base_run_name>*.log`` glob: that would
+    also match an unrelated run whose name happens to start with this
+    one (e.g. asking for ``plantnet_convnextv2_tiny_toxicity`` would
+    also match ``plantnet_convnextv2_tiny_toxicity_v2.log`` - a
+    completely different run, not a resume of this one) - a real bug
+    this project hit twice (the `convnextv2_tiny_sanity*` runs, then
+    the `_v2` run name), silently corrupting the base run's history
+    with the unrelated run's data for every epoch number they share.
+    Resume suffixes always start with ``-`` (see the example above),
+    so only that separator counts as "the same run, continued."
     """
     import subprocess
 
     remote_dir = remote_dir or f"~/projects/{REPO_ROOT.name}"
     result = subprocess.run(
         ["ssh", host,
-         f"ls {remote_dir}/logs/{base_run_name}*.log 2>/dev/null || true"],
+         f"ls {remote_dir}/logs/{base_run_name}.log "
+         f"{remote_dir}/logs/{base_run_name}-*.log 2>/dev/null || true"],
         capture_output=True, text=True, check=True,
     )
     names = []

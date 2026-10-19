@@ -49,6 +49,26 @@ def test_no_completed_epoch_yet_returns_empty_list():
     assert parse_epochs(line) == []
 
 
+def test_parses_ema_fields_when_present():
+    line = (
+        "epoch 1/30  train_loss=2.87  val_top1=0.6271  val_top5=0.8522  "
+        "ema_val_top1=0.6100  ema_val_top5=0.8400  time=10208.3s\n"
+    )
+    records = parse_epochs(line)
+    assert records[0]["val_top1"] == 0.6271
+    assert records[0]["ema_val_top1"] == 0.6100
+    assert records[0]["ema_val_top5"] == 0.8400
+
+
+def test_ema_fields_are_none_when_absent():
+    records = parse_epochs(
+        "epoch 1/30  train_loss=2.0  val_top1=0.60  val_top5=0.80  "
+        "time=100.0s\n"
+    )
+    assert records[0]["ema_val_top1"] is None
+    assert records[0]["ema_val_top5"] is None
+
+
 # --- list_remote_logs / fetch_all_epochs --------------------------------
 # (mock subprocess.run / the fetch layer rather than hit a real host, same
 # offline-by-default convention as the rest of this project's network code)
@@ -58,6 +78,32 @@ def _fake_run(stdout):
     def run(*args, **kwargs):
         return subprocess.CompletedProcess(args, 0, stdout=stdout, stderr="")
     return run
+
+
+def test_list_remote_logs_glob_excludes_unrelated_longer_run_names(
+    monkeypatch,
+):
+    # Regression test: asking for "plantnet_convnextv2_tiny_toxicity"
+    # must not also match the unrelated run
+    # "plantnet_convnextv2_tiny_toxicity_v2.log" - a real bug this
+    # project hit (that "_v2" run's data silently overwrote the base
+    # run's history for every epoch number they shared). The ssh
+    # command itself must glob "<base>.log" and "<base>-*.log" only -
+    # never a bare "<base>*.log" that a longer, unrelated name could
+    # also satisfy.
+    captured = {}
+
+    def fake_run(args, **kwargs):
+        captured["command"] = args[-1]
+        return subprocess.CompletedProcess(args, 0, stdout="", stderr="")
+
+    monkeypatch.setattr(subprocess, "run", fake_run)
+    list_remote_logs("plantnet_convnextv2_tiny_toxicity")
+
+    command = captured["command"]
+    assert "plantnet_convnextv2_tiny_toxicity.log" in command
+    assert "plantnet_convnextv2_tiny_toxicity-*.log" in command
+    assert "plantnet_convnextv2_tiny_toxicity*.log" not in command
 
 
 def test_list_remote_logs_strips_directory_and_extension(monkeypatch):
