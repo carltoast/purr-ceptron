@@ -50,6 +50,68 @@ def test_load_config_rejects_missing_keys(tmp_path):
         load_config(path)
 
 
+def test_load_config_adamw_does_not_require_momentum_or_nesterov(tmp_path):
+    data = {
+        "optimizer": "adamw",
+        "lr": 0.00005,
+        "weight_decay": 0.05,
+        "batch_size": 16,
+        "epochs": 30,
+        "lr_decay_epochs": [20, 25],
+        "lr_decay_factor": 0.1,
+    }
+    path = tmp_path / "config.json"
+    path.write_text(json.dumps(data), encoding="utf-8")
+    config = load_config(path)
+    assert config["optimizer"] == "adamw"
+
+
+def test_load_config_sgd_still_requires_momentum_and_nesterov(tmp_path):
+    data = {
+        "optimizer": "sgd",
+        "lr": 0.01,
+        "weight_decay": 0.0001,
+        "batch_size": 32,
+        "epochs": 30,
+        "lr_decay_epochs": [20, 25],
+        "lr_decay_factor": 0.1,
+    }
+    path = tmp_path / "config.json"
+    path.write_text(json.dumps(data), encoding="utf-8")
+    with pytest.raises(ConfigError):
+        load_config(path)
+
+
+def test_load_config_cosine_does_not_require_decay_milestones(tmp_path):
+    data = {
+        "optimizer": "adamw",
+        "scheduler": "cosine",
+        "lr": 0.0002,
+        "weight_decay": 0.05,
+        "batch_size": 16,
+        "epochs": 30,
+    }
+    path = tmp_path / "config.json"
+    path.write_text(json.dumps(data), encoding="utf-8")
+    config = load_config(path)
+    assert config["scheduler"] == "cosine"
+
+
+def test_load_config_multistep_still_requires_decay_milestones(tmp_path):
+    data = {
+        "optimizer": "adamw",
+        "scheduler": "multistep",
+        "lr": 0.0002,
+        "weight_decay": 0.05,
+        "batch_size": 16,
+        "epochs": 30,
+    }
+    path = tmp_path / "config.json"
+    path.write_text(json.dumps(data), encoding="utf-8")
+    with pytest.raises(ConfigError):
+        load_config(path)
+
+
 # --- toxicity_priority_species_ids ---------------------------------------
 # Pure JSON/CSV I/O, no torch - stays in the default (non-slow) suite.
 
@@ -228,6 +290,21 @@ def test_build_scheduler_uses_the_configs_milestones():
 
 
 @pytest.mark.slow
+def test_build_scheduler_cosine_uses_the_configs_epochs():
+    from torch import nn
+    from torch.optim.lr_scheduler import CosineAnnealingLR
+
+    from plant_toxicity_checker import train
+
+    config = {**BASE_CONFIG, "scheduler": "cosine"}
+    model = nn.Linear(4, 2)
+    optimizer = train.build_optimizer(model, config)
+    scheduler = train.build_scheduler(optimizer, config)
+    assert isinstance(scheduler, CosineAnnealingLR)
+    assert scheduler.T_max == config["epochs"]
+
+
+@pytest.mark.slow
 def test_make_loader_uses_the_standard_performance_knobs():
     from plant_toxicity_checker import train
 
@@ -236,3 +313,326 @@ def test_make_loader_uses_the_standard_performance_knobs():
     assert loader.persistent_workers is True
     assert loader.pin_memory is True
     assert loader.batch_size == 2
+
+
+@pytest.mark.slow
+def test_make_loader_with_a_sampler_ignores_shuffle():
+    from torch.utils.data import WeightedRandomSampler
+
+    from plant_toxicity_checker import train
+
+    sampler = WeightedRandomSampler([1.0, 1.0, 1.0, 1.0], num_samples=4)
+    loader = train.make_loader(
+        list(range(4)), batch_size=2, shuffle=True, sampler=sampler,
+    )
+    assert loader.sampler is sampler
+
+
+@pytest.mark.slow
+def test_make_sqrt_freq_sampler_weights_match_inverse_sqrt_frequency():
+    import math
+
+    from plant_toxicity_checker import train
+
+    class FakeDataset:
+        rows = [
+            {"species_id": 1}, {"species_id": 1},
+            {"species_id": 1}, {"species_id": 1},  # species 1: 4 images
+            {"species_id": 2},  # species 2: 1 image
+        ]
+
+    sampler = train.make_sqrt_freq_sampler(FakeDataset())
+    weights = list(sampler.weights)
+    assert weights[0] == pytest.approx(1.0 / math.sqrt(4))
+    assert weights[-1] == pytest.approx(1.0)
+    assert sampler.num_samples == len(FakeDataset.rows)
+
+
+@pytest.mark.slow
+def test_build_model_convnextv2_tiny_uses_timm(monkeypatch):
+    import timm
+
+    from plant_toxicity_checker import train
+
+    calls = {}
+
+    class FakeModel:
+        pass
+
+    def fake_create_model(name, pretrained, num_classes):
+        calls["name"] = name
+        calls["pretrained"] = pretrained
+        calls["num_classes"] = num_classes
+        return FakeModel()
+
+    monkeypatch.setattr(timm, "create_model", fake_create_model)
+    model = train.build_model(7, model="convnextv2_tiny")
+
+    assert calls == {
+        "name": "convnextv2_tiny.fcmae_ft_in22k_in1k",
+        "pretrained": True,
+        "num_classes": 7,
+    }
+    assert isinstance(model, FakeModel)
+
+
+@pytest.mark.slow
+def test_build_model_rejects_an_unknown_model_name():
+    from plant_toxicity_checker import train
+
+    with pytest.raises(ValueError):
+        train.build_model(3, model="not-a-real-model")
+
+
+@pytest.mark.slow
+def test_build_optimizer_adamw_uses_the_configs_hyperparameters():
+    from torch import nn, optim
+
+    from plant_toxicity_checker import train
+
+    model = nn.Linear(4, 2)
+    config = {
+        k: v for k, v in BASE_CONFIG.items()
+        if k not in ("momentum", "nesterov")
+    }
+    config["optimizer"] = "adamw"
+    optimizer = train.build_optimizer(model, config)
+
+    assert isinstance(optimizer, optim.AdamW)
+    group = optimizer.param_groups[0]
+    assert group["lr"] == config["lr"]
+    assert group["weight_decay"] == config["weight_decay"]
+
+
+@pytest.mark.slow
+def test_train_one_epoch_with_toxicity_cost_weight_runs_end_to_end():
+    import torch
+    from torch import nn
+
+    from plant_toxicity_checker import train
+
+    torch.manual_seed(0)
+    images = torch.randn(4, 4)
+    labels = torch.tensor([0, 1, 2, 0])
+    loader = [(images, labels)]
+    device = torch.device("cpu")
+
+    model = nn.Linear(4, 3)
+    optimizer = train.build_optimizer(model, BASE_CONFIG)
+    loss = train.train_one_epoch(
+        model, loader, optimizer, device,
+        toxicity_cost_weight=5.0, species_sides=[1, 0, -1],
+    )
+    assert isinstance(loss, float)
+    assert loss == loss  # not NaN
+
+
+@pytest.mark.slow
+def test_train_one_epoch_warmup_ramps_lr_linearly_then_holds():
+    import torch
+    from torch import nn
+
+    from plant_toxicity_checker import train
+
+    torch.manual_seed(0)
+    model = nn.Linear(4, 3)
+    base_lr = 0.1
+    config = {
+        "optimizer": "adamw", "lr": base_lr, "weight_decay": 0.0,
+    }
+    optimizer = train.build_optimizer(model, config)
+
+    lr_history = []
+    original_step = optimizer.step
+
+    def recording_step(*args, **kwargs):
+        lr_history.append(optimizer.param_groups[0]["lr"])
+        return original_step(*args, **kwargs)
+
+    optimizer.step = recording_step
+    loader = [(torch.randn(2, 4), torch.tensor([0, 1])) for _ in range(5)]
+    device = torch.device("cpu")
+
+    train.train_one_epoch(
+        model, loader, optimizer, device,
+        warmup_steps=3, base_lr=base_lr,
+    )
+
+    assert lr_history[0] == pytest.approx(base_lr * 1 / 3)
+    assert lr_history[1] == pytest.approx(base_lr * 2 / 3)
+    assert lr_history[2] == pytest.approx(base_lr)
+    assert lr_history[3] == pytest.approx(base_lr)
+    assert lr_history[4] == pytest.approx(base_lr)
+
+
+@pytest.mark.slow
+def test_train_one_epoch_without_warmup_leaves_lr_untouched():
+    import torch
+    from torch import nn
+
+    from plant_toxicity_checker import train
+
+    model = nn.Linear(4, 3)
+    optimizer = train.build_optimizer(model, BASE_CONFIG)
+    loader = [(torch.randn(2, 4), torch.tensor([0, 1])) for _ in range(3)]
+    device = torch.device("cpu")
+
+    train.train_one_epoch(model, loader, optimizer, device)
+
+    assert optimizer.param_groups[0]["lr"] == BASE_CONFIG["lr"]
+
+
+def _counting_step(optimizer):
+    """Wraps ``optimizer.step`` to count real calls, in place."""
+    calls = []
+    original_step = optimizer.step
+
+    def counting_step(*args, **kwargs):
+        calls.append(1)
+        return original_step(*args, **kwargs)
+
+    optimizer.step = counting_step
+    return calls
+
+
+@pytest.mark.slow
+def test_train_one_epoch_grad_accumulation_steps_less_often():
+    import torch
+    from torch import nn
+
+    from plant_toxicity_checker import train
+
+    model = nn.Linear(4, 3)
+    optimizer = train.build_optimizer(model, BASE_CONFIG)
+    step_calls = _counting_step(optimizer)
+    loader = [(torch.randn(2, 4), torch.tensor([0, 1])) for _ in range(6)]
+    device = torch.device("cpu")
+
+    train.train_one_epoch(
+        model, loader, optimizer, device, grad_accum_steps=3,
+    )
+
+    assert len(step_calls) == 2  # 6 micro-batches / 3 per step
+
+
+@pytest.mark.slow
+def test_train_one_epoch_grad_accumulation_final_partial_group_still_steps():
+    import torch
+    from torch import nn
+
+    from plant_toxicity_checker import train
+
+    model = nn.Linear(4, 3)
+    optimizer = train.build_optimizer(model, BASE_CONFIG)
+    step_calls = _counting_step(optimizer)
+    loader = [(torch.randn(2, 4), torch.tensor([0, 1])) for _ in range(5)]
+    device = torch.device("cpu")
+
+    train.train_one_epoch(
+        model, loader, optimizer, device, grad_accum_steps=3,
+    )
+
+    # step after micro-batch 3, and a forced step after the trailing
+    # 2-micro-batch group (batch 5, the last one) - never silently
+    # dropped.
+    assert len(step_calls) == 2
+
+
+@pytest.mark.slow
+def test_train_one_epoch_warmup_counts_optimizer_steps_not_micro_batches():
+    import torch
+    from torch import nn
+
+    from plant_toxicity_checker import train
+
+    torch.manual_seed(0)
+    model = nn.Linear(4, 3)
+    base_lr = 0.1
+    config = {"optimizer": "adamw", "lr": base_lr, "weight_decay": 0.0}
+    optimizer = train.build_optimizer(model, config)
+
+    lr_history = []
+    original_step = optimizer.step
+
+    def recording_step(*args, **kwargs):
+        lr_history.append(optimizer.param_groups[0]["lr"])
+        return original_step(*args, **kwargs)
+
+    optimizer.step = recording_step
+    # 6 micro-batches, grad_accum_steps=2 -> 3 real optimizer steps.
+    loader = [(torch.randn(2, 4), torch.tensor([0, 1])) for _ in range(6)]
+    device = torch.device("cpu")
+
+    train.train_one_epoch(
+        model, loader, optimizer, device,
+        warmup_steps=2, base_lr=base_lr, grad_accum_steps=2,
+    )
+
+    assert len(lr_history) == 3
+    assert lr_history[0] == pytest.approx(base_lr * 1 / 2)  # real step 1
+    assert lr_history[1] == pytest.approx(base_lr)  # real step 2 - full
+    assert lr_history[2] == pytest.approx(base_lr)  # past warmup
+
+
+@pytest.mark.slow
+def test_train_one_epoch_updates_ema_once_per_optimizer_step():
+    import torch
+    from torch import nn
+
+    from plant_toxicity_checker import train
+
+    model = nn.Linear(4, 3)
+    optimizer = train.build_optimizer(model, BASE_CONFIG)
+    loader = [(torch.randn(2, 4), torch.tensor([0, 1])) for _ in range(6)]
+    device = torch.device("cpu")
+
+    update_calls = []
+
+    class FakeEma:
+        def update(self, model):
+            update_calls.append(1)
+
+    train.train_one_epoch(
+        model, loader, optimizer, device,
+        grad_accum_steps=3, ema=FakeEma(),
+    )
+
+    assert len(update_calls) == 2  # same cadence as the 2 real steps
+
+
+@pytest.mark.slow
+def test_save_and_load_checkpoint_round_trips_ema_state(
+    tmp_path, monkeypatch,
+):
+    import torch
+    from timm.utils import ModelEmaV2
+    from torch import nn
+
+    from plant_toxicity_checker import train
+
+    monkeypatch.setattr(train, "CHECKPOINTS_DIR", tmp_path)
+
+    model = nn.Linear(4, 2)
+    config = dict(BASE_CONFIG)
+    optimizer = train.build_optimizer(model, config)
+    scheduler = train.build_scheduler(optimizer, config)
+    ema = ModelEmaV2(model, decay=0.9)
+
+    with torch.no_grad():
+        model.weight.add_(1.0)
+    ema.update(model)
+
+    train.save_checkpoint(
+        "run1", epoch=1, model=model, optimizer=optimizer,
+        scheduler=scheduler, config=config, ema=ema,
+    )
+
+    other_model = nn.Linear(4, 2)
+    other_optimizer = train.build_optimizer(other_model, config)
+    other_scheduler = train.build_scheduler(other_optimizer, config)
+    other_ema = ModelEmaV2(other_model, decay=0.9)
+    train.load_checkpoint(
+        "run1", other_model, other_optimizer, other_scheduler, ema=other_ema,
+    )
+
+    assert torch.equal(ema.module.weight, other_ema.module.weight)

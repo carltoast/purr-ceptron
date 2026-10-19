@@ -57,7 +57,7 @@ EOF
 
 echo "== launching '$RUN_NAME' in tmux on $SSH_HOST =="
 ssh "$SSH_HOST" \
-  "chmod +x '$RUN_SCRIPT' && tmux new-session -d -s '$RUN_NAME' \"bash '$RUN_SCRIPT' > '$LOG_FILE' 2>&1\""
+  "chmod +x '$RUN_SCRIPT' && tmux new-session -d -s '$RUN_NAME' \"bash '$RUN_SCRIPT' >> '$LOG_FILE' 2>&1\""
 
 echo
 echo "run name:   $RUN_NAME"

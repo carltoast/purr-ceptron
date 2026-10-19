@@ -1,0 +1,15 @@
+{
+  "model": "convnextv2_tiny",
+  "pretrained": true,
+  "optimizer": "adamw",
+  "lr": 0.0002,
+  "weight_decay": 0.05,
+  "batch_size": 16,
+  "epochs": 30,
+  "lr_decay_epochs": [20, 25],
+  "lr_decay_factor": 0.1,
+  "loss": "cross_entropy",
+  "sampler": "sqrt_freq",
+  "toxicity_cost_weight": 20.0,
+  "warmup_steps": 500
+}
