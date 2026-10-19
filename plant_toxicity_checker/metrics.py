@@ -54,6 +54,34 @@ def per_class_accuracy(probas, labels):
     return stats
 
 
+def macro_top_k_accuracy(probas, labels, k):
+    """Top-k accuracy computed per class, then averaged over classes
+    with equal weight - the PlantNet-300K paper's headline metric
+    (Section 4.1, "macro-average top-k accuracy").
+
+    Plain (micro) top-k is dominated by the handful of species that
+    hold most of the images, which is why the paper calls a high plain
+    top-1 "misleading": a model can score ~80% while barely
+    recognising the hundreds of species with a few images each. Macro
+    -average weights every species the same, so it actually reflects
+    performance across the long tail. For reference, the paper reports
+    that no architecture it benchmarks exceeds ~40% macro-average
+    top-1 on the v1 dataset.
+
+    Classes absent from ``labels`` are skipped rather than counted as
+    zero, matching ``per_class_accuracy``.
+    """
+    stats = per_class_accuracy(probas, labels)
+    if not stats:
+        return None
+    field = "top1_correct" if k == 1 else "top5_correct"
+    if k not in (1, 5):
+        raise ValueError(f"macro_top_k_accuracy supports k=1 or k=5, got {k}")
+    return float(
+        np.mean([entry[field] / entry["n"] for entry in stats.values()])
+    )
+
+
 def toxic_confusion_rate(probas, labels, species_sides):
     """How often a confident top-1 prediction crosses the toxic/
     non-toxic boundary - the metric a toxicity-aware training

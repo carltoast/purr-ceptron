@@ -1,9 +1,11 @@
 """Tests for evaluation metrics (pure NumPy, no torch needed)."""
 
 import numpy as np
+import pytest
 
 from plant_toxicity_checker.metrics import (
     average_k_accuracy,
+    macro_top_k_accuracy,
     per_class_accuracy,
     top_k_accuracy,
     toxic_confusion_pairs,
@@ -82,6 +84,38 @@ def test_per_class_accuracy_counts_and_correctness_per_class():
 def test_per_class_accuracy_omits_classes_absent_from_labels():
     stats = per_class_accuracy(_CLASS_PROBAS, _CLASS_LABELS)
     assert set(stats) == {0, 1, 2}
+
+
+# macro_top_k_accuracy: the point of the metric is that it weights each
+# CLASS equally, not each SAMPLE, so a common class getting everything
+# right cannot hide a rare class getting everything wrong.
+_MACRO_PROBAS = np.array([
+    [0.9, 0.1],   # class 0, correct
+    [0.9, 0.1],   # class 0, correct
+    [0.9, 0.1],   # class 0, correct
+    [0.9, 0.1],   # class 1, WRONG
+])
+_MACRO_LABELS = np.array([0, 0, 0, 1])
+
+
+def test_macro_top_k_weights_classes_equally_not_samples():
+    # plain top-1 is 3/4 = 75%, dominated by the 3-sample class;
+    # macro-average is mean(100%, 0%) = 50%.
+    assert top_k_accuracy(_MACRO_PROBAS, _MACRO_LABELS, 1) == 0.75
+    assert macro_top_k_accuracy(_MACRO_PROBAS, _MACRO_LABELS, 1) == 0.5
+
+
+def test_macro_top_k_matches_plain_when_classes_are_balanced():
+    probas = np.array([[0.9, 0.1], [0.9, 0.1], [0.1, 0.9], [0.9, 0.1]])
+    labels = np.array([0, 0, 1, 1])  # 2 samples each, one class half wrong
+    assert macro_top_k_accuracy(probas, labels, 1) == top_k_accuracy(
+        probas, labels, 1
+    )
+
+
+def test_macro_top_k_rejects_unsupported_k():
+    with pytest.raises(ValueError):
+        macro_top_k_accuracy(_MACRO_PROBAS, _MACRO_LABELS, 3)
 
 
 # toxic_confusion_rate: 4 classes, sides = [toxic, non_toxic, unknown, toxic].
