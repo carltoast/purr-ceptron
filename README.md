@@ -171,6 +171,16 @@ python -m venv .venv
 pip install -r requirements.txt && pip install -e .
 ```
 
+Weights are not in the repo. Download both from the
+[latest release](https://github.com/carltoast/cat-project/releases/latest)
+and put them where the code looks:
+
+```bash
+mkdir -p checkpoints/plantnet_convnextv2_tiny_toxicity_v2 checkpoints/plantnet-baseline
+mv plantnet_convnextv2_tiny_toxicity_v2.pt checkpoints/plantnet_convnextv2_tiny_toxicity_v2/latest.pt
+mv plantnet-baseline.pt                    checkpoints/plantnet-baseline/latest.pt
+```
+
 ```bash
 python -m plant_toxicity_checker check --image path/to/plant.jpg
 python -m plant_toxicity_checker check --image path/to/plant.jpg --json
@@ -195,8 +205,9 @@ ruff check .
 docker build -t purrceptron . && docker run --rm purrceptron
 ```
 
-Checkpoints are not committed, at about 450MB each. Training runs on a home
-GPU over SSH via `scripts/remote/`, never locally.
+Checkpoints are not committed; the two the README compares are attached to
+the [latest release](https://github.com/carltoast/cat-project/releases/latest).
+Training runs on a home GPU over SSH via `scripts/remote/`, never locally.
 </details>
 
 ---
