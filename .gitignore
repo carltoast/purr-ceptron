@@ -6,7 +6,12 @@ __pycache__/
 .ruff_cache/
 
 # Large / downloaded artifacts (see README: "Data & models")
-data/raw/
+data/raw/*
+!data/raw/plantnet/
+data/raw/plantnet/*
+# ...except the species table, which maps a class index to a name. It
+# is 104KB of taxonomy and the model is unusable without it.
+!data/raw/plantnet/species_metadata.csv
 models/*
 !models/.gitkeep
 

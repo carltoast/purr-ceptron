@@ -145,11 +145,16 @@ def aggregate_by_train_count_bucket(
     return result
 
 
-def build_model(num_classes, model="resnet18"):
+def build_model(num_classes, model="resnet18", pretrained=True):
     """The backbone named by ``model`` (the config's own ``"model"``
     key - default ``"resnet18"``, Phase 1's paper-replica baseline),
     ImageNet-pretrained, with its final classifier replaced for
     ``num_classes``.
+
+    ``pretrained=False`` skips fetching those ImageNet weights, which
+    is what every load-a-checkpoint path wants: the download is
+    discarded by the ``load_state_dict`` that follows, and skipping it
+    saves ~110MB and a network round trip on the first run.
 
     ``"convnextv2_tiny"`` loads ``convnextv2_tiny.fcmae_ft_in22k_in1k``
     via ``timm``: ConvNeXt V2's self-supervised (masked-autoencoder)
@@ -166,7 +171,9 @@ def build_model(num_classes, model="resnet18"):
         from torch import nn
         from torchvision.models import ResNet18_Weights, resnet18
 
-        net = resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)
+        net = resnet18(
+            weights=ResNet18_Weights.IMAGENET1K_V1 if pretrained else None
+        )
         net.fc = nn.Linear(net.fc.in_features, num_classes)
         return net
     if model == "convnextv2_tiny":
@@ -174,7 +181,7 @@ def build_model(num_classes, model="resnet18"):
 
         return timm.create_model(
             "convnextv2_tiny.fcmae_ft_in22k_in1k",
-            pretrained=True,
+            pretrained=pretrained,
             num_classes=num_classes,
         )
     raise ValueError(f"unknown model: {model!r}")
@@ -664,7 +671,8 @@ def load_trained_model(run_name, num_classes, epoch=None, use_ema=False):
     config = state["config"]
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = build_model(num_classes, config.get("model", "resnet18"))
+    model = build_model(num_classes, config.get("model", "resnet18"),
+                        pretrained=False)
     model = model.to(device)
     if use_ema:
         if "ema_state_dict" not in state:
@@ -877,7 +885,8 @@ def run_species_breakdown(run_name, split="val", epoch=None):
     config = state["config"]
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = build_model(len(labels), config.get("model", "resnet18"))
+    model = build_model(len(labels), config.get("model", "resnet18"),
+                        pretrained=False)
     model = model.to(device)
     model.load_state_dict(state["model_state_dict"])
 
@@ -930,7 +939,8 @@ def predict_for_species(run_name, species_ids, split="val", out_name=None):
     config = state["config"]
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = build_model(len(labels), config.get("model", "resnet18"))
+    model = build_model(len(labels), config.get("model", "resnet18"),
+                        pretrained=False)
     model = model.to(device)
     model.load_state_dict(state["model_state_dict"])
 

@@ -1,0 +1,1001 @@
+species_id,full_species,species,genus,family,epithet,author,unmatched_terms,iucn_status
+0,Lactuca virosa L.,Lactuca virosa,Lactuca,Asteraceae,virosa,L.,,DD
+1,Pelargonium capitatum (L.) L'Hér.,Pelargonium capitatum,Pelargonium,Geraniaceae,capitatum,(L.) L'Hér.,,Not assessed
+2,Pelargonium graveolens L'Hér.,Pelargonium graveolens,Pelargonium,Geraniaceae,graveolens,L'Hér.,,Not assessed
+3,Cirsium arvense (L.) Scop.,Cirsium arvense,Cirsium,Asteraceae,arvense,(L.) Scop.,,Not assessed
+4,Cirsium vulgare (Savi) Ten.,Cirsium vulgare,Cirsium,Asteraceae,vulgare,(Savi) Ten.,,Not assessed
+5,Pelargonium odoratissimum (L.) L'Hér.,Pelargonium odoratissimum,Pelargonium,Geraniaceae,odoratissimum,(L.) L'Hér.,,Not assessed
+6,Pelargonium peltatum (L.) L'Hér.,Pelargonium peltatum,Pelargonium,Geraniaceae,peltatum,(L.) L'Hér.,,Not assessed
+7,Pelargonium quercifolium (L.f.) L'Hér.,Pelargonium quercifolium,Pelargonium,Geraniaceae,quercifolium,(L.f.) L'Hér.,,Not assessed
+8,Pelargonium zonale (L.) L'Hér.,Pelargonium zonale,Pelargonium,Geraniaceae,zonale,(L.) L'Hér.,,Not assessed
+9,Mercurialis annua L.,Mercurialis annua,Mercurialis,Euphorbiaceae,annua,L.,,Not assessed
+10,Phyllanthus tenellus Roxb.,Phyllanthus tenellus,Phyllanthus,Phyllanthaceae,tenellus,Roxb.,,Not assessed
+11,Hypericum perforatum L.,Hypericum perforatum,Hypericum,Hypericaceae,perforatum,L.,,LC
+12,Elodea densa (Planch.) Casp.,Elodea densa,Elodea,Hydrocharitaceae,densa,(Planch.) Casp.,,Not assessed
+13,Ibicella lutea (Lindl.) Van Eselt.,Ibicella lutea,Ibicella,Martyniaceae,lutea,(Lindl.) Van Eselt.,,Not assessed
+14,Tradescantia fluminensis Vell.,Tradescantia fluminensis,Tradescantia,Commelinaceae,fluminensis,Vell.,,Not assessed
+15,Tradescantia zebrina Bosse,Tradescantia zebrina,Tradescantia,Commelinaceae,zebrina,Bosse,,Not assessed
+16,Lamium amplexicaule L.,Lamium amplexicaule,Lamium,Lamiaceae,amplexicaule,L.,,Not assessed
+17,Lavandula dentata L.,Lavandula dentata,Lavandula,Lamiaceae,dentata,L.,,Not assessed
+18,Striga asiatica (L.) Kuntze,Striga asiatica,Striga,Orobanchaceae,asiatica,(L.) Kuntze,,Not assessed
+19,Melilotus albus Medik.,Melilotus albus,Melilotus,Fabaceae,albus,Medik.,,LC
+20,Trifolium fragiferum L.,Trifolium fragiferum,Trifolium,Fabaceae,fragiferum,L.,,Not assessed
+21,Asystasia gangetica (L.) T.Anderson,Asystasia gangetica,Asystasia,Acanthaceae,gangetica,(L.) T.Anderson,,Not assessed
+22,Nymphaea nouchali Burm.f.,Nymphaea nouchali,Nymphaea,Nymphaeaceae,nouchali,Burm.f.,,LC
+23,Dryopteris aemula (Aiton) Kuntze,Dryopteris aemula,Dryopteris,Dryopteridaceae,aemula,(Aiton) Kuntze,,LC
+24,Dryopteris affinis (Lowe) Fraser-Jenk.,Dryopteris affinis,Dryopteris,Dryopteridaceae,affinis,(Lowe) Fraser-Jenk.,,LC
+25,Dryopteris filix-mas (L.) Schott,Dryopteris filix-mas,Dryopteris,Dryopteridaceae,filix-mas,(L.) Schott,,LC
+26,Nephrolepis cordifolia (L.) C.Presl,Nephrolepis cordifolia,Nephrolepis,Nephrolepidaceae,cordifolia,(L.) C.Presl,,Not assessed
+27,Nephrolepis exaltata (L.) Schott,Nephrolepis exaltata,Nephrolepis,Nephrolepidaceae,exaltata,(L.) Schott,,LC
+28,Osmunda regalis L.,Osmunda regalis,Osmunda,Osmundaceae,regalis,L.,,LC
+29,Achyranthes aspera L.,Achyranthes aspera,Achyranthes,Amaranthaceae,aspera,L.,,Not assessed
+30,Lithodora fruticosa (L.) Griseb.,Lithodora fruticosa,Lithodora,Boraginaceae,fruticosa,(L.) Griseb.,,Not assessed
+31,Humulus lupulus L.,Humulus lupulus,Humulus,Cannabaceae,lupulus,L.,,LC
+32,Gypsophila vaccaria (L.) Sm.,Gypsophila vaccaria,Gypsophila,Caryophyllaceae,hispanica,(L.) Sm.,,Not assessed
+33,Spergularia rubra (L.) J.Presl & C.Presl,Spergularia rubra,Spergularia,Caryophyllaceae,rubra,(L.) J.Presl & C.Presl,,Not assessed
+34,Moehringia trinervia (L.) Clairv.,Moehringia trinervia,Moehringia,Caryophyllaceae,trinervia,(L.) Clairv.,,Not assessed
+35,Calendula officinalis L.,Calendula officinalis,Calendula,Asteraceae,officinalis,L.,,Not assessed
+36,Calendula stellata Cav.,Calendula stellata,Calendula,Asteraceae,stellata,Cav.,,Not assessed
+37,Carthamus caeruleus L.,Carthamus caeruleus,Carthamus,Asteraceae,caeruleus,L.,,Not assessed
+38,Phonus lanatus (L.) Hill,Phonus lanatus,Phonus,Asteraceae,lanatus,(L.) Hill,,Not assessed
+39,Cirsium monspessulanum (L.) Hill.,Cirsium monspessulanum,Cirsium,Asteraceae,monspessulanum,(L.) Hill.,,Not assessed
+40,Helminthotheca echioides (L.) Holub,Helminthotheca echioides,Helminthotheca,Asteraceae,echioides,(L.) Holub,,Not assessed
+41,Hyoseris radiata L.,Hyoseris radiata,Hyoseris,Asteraceae,radiata,L.,,Not assessed
+42,Lactuca muralis (L.) Gaertn.,Lactuca muralis,Lactuca,Asteraceae,muralis,(L.) Gaertn.,,LC
+43,Lactuca saligna L.,Lactuca saligna,Lactuca,Asteraceae,saligna,L.,,LC
+44,Lactuca tenerrima Pourr.,Lactuca tenerrima,Lactuca,Asteraceae,tenerrima,Pourr.,,LC
+45,Limbarda crithmoides (L.) Dumort.,Limbarda crithmoides,Limbarda,Asteraceae,crithmoides,(L.) Dumort.,,Not assessed
+46,Sedum acre L.,Sedum acre,Sedum,Crassulaceae,acre,L.,,LC
+47,Sedum album L.,Sedum album,Sedum,Crassulaceae,album,L.,,Not assessed
+48,Petrosedum amplexicaule (DC.) Velayos,Petrosedum amplexicaule,Petrosedum,Crassulaceae,amplexicaule,(DC.) Velayos,,Not assessed
+49,Sedum andegavense (DC.) Desv.,Sedum andegavense,Sedum,Crassulaceae,andegavense,(DC.) Desv.,,Not assessed
+50,Sedum brevifolium DC.,Sedum brevifolium,Sedum,Crassulaceae,brevifolium,DC.,,Not assessed
+51,Sedum caeruleum L.,Sedum caeruleum,Sedum,Crassulaceae,caeruleum,L.,,Not assessed
+52,Sedum cespitosum (Cav.) DC.,Sedum cespitosum,Sedum,Crassulaceae,cespitosum,(Cav.) DC.,,Not assessed
+53,Sedum cepaea L.,Sedum cepaea,Sedum,Crassulaceae,cepaea,L.,,Not assessed
+54,Sedum dasyphyllum L.,Sedum dasyphyllum,Sedum,Crassulaceae,dasyphyllum,L.,,Not assessed
+55,Petrosedum forsterianum (Sm.) Grulich,Petrosedum forsterianum,Petrosedum,Crassulaceae,forsterianum,(Sm.) Grulich,,Not assessed
+56,Sedum hirsutum All.,Sedum hirsutum,Sedum,Crassulaceae,hirsutum,All.,,Not assessed
+57,Sedum litoreum Guss.,Sedum litoreum,Sedum,Crassulaceae,litoreum,Guss.,,Not assessed
+58,Sedum multiceps Coss. & Durieu,Sedum multiceps,Sedum,Crassulaceae,multiceps,Coss. & Durieu,,Not assessed
+59,Sedum rubens L.,Sedum rubens,Sedum,Crassulaceae,rubens,L.,,Not assessed
+60,Petrosedum sediforme (Jacq.) Grulich,Petrosedum sediforme,Petrosedum,Crassulaceae,sediforme,(Jacq.) Grulich,,Not assessed
+61,Alliaria petiolata (M.Bieb.) Cavara & Grande,Alliaria petiolata,Alliaria,Brassicaceae,petiolata,(M.Bieb.) Cavara & Grande,,Not assessed
+62,Boscia integrifolia J.St.-Hil.,Boscia integrifolia,Boscia,Capparaceae,angustifolia,J.St.-Hil.,,LC
+63,Fibigia clypeata (L.) Medik.,Fibigia clypeata,Fibigia,Brassicaceae,clypeata,(L.) Medik.,,Not assessed
+64,Maerua angolensis DC.,Maerua angolensis,Maerua,Capparaceae,angolensis,DC.,,LC
+65,Acalypha virginica L.,Acalypha virginica,Acalypha,Euphorbiaceae,virginica,L.,,Not assessed
+66,Mercurialis perennis L.,Mercurialis perennis,Mercurialis,Euphorbiaceae,perennis,L.,,Not assessed
+67,Phyllanthus reticulatus Poir.,Phyllanthus reticulatus,Phyllanthus,Phyllanthaceae,reticulatus,Poir.,,LC
+68,Hypericum androsaemum L.,Hypericum androsaemum,Hypericum,Hypericaceae,androsaemum,L.,,Not assessed
+69,Hypericum australe Ten.,Hypericum australe,Hypericum,Hypericaceae,australe,Ten.,,Not assessed
+70,Hypericum canariense L.,Hypericum canariense,Hypericum,Hypericaceae,canariense,L.,,LC
+71,Hypericum empetrifolium Willd.,Hypericum empetrifolium,Hypericum,Hypericaceae,empetrifolium,Willd.,,Not assessed
+72,Hypericum hircinum L.,Hypericum hircinum,Hypericum,Hypericaceae,hircinum,L.,,Not assessed
+73,Hypericum hirsutum L.,Hypericum hirsutum,Hypericum,Hypericaceae,hirsutum,L.,,Not assessed
+74,Hypericum humifusum L.,Hypericum humifusum,Hypericum,Hypericaceae,humifusum,L.,,Not assessed
+75,Hypericum linariifolium Vahl,Hypericum linariifolium,Hypericum,Hypericaceae,linariifolium,Vahl,,Not assessed
+76,Hypericum montanum L.,Hypericum montanum,Hypericum,Hypericaceae,montanum,L.,,Not assessed
+77,Hypericum perfoliatum L.,Hypericum perfoliatum,Hypericum,Hypericaceae,perfoliatum,L.,,Not assessed
+78,Hypericum tetrapterum Fr.,Hypericum tetrapterum,Hypericum,Hypericaceae,tetrapterum,Fr.,,Not assessed
+79,Hypericum tomentosum L.,Hypericum tomentosum,Hypericum,Hypericaceae,tomentosum,L.,,Not assessed
+80,Lamium bifidum Cirillo,Lamium bifidum,Lamium,Lamiaceae,bifidum,Cirillo,,Not assessed
+81,Lamium flexuosum Ten.,Lamium flexuosum,Lamium,Lamiaceae,flexuosum,Ten.,,Not assessed
+82,Lamium garganicum L.,Lamium garganicum,Lamium,Lamiaceae,garganicum,L.,,Not assessed
+83,Lamium hybridum Vill.,Lamium hybridum,Lamium,Lamiaceae,hybridum,Vill.,,Not assessed
+84,Lamium purpureum L.,Lamium purpureum,Lamium,Lamiaceae,purpureum,L.,,Not assessed
+85,Lavandula canariensis Mill.,Lavandula canariensis,Lavandula,Lamiaceae,canariensis,Mill.,,Not assessed
+86,Lavandula minutolii Bolle,Lavandula minutolii,Lavandula,Lamiaceae,minutolii,Bolle,,Not assessed
+87,Lavandula multifida L.,Lavandula multifida,Lavandula,Lamiaceae,multifida,L.,,Not assessed
+88,Lavandula stoechas L.,Lavandula stoechas,Lavandula,Lamiaceae,stoechas,L.,,Not assessed
+89,Senegalia mellifera (Vahl) Seigler & Ebinger,Senegalia mellifera,Senegalia,Fabaceae,mellifera,(Vahl) Seigler & Ebinger,,LC
+90,Vachellia seyal (Delile) P.J.H.Hurter,Vachellia seyal,Vachellia,Fabaceae,seyal,(Delile) P.J.H.Hurter,,LC
+91,Vachellia tortilis (Forssk.) Galasso & Banfi,Vachellia tortilis,Vachellia,Fabaceae,tortilis,(Forssk.) Galasso & Banfi,,LC
+92,Galega officinalis L.,Galega officinalis,Galega,Fabaceae,officinalis,L.,,LC
+93,Lupinus cosentinii Guss.,Lupinus cosentinii,Lupinus,Fabaceae,cosentinii,Guss.,,LC
+94,Lupinus gussoneanus J.Agardh,Lupinus gussoneanus,Lupinus,Fabaceae,micranthus,J.Agardh,,LC
+95,Melilotus italicus (L.) Lam.,Melilotus italicus,Melilotus,Fabaceae,italicus,(L.) Lam.,,LC
+96,Melilotus sulcatus Desf.,Melilotus sulcatus,Melilotus,Fabaceae,sulcatus,Desf.,,Not assessed
+97,Trifolium angustifolium L.,Trifolium angustifolium,Trifolium,Fabaceae,angustifolium,L.,,LC
+98,Trifolium arvense L.,Trifolium arvense,Trifolium,Fabaceae,arvense,L.,,LC
+99,Trifolium aureum Pollich,Trifolium aureum,Trifolium,Fabaceae,aureum,Pollich,,Not assessed
+100,Trifolium campestre Schreb.,Trifolium campestre,Trifolium,Fabaceae,campestre,Schreb.,,Not assessed
+101,Trifolium cherleri L.,Trifolium cherleri,Trifolium,Fabaceae,cherleri,L.,,Not assessed
+102,Trifolium hirtum All.,Trifolium hirtum,Trifolium,Fabaceae,hirtum,All.,,Not assessed
+103,Trifolium hybridum L.,Trifolium hybridum,Trifolium,Fabaceae,hybridum,L.,,LC
+104,Trifolium incarnatum L.,Trifolium incarnatum,Trifolium,Fabaceae,incarnatum,L.,,LC
+105,Trifolium lappaceum L.,Trifolium lappaceum,Trifolium,Fabaceae,lappaceum,L.,,Not assessed
+106,Trifolium michelianum Savi,Trifolium michelianum,Trifolium,Fabaceae,michelianum,Savi,,Not assessed
+107,Trifolium micranthum Viv.,Trifolium micranthum,Trifolium,Fabaceae,micranthum,Viv.,,Not assessed
+108,Trifolium montanum L.,Trifolium montanum,Trifolium,Fabaceae,montanum,L.,,Not assessed
+109,Trifolium ochroleucon Huds.,Trifolium ochroleucon,Trifolium,Fabaceae,ochroleucon,Huds.,,Not assessed
+110,Trifolium pannonicum Jacq.,Trifolium pannonicum,Trifolium,Fabaceae,pannonicum,Jacq.,,Not assessed
+111,Trifolium patens Schreb.,Trifolium patens,Trifolium,Fabaceae,patens,Schreb.,,Not assessed
+112,Trifolium pratense L.,Trifolium pratense,Trifolium,Fabaceae,pratense,L.,,LC
+113,Trifolium purpureum Loisel.,Trifolium purpureum,Trifolium,Fabaceae,purpureum,Loisel.,,Not assessed
+114,Trifolium resupinatum L.,Trifolium resupinatum,Trifolium,Fabaceae,resupinatum,L.,,LC
+115,Trifolium scabrum L.,Trifolium scabrum,Trifolium,Fabaceae,scabrum,L.,,LC
+116,Trifolium spumosum L.,Trifolium spumosum,Trifolium,Fabaceae,spumosum,L.,,Not assessed
+117,Trifolium squamosum L.,Trifolium squamosum,Trifolium,Fabaceae,squamosum,L.,,Not assessed
+118,Trifolium stellatum L.,Trifolium stellatum,Trifolium,Fabaceae,stellatum,L.,,Not assessed
+119,Trifolium striatum L.,Trifolium striatum,Trifolium,Fabaceae,striatum,L.,,Not assessed
+120,Trifolium subterraneum L.,Trifolium subterraneum,Trifolium,Fabaceae,subterraneum,L.,,LC
+121,Trifolium tomentosum L.,Trifolium tomentosum,Trifolium,Fabaceae,tomentosum,L.,,Not assessed
+122,Punica granatum L.,Punica granatum,Punica,Lythraceae,granatum,L.,,LC
+123,Alcea rosea L.,Alcea rosea,Alcea,Malvaceae,rosea,L.,,Not assessed
+124,Althaea cannabina L.,Althaea cannabina,Althaea,Malvaceae,cannabina,L.,,Not assessed
+125,Althaea officinalis L.,Althaea officinalis,Althaea,Malvaceae,officinalis,L.,,LC
+126,Nymphaea alba L.,Nymphaea alba,Nymphaea,Nymphaeaceae,alba,L.,,LC
+127,Hunnemannia fumariifolia Sweet,Hunnemannia fumariifolia,Hunnemannia,Papaveraceae,fumariifolia,Sweet,,Not assessed
+128,Papaver atlanticum (Ball) Coss.,Papaver atlanticum,Papaver,Papaveraceae,atlanticum,(Ball) Coss.,,Not assessed
+129,Papaver rupifragum Boiss. & Reut.,Papaver rupifragum,Papaver,Papaveraceae,rupifragum,Boiss. & Reut.,,Not assessed
+130,Goniolimon tataricum (L.) Boiss.,Goniolimon tataricum,Goniolimon,Plumbaginaceae,tataricum,(L.) Boiss.,,Not assessed
+131,Adonis aestivalis L.,Adonis aestivalis,Adonis,Ranunculaceae,aestivalis,L.,,Not assessed
+132,Adonis annua L.,Adonis annua,Adonis,Ranunculaceae,annua,L.,,Not assessed
+133,Adonis flammea Jacq.,Adonis flammea,Adonis,Ranunculaceae,flammea,Jacq.,,Not assessed
+134,Adonis microcarpa DC.,Adonis microcarpa,Adonis,Ranunculaceae,microcarpa,DC.,,Not assessed
+135,Anemone coronaria L.,Anemone coronaria,Anemone,Ranunculaceae,coronaria,L.,,Not assessed
+136,Anemone palmata L.,Anemone palmata,Anemone,Ranunculaceae,palmata,L.,,Not assessed
+137,Oldenlandia corymbosa L.,Oldenlandia corymbosa,Oldenlandia,Rubiaceae,corymbosa,L.,,Not assessed
+138,Hyoscyamus albus L.,Hyoscyamus albus,Hyoscyamus,Solanaceae,albus,L.,,Not assessed
+139,Hyoscyamus niger L.,Hyoscyamus niger,Hyoscyamus,Solanaceae,niger,L.,,Not assessed
+140,Daphne gnidium L.,Daphne gnidium,Daphne,Thymelaeaceae,gnidium,L.,,Not assessed
+141,Daphne laureola L.,Daphne laureola,Daphne,Thymelaeaceae,laureola,L.,,LC
+142,Daphne oleoides Schreb.,Daphne oleoides,Daphne,Thymelaeaceae,oleoides,Schreb.,,Not assessed
+143,Berula erecta (Huds.) Coville,Berula erecta,Berula,Apiaceae,erecta,(Huds.) Coville,,LC
+144,Chaerophyllum temulum L.,Chaerophyllum temulum,Chaerophyllum,Apiaceae,temulum,L.,,Not assessed
+145,Daucus muricatus (L.) L.,Daucus muricatus,Daucus,Apiaceae,muricatus,(L.) L.,,LC
+146,Meum athamanticum Jacq.,Meum athamanticum,Meum,Apiaceae,athamanticum,Jacq.,,Not assessed
+147,Thapsia garganica L.,Thapsia garganica,Thapsia,Apiaceae,garganica,L.,,Not assessed
+148,Thapsia villosa L.,Thapsia villosa,Thapsia,Apiaceae,villosa,L.,,Not assessed
+149,Valeriana calcitrapae L.,Valeriana calcitrapae,Valeriana,Caprifoliaceae,calcitrapae,L.,,Not assessed
+150,Valeriana cornucopiae L.,Valeriana cornucopiae,Valeriana,Caprifoliaceae,cornucopiae,L.,,Not assessed
+151,Pancratium canariense Ker Gawl.,Pancratium canariense,Pancratium,Amaryllidaceae,canariense,Ker Gawl.,,Not assessed
+152,Pancratium maritimum L.,Pancratium maritimum,Pancratium,Amaryllidaceae,maritimum,L.,,LC
+153,Anthericum liliago L.,Anthericum liliago,Anthericum,Asparagaceae,liliago,L.,,Not assessed
+154,Butomus umbellatus L.,Butomus umbellatus,Butomus,Butomaceae,umbellatus,L.,,LC
+155,Danthonia decumbens (L.) DC.,Danthonia decumbens,Danthonia,Poaceae,decumbens,(L.) DC.,,Not assessed
+156,Leersia oryzoides (L.) Sw.,Leersia oryzoides,Leersia,Poaceae,oryzoides,(L.) Sw.,,LC
+157,Phalaris coerulescens Desf.,Phalaris coerulescens,Phalaris,Poaceae,coerulescens,Desf.,,LC
+158,Scilla peruviana L.,Scilla peruviana,Scilla,Asparagaceae,elongata,L.,,Not assessed
+159,Elodea canadensis Michx.,Elodea canadensis,Elodea,Hydrocharitaceae,canadensis,Michx.,,LC
+160,Neotinea maculata (Desf.) Stearn,Neotinea maculata,Neotinea,Orchidaceae,maculata,(Desf.) Stearn,,LC
+161,Ophrys apifera Huds.,Ophrys apifera,Ophrys,Orchidaceae,apifera,Huds.,,LC
+162,Ophrys bombyliflora Link,Ophrys bombyliflora,Ophrys,Orchidaceae,bombyliflora,Link,,LC
+163,Ophrys fusca Link,Ophrys fusca,Ophrys,Orchidaceae,fusca,Link,,LC
+164,Ophrys lutea Cav.,Ophrys lutea,Ophrys,Orchidaceae,lutea,Cav.,,LC
+165,Ophrys scolopax Cav.,Ophrys scolopax,Ophrys,Orchidaceae,scolopax,Cav.,,LC
+166,Ophrys speculum Link,Ophrys speculum,Ophrys,Orchidaceae,speculum,Link,,LC
+167,Ophrys tenthredinifera Willd.,Ophrys tenthredinifera,Ophrys,Orchidaceae,tenthredinifera,Willd.,,LC
+168,Groenlandia densa (L.) Fourr.,Groenlandia densa,Groenlandia,Potamogetonaceae,densa,(L.) Fourr.,,LC
+169,Stellaria aquatica (L.) Scop.,Stellaria aquatica,Stellaria,Caryophyllaceae,aquaticum,(L.) Scop.,,Not assessed
+170,Cirsium palustre (L.) Scop.,Cirsium palustre,Cirsium,Asteraceae,palustre,(L.) Scop.,,Not assessed
+171,Lamium galeobdolon (L.) L.,Lamium galeobdolon,Lamium,Lamiaceae,galeobdolon,(L.) L.,,Not assessed
+172,Lavandula angustifolia Mill.,Lavandula angustifolia,Lavandula,Lamiaceae,angustifolia,Mill.,,LC
+173,Casuarina cunninghamiana Miq.,Casuarina cunninghamiana,Casuarina,Casuarinaceae,cunninghamiana,Miq.,,LC
+174,Trifolium rubens L.,Trifolium rubens,Trifolium,Fabaceae,rubens,L.,,Not assessed
+175,Falcaria vulgaris Bernh.,Falcaria vulgaris,Falcaria,Apiaceae,vulgaris,Bernh.,,Not assessed
+176,Hypericum triquetrifolium Turra,Hypericum triquetrifolium,Hypericum,Hypericaceae,triquetrifolium,Turra,,Not assessed
+177,Wigandia urens (Ruiz & Pav.) Kunth,Wigandia urens,Wigandia,Namaceae,caracasana,(Ruiz & Pav.) Kunth,,Not assessed
+178,Nymphaea lotus L.,Nymphaea lotus,Nymphaea,Nymphaeaceae,lotus,L.,,LC
+179,Sedum villosum L.,Sedum villosum,Sedum,Crassulaceae,villosum,L.,,Not assessed
+180,Epipactis helleborine (L.) Crantz,Epipactis helleborine,Epipactis,Orchidaceae,helleborine,(L.) Crantz,,LC
+181,Thesium humifusum DC.,Thesium humifusum,Thesium,Thesiaceae,humifusum,DC.,,Not assessed
+182,Vachellia etbaica (Schweinf.) Kyal. & Boatwr.,Vachellia etbaica,Vachellia,Fabaceae,etbaica,(Schweinf.) Kyal. & Boatwr.,,LC
+183,Valeriana angustifolia Mill.,Valeriana angustifolia,Valeriana,Caprifoliaceae,angustifolius,Mill.,,Not assessed
+184,Valeriana lecoqii (Jord.) Christenh. & Byng,Valeriana lecoqii,Valeriana,Caprifoliaceae,lecoqii,(Jord.) Christenh. & Byng,,Not assessed
+185,Sedum anglicum Huds.,Sedum anglicum,Sedum,Crassulaceae,anglicum,Huds.,,Not assessed
+186,Petrosedum rupestre (L.) P.V.Heath,Petrosedum rupestre,Petrosedum,Crassulaceae,rupestre,(L.) P.V.Heath,,Not assessed
+187,Ophrys insectifera L.,Ophrys insectifera,Ophrys,Orchidaceae,insectifera,L.,,LC
+188,Freesia refracta (Jacq.) Klatt,Freesia refracta,Freesia,Iridaceae,refracta,(Jacq.) Klatt,,Not assessed
+189,Tuberaria lignosa (Sweet) Samp.,Tuberaria lignosa,Tuberaria,Cistaceae,tuberaria,(Sweet) Samp.,,Not assessed
+190,Tradescantia pallida (Rose) D.R.Hunt,Tradescantia pallida,Tradescantia,Commelinaceae,pallida,(Rose) D.R.Hunt,,Not assessed
+191,Cenchrus longispinus (Hack.) Fernald,Cenchrus longispinus,Cenchrus,Poaceae,longispinus,(Hack.) Fernald,,Not assessed
+192,Heptapleurum actinophyllum (Endl.) Lowry & G.M.Plunkett,Heptapleurum actinophyllum,Heptapleurum,Araliaceae,actinophylla,(Endl.) Lowry & G.M.Plunkett,,Not assessed
+193,Cenchrus clandestinus (Hochst. ex Chiov.) Morrone,Cenchrus clandestinus,Cenchrus,Poaceae,clandestinus,(Hochst. ex Chiov.) Morrone,,LC
+194,Cenchrus purpureus (Schumach.) Morrone,Cenchrus purpureus,Cenchrus,Poaceae,purpureus,(Schumach.) Morrone,,LC
+195,Cenchrus setaceus (Forssk.) Morrone,Cenchrus setaceus,Cenchrus,Poaceae,setaceus,(Forssk.) Morrone,,LC
+196,Anemone hortensis L.,Anemone hortensis,Anemone,Ranunculaceae,hortensis,L.,,Not assessed
+197,Tradescantia cerinthoides Kunth,Tradescantia cerinthoides,Tradescantia,Commelinaceae,cerinthoides,Kunth,,Not assessed
+198,"Roemeria argemone (L.) C.Morales, R.Mend. & Romero García",Roemeria argemone,Roemeria,Papaveraceae,argemone,"(L.) C.Morales, R.Mend. & Romero García",,Not assessed
+199,"Roemeria sicula (Guss.) Galasso, Banfi, L.Sáez & Bartolucci",Roemeria sicula,Roemeria,Papaveraceae,hybridum,"(Guss.) Galasso, Banfi, L.Sáez & Bartolucci",,Not assessed
+200,Papaver rhoeas L.,Papaver rhoeas,Papaver,Papaveraceae,rhoeas,L.,,LC
+201,Papaver dubium L.,Papaver dubium,Papaver,Papaveraceae,dubium,L.,,Not assessed
+202,Papaver somniferum L.,Papaver somniferum,Papaver,Papaveraceae,somniferum,L.,,LC
+203,Daucus carota L.,Daucus carota,Daucus,Apiaceae,carota,L.,,LC
+204,Smilax aspera L.,Smilax aspera,Smilax,Smilacaceae,aspera,L.,,LC
+205,Aizoon canariense L.,Aizoon canariense,Aizoon,Aizoaceae,canariense,L.,,Not assessed
+206,Zannichellia palustris L.,Zannichellia palustris,Zannichellia,Potamogetonaceae,palustris,L.,,LC
+207,Secale cereale L.,Secale cereale,Secale,Poaceae,cereale,L.,,
+208,Cenchrus ciliaris L.,Cenchrus ciliaris,Cenchrus,Poaceae,ciliaris,L.,,LC
+209,Cenchrus echinatus L.,Cenchrus echinatus,Cenchrus,Poaceae,echinatus,L.,,LC
+210,Phalaris aquatica L.,Phalaris aquatica,Phalaris,Poaceae,aquatica,L.,,LC
+211,Phalaris arundinacea L.,Phalaris arundinacea,Phalaris,Poaceae,arundinacea,L.,,LC
+212,Phalaris canariensis L.,Phalaris canariensis,Phalaris,Poaceae,canariensis,L.,,Not assessed
+213,Phalaris minor Retz.,Phalaris minor,Phalaris,Poaceae,minor,Retz.,,Not assessed
+214,Phalaris paradoxa L.,Phalaris paradoxa,Phalaris,Poaceae,paradoxa,L.,,LC
+215,Sedum hispanicum L.,Sedum hispanicum,Sedum,Crassulaceae,hispanicum,L.,,Not assessed
+216,Crotalaria juncea L.,Crotalaria juncea,Crotalaria,Fabaceae,juncea,L.,,Not assessed
+217,Lupinus angustifolius L.,Lupinus angustifolius,Lupinus,Fabaceae,angustifolius,L.,,LC
+218,Lupinus luteus L.,Lupinus luteus,Lupinus,Fabaceae,luteus,L.,,LC
+219,Lupinus pilosus L.,Lupinus pilosus,Lupinus,Fabaceae,pilosus,L.,,DD
+220,Lupinus albus L.,Lupinus albus,Lupinus,Fabaceae,albus,L.,,LC
+221,Trifolium alexandrinum L.,Trifolium alexandrinum,Trifolium,Fabaceae,alexandrinum,L.,,
+222,Trifolium dubium Sibth.,Trifolium dubium,Trifolium,Fabaceae,dubium,Sibth.,,Not assessed
+223,Trifolium glomeratum L.,Trifolium glomeratum,Trifolium,Fabaceae,glomeratum,L.,,Not assessed
+224,Trifolium nigrescens Viv.,Trifolium nigrescens,Trifolium,Fabaceae,nigrescens,Viv.,,LC
+225,Trifolium repens L.,Trifolium repens,Trifolium,Fabaceae,repens,L.,,LC
+226,Dalbergia melanoxylon Guill. & Perr.,Dalbergia melanoxylon,Dalbergia,Fabaceae,melanoxylon,Guill. & Perr.,,NT
+227,Melilotus indicus (L.) All.,Melilotus indicus,Melilotus,Fabaceae,indicus,(L.) All.,,Not assessed
+228,Melilotus officinalis (L.) Lam.,Melilotus officinalis,Melilotus,Fabaceae,officinalis,(L.) Lam.,,LC
+229,Acacia dealbata Link,Acacia dealbata,Acacia,Fabaceae,dealbata,Link,,LC
+230,Acacia longifolia (Andrews) Willd.,Acacia longifolia,Acacia,Fabaceae,longifolia,(Andrews) Willd.,,LC
+231,Acacia mearnsii De Wild.,Acacia mearnsii,Acacia,Fabaceae,mearnsii,De Wild.,,Not assessed
+232,Acacia pycnantha Benth.,Acacia pycnantha,Acacia,Fabaceae,pycnantha,Benth.,,LC
+233,Acacia retinodes Schltdl.,Acacia retinodes,Acacia,Fabaceae,retinodes,Schltdl.,,Not assessed
+234,Barbarea verna (Mill.) Asch.,Barbarea verna,Barbarea,Brassicaceae,verna,(Mill.) Asch.,,DD
+235,Barbarea intermedia Boreau,Barbarea intermedia,Barbarea,Brassicaceae,intermedia,Boreau,,DD
+236,Ranunculus minimus (L.) E.H.L.Krause,Ranunculus minimus,Ranunculus,Ranunculaceae,minimus,(L.) E.H.L.Krause,,Not assessed
+237,Fragaria vesca L.,Fragaria vesca,Fragaria,Rosaceae,vesca,L.,,LC
+238,Potentilla indica (Andrews) Th.Wolf,Potentilla indica,Potentilla,Rosaceae,indica,(Andrews) Th.Wolf,,Not assessed
+239,Valeriana rubra L.,Valeriana rubra,Valeriana,Caprifoliaceae,ruber,L.,,Not assessed
+240,Guizotia abyssinica (L.f.) Cass.,Guizotia abyssinica,Guizotia,Asteraceae,abyssinica,(L.f.) Cass.,,Not assessed
+241,Tagetes minuta L.,Tagetes minuta,Tagetes,Asteraceae,minuta,L.,,Not assessed
+242,Tagetes erecta L.,Tagetes erecta,Tagetes,Asteraceae,patula,L.,,Not assessed
+243,Calendula arvensis L.,Calendula arvensis,Calendula,Asteraceae,arvensis,L.,,Not assessed
+244,Lapsana communis L.,Lapsana communis,Lapsana,Asteraceae,communis,L.,,Not assessed
+245,Carthamus tinctorius L.,Carthamus tinctorius,Carthamus,Asteraceae,tinctorius,L.,,Not assessed
+246,Lactuca sativa L.,Lactuca sativa,Lactuca,Asteraceae,sativa,L.,,Not assessed
+247,Lactuca serriola L.,Lactuca serriola,Lactuca,Asteraceae,serriola,L.,,LC
+248,Arthraxon hispidus (Thunb.) Makino,Arthraxon hispidus,Arthraxon,Poaceae,hispidus,(Thunb.) Makino,,Not assessed
+249,Microchloa kunthii Desv.,Microchloa kunthii,Microchloa,Poaceae,kunthii,Desv.,,Not assessed
+250,Harpachne schimperi Hochst. ex A.Rich.,Harpachne schimperi,Harpachne,Poaceae,schimperi,Hochst. ex A.Rich.,,Not assessed
+251,Cedrela odorata L.,Cedrela odorata,Cedrela,Meliaceae,odorata,L.,,VU
+252,Aeschynomene americana L.,Aeschynomene americana,Aeschynomene,Fabaceae,americana,L.,,Not assessed
+253,Neltuma alba (Griseb.) C.E.Hughes & G.P.Lewis,Neltuma alba,Neltuma,Fabaceae,alba,(Griseb.) C.E.Hughes & G.P.Lewis,,LR/nt
+254,Neltuma juliflora (Sw.) Raf.,Neltuma juliflora,Neltuma,Fabaceae,juliflora,(Sw.) Raf.,,LC
+255,Crotalaria spectabilis Roth,Crotalaria spectabilis,Crotalaria,Fabaceae,spectabilis,Roth,,Not assessed
+256,Crotalaria chrysochlora Baker f. ex Harms,Crotalaria chrysochlora,Crotalaria,Fabaceae,chrysochlora,Baker f. ex Harms,f. ex,LC
+257,Crotalaria deflersii Schweinf.,Crotalaria deflersii,Crotalaria,Fabaceae,deflersii,Schweinf.,,Not assessed
+258,Crotalaria polysperma Kotschy,Crotalaria polysperma,Crotalaria,Fabaceae,polysperma,Kotschy,,Not assessed
+259,Crotalaria uguenensis Taub.,Crotalaria uguenensis,Crotalaria,Fabaceae,uguenensis,Taub.,,Not assessed
+260,Crotalaria verrucosa L.,Crotalaria verrucosa,Crotalaria,Fabaceae,verrucosa,L.,,Not assessed
+261,Lupinus perennis L.,Lupinus perennis,Lupinus,Fabaceae,perennis,L.,,Not assessed
+262,Lupinus polyphyllus Lindl.,Lupinus polyphyllus,Lupinus,Fabaceae,polyphyllus,Lindl.,,LC
+263,Dalbergia latifolia Roxb.,Dalbergia latifolia,Dalbergia,Fabaceae,latifolia,Roxb.,,VU
+264,Cordyla africana Lour.,Cordyla africana,Cordyla,Fabaceae,africana,Lour.,,LC
+265,Vachellia xanthophloea (Benth.) Banfi & Galasso,Vachellia xanthophloea,Vachellia,Fabaceae,xanthophloea,(Benth.) Banfi & Galasso,,LC
+266,Vachellia drepanolobium (Harms ex Y.Sjöstedt) P.J.H.Hurter,Vachellia drepanolobium,Vachellia,Fabaceae,drepanolobium,(Harms ex Y.Sjöstedt) P.J.H.Hurter,,LC
+267,Vachellia hockii (De Wild.) Seigler & Ebinger,Vachellia hockii,Vachellia,Fabaceae,hockii,(De Wild.) Seigler & Ebinger,,LC
+268,Acaciella angustissima (Mill.) Britton & Rose,Acaciella angustissima,Acaciella,Fabaceae,angustissima,(Mill.) Britton & Rose,,LC
+269,Gomphocarpus integer (N.E.Br.) Bullock,Gomphocarpus integer,Gomphocarpus,Apocynaceae,integer,(N.E.Br.) Bullock,,Not assessed
+270,Trachelospermum jasminoides (Lindl.) Lem.,Trachelospermum jasminoides,Trachelospermum,Apocynaceae,jasminoides,(Lindl.) Lem.,,Not assessed
+271,Tradescantia spathacea Sw.,Tradescantia spathacea,Tradescantia,Commelinaceae,spathacea,Sw.,,Not assessed
+272,Gymnosporia putterlickioides Loes.,Gymnosporia putterlickioides,Gymnosporia,Celastraceae,putterlickioides,Loes.,,Not assessed
+273,Conostomium longitubum (Beck) Cufod.,Conostomium longitubum,Conostomium,Rubiaceae,kenyense,(Beck) Cufod.,,Not assessed
+274,Conostomium quadrangulare (Rendle) Cufod.,Conostomium quadrangulare,Conostomium,Rubiaceae,quadrangulare,(Rendle) Cufod.,,Not assessed
+275,Mussaenda frondosa L.,Mussaenda frondosa,Mussaenda,Rubiaceae,frondosa,L.,,LC
+276,Mussaenda erythrophylla Schumach. & Thonn.,Mussaenda erythrophylla,Mussaenda,Rubiaceae,erythrophylla,Schumach. & Thonn.,,LC
+277,Morinda citrifolia L.,Morinda citrifolia,Morinda,Rubiaceae,citrifolia,L.,,LC
+278,Pilocarpus racemosus Vahl,Pilocarpus racemosus,Pilocarpus,Rutaceae,racemosus,Vahl,,LC
+279,Pelargonium alchemilloides (L.) L'Hér.,Pelargonium alchemilloides,Pelargonium,Geraniaceae,alchemilloides,(L.) L'Hér.,,Not assessed
+280,Pelargonium quinquelobatum Hochst. ex A.Rich.,Pelargonium quinquelobatum,Pelargonium,Geraniaceae,quinquelobatum,Hochst. ex A.Rich.,,Not assessed
+281,Pelargonium glechomoides A.Rich.,Pelargonium glechomoides,Pelargonium,Geraniaceae,glechomoides,A.Rich.,,Not assessed
+282,Gynura aurantiaca (Blume) DC.,Gynura aurantiaca,Gynura,Asteraceae,aurantiaca,(Blume) DC.,,Not assessed
+283,Gynura procumbens (Lour.) Merr.,Gynura procumbens,Gynura,Asteraceae,procumbens,(Lour.) Merr.,,Not assessed
+284,Aspilia mossambicensis (Oliv.) Wild,Aspilia mossambicensis,Aspilia,Asteraceae,mossambicensis,(Oliv.) Wild,,Not assessed
+285,Aspilia pluriseta Schweinf. ex Engl.,Aspilia pluriseta,Aspilia,Asteraceae,pluriseta,Schweinf. ex Engl.,,Not assessed
+286,Schkuhria pinnata (Lam.) Kuntze ex Thell.,Schkuhria pinnata,Schkuhria,Asteraceae,pinnata,(Lam.) Kuntze ex Thell.,,Not assessed
+287,Montanoa hibiscifolia Benth.,Montanoa hibiscifolia,Montanoa,Asteraceae,hibiscifolia,Benth.,,Not assessed
+288,Acalypha crenata Hochst. ex A.Rich.,Acalypha crenata,Acalypha,Euphorbiaceae,crenata,Hochst. ex A.Rich.,,LC
+289,Acalypha hispida Burm.f.,Acalypha hispida,Acalypha,Euphorbiaceae,hispida,Burm.f.,,Not assessed
+290,Phyllanthus fischeri Pax,Phyllanthus fischeri,Phyllanthus,Phyllanthaceae,fischeri,Pax,,Not assessed
+291,Phyllanthus suffrutescens Pax,Phyllanthus suffrutescens,Phyllanthus,Phyllanthaceae,suffrutescens,Pax,,Not assessed
+292,Phyllanthus acidus (L.) Skeels,Phyllanthus acidus,Phyllanthus,Phyllanthaceae,acidus,(L.) Skeels,,Not assessed
+293,Phyllanthus amarus Schumach. & Thonn.,Phyllanthus amarus,Phyllanthus,Phyllanthaceae,amarus,Schumach. & Thonn.,,Not assessed
+294,Triadica sebifera (L.) Small,Triadica sebifera,Triadica,Euphorbiaceae,sebifera,(L.) Small,,LC
+295,Petiveria alliacea L.,Petiveria alliacea,Petiveria,Phytolaccaceae,alliacea,L.,,Not assessed
+296,Peperomia pellucida (L.) Kunth,Peperomia pellucida,Peperomia,Piperaceae,pellucida,(L.) Kunth,,Not assessed
+297,Guaiacum officinale L.,Guaiacum officinale,Guaiacum,Zygophyllaceae,officinale,L.,,EN
+298,Hypericum annulatum Moris,Hypericum annulatum,Hypericum,Hypericaceae,annulatum,Moris,,Not assessed
+299,Mussaenda philippica A.Rich.,Mussaenda philippica,Mussaenda,Rubiaceae,philippica,A.Rich.,,LC
+300,Boscia mossambicensis Klotzsch,Boscia mossambicensis,Boscia,Capparaceae,mossambicensis,Klotzsch,,LC
+301,Boscia coriacea Graells,Boscia coriacea,Boscia,Capparaceae,coriacea,Graells,,Not assessed
+302,Mecardonia procumbens (Mill.) Small,Mecardonia procumbens,Mecardonia,Plantaginaceae,procumbens,(Mill.) Small,,Not assessed
+303,Browallia americana L.,Browallia americana,Browallia,Solanaceae,americana,L.,,Not assessed
+304,Acacia mangium Willd.,Acacia mangium,Acacia,Fabaceae,mangium,Willd.,,LC
+305,Casuarina equisetifolia L.,Casuarina equisetifolia,Casuarina,Casuarinaceae,equisetifolia,L.,,LC
+306,Aristea abyssinica Pax,Aristea abyssinica,Aristea,Iridaceae,abyssinica,Pax,,Not assessed
+307,Aristea ecklonii Baker,Aristea ecklonii,Aristea,Iridaceae,ecklonii,Baker,,Not assessed
+308,Erianthemum dregei (Eckl. & Zeyh.) Tiegh.,Erianthemum dregei,Erianthemum,Loranthaceae,dregei,(Eckl. & Zeyh.) Tiegh.,,Not assessed
+309,Cucurbita ficifolia Bouché,Cucurbita ficifolia,Cucurbita,Cucurbitaceae,ficifolia,Bouché,,Not assessed
+310,Cucurbita pepo L.,Cucurbita pepo,Cucurbita,Cucurbitaceae,pepo,L.,,LC
+311,Luffa acutangula (L.) Roxb.,Luffa acutangula,Luffa,Cucurbitaceae,acutangula,(L.) Roxb.,,Not assessed
+312,Lagenaria siceraria (Molina) Standl.,Lagenaria siceraria,Lagenaria,Cucurbitaceae,siceraria,(Molina) Standl.,,Not assessed
+313,Lagenaria sphaerica (Sond.) Naudin,Lagenaria sphaerica,Lagenaria,Cucurbitaceae,sphaerica,(Sond.) Naudin,,Not assessed
+314,Asystasia riparia Lindau,Asystasia riparia,Asystasia,Acanthaceae,riparia,Lindau,,Not assessed
+315,Barringtonia asiatica (L.) Kurz,Barringtonia asiatica,Barringtonia,Lecythidaceae,asiatica,(L.) Kurz,,LC
+316,Couroupita guianensis Aubl.,Couroupita guianensis,Couroupita,Lecythidaceae,guianensis,Aubl.,,LC
+317,Asystasia charmian S.Moore,Asystasia charmian,Asystasia,Acanthaceae,charmian,S.Moore,,Not assessed
+318,Raphia farinifera (Gaertn.) Hyl.,Raphia farinifera,Raphia,Arecaceae,farinifera,(Gaertn.) Hyl.,,LC
+319,Zamioculcas zamiifolia (G.Lodd.) Engl.,Zamioculcas zamiifolia,Zamioculcas,Araceae,zamiifolia,(G.Lodd.) Engl.,,Not assessed
+320,Kniphofia linearifolia Baker,Kniphofia linearifolia,Kniphofia,Asphodelaceae,linearifolia,Baker,,Not assessed
+321,Smilax anceps Willd.,Smilax anceps,Smilax,Smilacaceae,anceps,Willd.,,Not assessed
+322,Vanilla planifolia Andrews,Vanilla planifolia,Vanilla,Orchidaceae,planifolia,Andrews,,EN
+323,Ansellia africana Lindl.,Ansellia africana,Ansellia,Orchidaceae,africana,Lindl.,,VU
+324,Hypericum balearicum L.,Hypericum balearicum,Hypericum,Hypericaceae,balearicum,L.,,LC
+325,Ophrys holosericea (Burm.f.) Greuter,Ophrys holosericea,Ophrys,Orchidaceae,holosericea,(Burm.f.) Greuter,,Not assessed
+326,Odontites longiflorus (Vahl) Webb,Odontites longiflorus,Odontites,Orobanchaceae,longiforum,(Vahl) Webb,,Not assessed
+327,Pyracantha koidzumii (Hayata) Rehder,Pyracantha koidzumii,Pyracantha,Rosaceae,koidzumii,(Hayata) Rehder,,EN
+328,Cicerbita plumieri (L.) Kirschl.,Cicerbita plumieri,Cicerbita,Asteraceae,plumieri,(L.) Kirschl.,,Not assessed
+329,Aizoanthemopsis hispanica (L.) Klak,Aizoanthemopsis hispanica,Aizoanthemopsis,Aizoaceae,hispanicum,(L.) Klak,,Not assessed
+330,Phedimus aizoon (L.) 't Hart,Phedimus aizoon,Phedimus,Crassulaceae,aizoon,(L.) 't Hart,t Hart,Not assessed
+331,Phedimus spurius (M.Bieb.) 't Hart,Phedimus spurius,Phedimus,Crassulaceae,spurius,(M.Bieb.) 't Hart,t Hart,Not assessed
+332,Cereus jamacaru DC.,Cereus jamacaru,Cereus,Cactaceae,jamacaru,DC.,,LC
+333,Sedum pachyphyllum Rose,Sedum pachyphyllum,Sedum,Crassulaceae,pachyphyllum,Rose,,Not assessed
+334,Sedum dendroideum Moc. & Sessé ex DC.,Sedum dendroideum,Sedum,Crassulaceae,dendroideum,Moc. & Sessé ex DC.,,Not assessed
+335,Liriodendron chinense (Hemsl.) Sarg.,Liriodendron chinense,Liriodendron,Magnoliaceae,chinense,(Hemsl.) Sarg.,,NT
+336,Atocion rupestre (L.) Oxelman,Atocion rupestre,Atocion,Caryophyllaceae,rupestre,(L.) Oxelman,,Not assessed
+337,Tagetes tenuifolia Cav.,Tagetes tenuifolia,Tagetes,Asteraceae,tenuifolia,Cav.,,Not assessed
+338,Aegopodium podagraria L.,Aegopodium podagraria,Aegopodium,Apiaceae,podagraria,L.,,Not assessed
+339,Acacia melanoxylon R.Br.,Acacia melanoxylon,Acacia,Fabaceae,melanoxylon,R.Br.,,Not assessed
+340,Acacia saligna (Labill.) H.L.Wendl.,Acacia saligna,Acacia,Fabaceae,saligna,(Labill.) H.L.Wendl.,,LC
+341,Patzkea paniculata (L.) G.H.Loos,Patzkea paniculata,Patzkea,Poaceae,paniculata,(L.) G.H.Loos,,Not assessed
+342,Salvia abrotanoides (Kar.) Sytsma,Salvia abrotanoides,Salvia,Lamiaceae,abrotanoides,(Kar.) Sytsma,,Not assessed
+343,Ophrys × arachnitiformis Gren. & M.Philippe,Ophrys × arachnitiformis,Ophrys,Orchidaceae,occidentalis,Gren. & M.Philippe,,Not assessed
+344,Erechtites hieraciifolius (L.) Raf. ex DC.,Erechtites hieraciifolius,Erechtites,Asteraceae,hieraciifolius,(L.) Raf. ex DC.,,Not assessed
+345,Cenchrus longisetus M.C.Johnst.,Cenchrus longisetus,Cenchrus,Poaceae,longisetus,M.C.Johnst.,,Not assessed
+346,Nothofagus obliqua (Mirb.) Oerst.,Nothofagus obliqua,Nothofagus,Nothofagaceae,obliqua,(Mirb.) Oerst.,,LC
+347,Carthamus carduncellus L.,Carthamus carduncellus,Carthamus,Asteraceae,carduncellus,L.,,Not assessed
+348,Carthamus mitissimus L.,Carthamus mitissimus,Carthamus,Asteraceae,mitissimus,L.,,Not assessed
+349,Chaerophyllum aureum L.,Chaerophyllum aureum,Chaerophyllum,Apiaceae,aureum,L.,,Not assessed
+350,Chaerophyllum hirsutum L.,Chaerophyllum hirsutum,Chaerophyllum,Apiaceae,hirsutum,L.,,Not assessed
+351,Chaerophyllum villarsii W.D.J.Koch,Chaerophyllum villarsii,Chaerophyllum,Apiaceae,villarsii,W.D.J.Koch,,Not assessed
+352,Cirsium alsophilum (Pollini) Soldano,Cirsium alsophilum,Cirsium,Asteraceae,alsophilum,(Pollini) Soldano,,Not assessed
+353,Cirsium canum (L.) All.,Cirsium canum,Cirsium,Asteraceae,canum,(L.) All.,,Not assessed
+354,Cirsium dissectum (L.) Hill,Cirsium dissectum,Cirsium,Asteraceae,dissectum,(L.) Hill,,Not assessed
+355,"Lophiolepis eriophora (L.) Del Guacchio, Bureš, Iamonico & P.Caputo",Lophiolepis eriophora,Lophiolepis,Asteraceae,eriophorum,"(L.) Del Guacchio, Bureš, Iamonico & P.Caputo",,Not assessed
+356,Cirsium erisithales (Jacq.) Scop.,Cirsium erisithales,Cirsium,Asteraceae,erisithales,(Jacq.) Scop.,,Not assessed
+357,"Lophiolepis ferox (L.) Del Guacchio, Bureš, Iamonico & P.Caputo",Lophiolepis ferox,Lophiolepis,Asteraceae,ferox,"(L.) Del Guacchio, Bureš, Iamonico & P.Caputo",,Not assessed
+358,Cirsium filipendulum Lange,Cirsium filipendulum,Cirsium,Asteraceae,filipendulum,Lange,,Not assessed
+359,Cirsium glabrum DC.,Cirsium glabrum,Cirsium,Asteraceae,glabrum,DC.,,Not assessed
+360,Cirsium heterophyllum (L.) Hill,Cirsium heterophyllum,Cirsium,Asteraceae,heterophyllum,(L.) Hill,,Not assessed
+361,"Lophiolepis morisiana (Rchb.f.) Del Guacchio, Bureš, Iamonico & P.Caputo",Lophiolepis morisiana,Lophiolepis,Asteraceae,morisianum,"(Rchb.f.) Del Guacchio, Bureš, Iamonico & P.Caputo",,Not assessed
+362,Cirsium oleraceum (L.) Scop.,Cirsium oleraceum,Cirsium,Asteraceae,oleraceum,(L.) Scop.,,Not assessed
+363,Cirsium rivulare (Jacq.) All.,Cirsium rivulare,Cirsium,Asteraceae,rivulare,(Jacq.) All.,,Not assessed
+364,Cirsium tuberosum (L.) All.,Cirsium tuberosum,Cirsium,Asteraceae,tuberosum,(L.) All.,,Not assessed
+365,Collomia grandiflora Douglas ex Lindl.,Collomia grandiflora,Collomia,Polemoniaceae,grandiflora,Douglas ex Lindl.,,Not assessed
+366,Cucurbita maxima Duchesne,Cucurbita maxima,Cucurbita,Cucurbitaceae,maxima,Duchesne,,Not assessed
+367,Cymbalaria aequitriloba (Viv.) A.Chev.,Cymbalaria aequitriloba,Cymbalaria,Plantaginaceae,aequitriloba,(Viv.) A.Chev.,,Not assessed
+368,Cymbalaria hepaticifolia (Poir.) Wettst.,Cymbalaria hepaticifolia,Cymbalaria,Plantaginaceae,hepaticifolia,(Poir.) Wettst.,,Not assessed
+369,Cytinus hypocistis (L.) L.,Cytinus hypocistis,Cytinus,Cytinaceae,hypocistis,(L.) L.,,Not assessed
+370,Cytinus ruber (Fourr.) Fritsch,Cytinus ruber,Cytinus,Cytinaceae,ruber,(Fourr.) Fritsch,,Not assessed
+371,Daphne alpina L.,Daphne alpina,Daphne,Thymelaeaceae,alpina,L.,,Not assessed
+372,Daphne cneorum L.,Daphne cneorum,Daphne,Thymelaeaceae,cneorum,L.,,Not assessed
+373,Daphne mezereum L.,Daphne mezereum,Daphne,Thymelaeaceae,mezereum,L.,,LC
+374,Daphne striata Tratt.,Daphne striata,Daphne,Thymelaeaceae,striata,Tratt.,,Not assessed
+375,Cleretum bellidiforme (Burm.f.) G.D.Rowley,Cleretum bellidiforme,Cleretum,Aizoaceae,bellidiformis,(Burm.f.) G.D.Rowley,,Not assessed
+376,Dryas octopetala L.,Dryas octopetala,Dryas,Rosaceae,octopetala,L.,,Not assessed
+377,Dryopteris carthusiana (Vill.) H.P.Fuchs,Dryopteris carthusiana,Dryopteris,Dryopteridaceae,carthusiana,(Vill.) H.P.Fuchs,,LC
+378,Dryopteris cristata (L.) A.Gray,Dryopteris cristata,Dryopteris,Dryopteridaceae,cristata,(L.) A.Gray,,LC
+379,Dryopteris dilatata (Hoffm.) A.Gray,Dryopteris dilatata,Dryopteris,Dryopteridaceae,dilatata,(Hoffm.) A.Gray,,LC
+380,Dryopteris expansa (C.Presl) Fraser-Jenk. & Jermy,Dryopteris expansa,Dryopteris,Dryopteridaceae,expansa,(C.Presl) Fraser-Jenk. & Jermy,,LC
+381,Dryopteris villarii (Bellardi) Woyn. ex Schinz & Thell.,Dryopteris villarii,Dryopteris,Dryopteridaceae,villarii,(Bellardi) Woyn. ex Schinz & Thell.,,LC
+382,Empetrum nigrum L.,Empetrum nigrum,Empetrum,Ericaceae,nigrum,L.,,Not assessed
+383,Epipactis atrorubens (Hoffm.) Besser,Epipactis atrorubens,Epipactis,Orchidaceae,atrorubens,(Hoffm.) Besser,,LC
+384,Epipactis leptochila (Godfery) Godfery,Epipactis leptochila,Epipactis,Orchidaceae,leptochila,(Godfery) Godfery,,LC
+385,Epipactis microphylla (Ehrh.) Sw.,Epipactis microphylla,Epipactis,Orchidaceae,microphylla,(Ehrh.) Sw.,,NT
+386,Epipactis muelleri Godfery,Epipactis muelleri,Epipactis,Orchidaceae,muelleri,Godfery,,LC
+387,Epipactis palustris (L.) Crantz,Epipactis palustris,Epipactis,Orchidaceae,palustris,(L.) Crantz,,LC
+388,Epipactis phyllanthes G.E.Sm.,Epipactis phyllanthes,Epipactis,Orchidaceae,phyllanthes,G.E.Sm.,,LC
+389,Epipactis purpurata Sm.,Epipactis purpurata,Epipactis,Orchidaceae,purpurata,Sm.,,LC
+390,Erucastrum gallicum (Willd.) O.E.Schulz,Erucastrum gallicum,Erucastrum,Brassicaceae,gallicum,(Willd.) O.E.Schulz,,Not assessed
+391,Hirschfeldia incana (L.) Lagr.-Foss.,Hirschfeldia incana,Hirschfeldia,Brassicaceae,incanum,(L.) Lagr.-Foss.,,Not assessed
+392,Erucastrum nasturtiifolium (Poir.) O.E.Schulz,Erucastrum nasturtiifolium,Erucastrum,Brassicaceae,nasturtiifolium,(Poir.) O.E.Schulz,,Not assessed
+393,Valeriana graciliflora (Fisch. & C.A.Mey.) Byng & Christenh.,Valeriana graciliflora,Valeriana,Caprifoliaceae,graciliflora,(Fisch. & C.A.Mey.) Byng & Christenh.,,Not assessed
+394,Fragaria moschata Duchesne ex Weston,Fragaria moschata,Fragaria,Rosaceae,moschata,Duchesne ex Weston,,LC
+395,Freesia × kewensis J.Wright bis,Freesia × kewensis,Freesia,Iridaceae,hybrida,J.Wright bis,,Not assessed
+396,Galega orientalis Lam.,Galega orientalis,Galega,Fabaceae,orientalis,Lam.,,Not assessed
+397,Geropogon hybridus (L.) Sch.Bip.,Geropogon hybridus,Geropogon,Asteraceae,hybridus,(L.) Sch.Bip.,,Not assessed
+398,Gomphocarpus fruticosus (L.) W.T.Aiton,Gomphocarpus fruticosus,Gomphocarpus,Apocynaceae,fruticosus,(L.) W.T.Aiton,,Not assessed
+399,Gomphocarpus physocarpus E.Mey.,Gomphocarpus physocarpus,Gomphocarpus,Apocynaceae,physocarpus,E.Mey.,,Not assessed
+400,Veronica × andersonii Hérincq,Veronica × andersonii,Veronica,Plantaginaceae,andersonii,Hérincq,,Not assessed
+401,Veronica brachysiphon (Summerh.) Bean,Veronica brachysiphon,Veronica,Plantaginaceae,brachysiphon,(Summerh.) Bean,,Not assessed
+402,Veronica ochracea (Ashwin) Garn.-Jones,Veronica ochracea,Veronica,Plantaginaceae,ochracea,(Ashwin) Garn.-Jones,,Not assessed
+403,Veronica salicifolia G.Forst.,Veronica salicifolia,Veronica,Plantaginaceae,salicifolia,G.Forst.,,Not assessed
+404,Helicodiceros muscivorus (L.f.) Engl.,Helicodiceros muscivorus,Helicodiceros,Araceae,muscivorus,(L.f.) Engl.,,LC
+405,Hippophae rhamnoides L.,Hippophae rhamnoides,Hippophae,Elaeagnaceae,rhamnoides,L.,,LC
+406,Hypericum calycinum L.,Hypericum calycinum,Hypericum,Hypericaceae,calycinum,L.,,Not assessed
+407,Hypericum coris L.,Hypericum coris,Hypericum,Hypericaceae,coris,L.,,Not assessed
+408,Hypericum elodes L.,Hypericum elodes,Hypericum,Hypericaceae,elodes,L.,,LC
+409,Hypericum × inodorum Mill.,Hypericum × inodorum,Hypericum,Hypericaceae,inodorum,Mill.,,Not assessed
+410,Hypericum maculatum Crantz,Hypericum maculatum,Hypericum,Hypericaceae,maculatum,Crantz,,Not assessed
+411,Hypericum nummularium L.,Hypericum nummularium,Hypericum,Hypericaceae,nummularium,L.,,Not assessed
+412,Hypericum pulchrum L.,Hypericum pulchrum,Hypericum,Hypericaceae,pulchrum,L.,,Not assessed
+413,Hypericum richeri Vill.,Hypericum richeri,Hypericum,Hypericaceae,richeri,Vill.,,Not assessed
+414,Dierama pulcherrimum (Hook.f.) Baker,Dierama pulcherrimum,Dierama,Iridaceae,pulcherrimum,(Hook.f.) Baker,,Not assessed
+415,Euphrosyne xanthiifolia (Nutt.) A.Gray,Euphrosyne xanthiifolia,Iva,Asteraceae,xanthiifolia,(Nutt.) A.Gray,,Not assessed
+416,Kniphofia uvaria (L.) Oken,Kniphofia uvaria,Kniphofia,Asphodelaceae,uvaria,(L.) Oken,,Not assessed
+417,Cicerbita alpina (L.) Wallr.,Cicerbita alpina,Cicerbita,Asteraceae,alpina,(L.) Wallr.,,Not assessed
+418,Cicerbita macrophylla (Willd.) Wallr.,Cicerbita macrophylla,Cicerbita,Asteraceae,macrophylla,(Willd.) Wallr.,,Not assessed
+419,Lactuca viminea (L.) J.Presl & C.Presl,Lactuca viminea,Lactuca,Asteraceae,viminea,(L.) J.Presl & C.Presl,,LC
+420,Lamium album L.,Lamium album,Lamium,Lamiaceae,album,L.,,LC
+421,Lamium maculatum (L.) L.,Lamium maculatum,Lamium,Lamiaceae,maculatum,(L.) L.,,Not assessed
+422,Lathraea clandestina L.,Lathraea clandestina,Lathraea,Orobanchaceae,clandestina,L.,,Not assessed
+423,Lathraea squamaria L.,Lathraea squamaria,Lathraea,Orobanchaceae,squamaria,L.,,Not assessed
+424,Lavandula × intermedia Emeric ex Loisel.,Lavandula × intermedia,Lavandula,Lamiaceae,intermedia,Emeric ex Loisel.,,Not assessed
+425,Lavandula latifolia Medik.,Lavandula latifolia,Lavandula,Lamiaceae,latifolia,Medik.,,LC
+426,Limnanthes douglasii R.Br.,Limnanthes douglasii,Limnanthes,Limnanthaceae,douglasii,R.Br.,,Not assessed
+427,Liriodendron tulipifera L.,Liriodendron tulipifera,Liriodendron,Magnoliaceae,tulipifera,L.,,LC
+428,Lupinus arboreus Sims,Lupinus arboreus,Lupinus,Fabaceae,arboreus,Sims,,Not assessed
+429,Lupinus × regalis Bergmans,Lupinus × regalis,Lupinus,Fabaceae,regalis,Bergmans,,Not assessed
+430,Maianthemum bifolium (L.) F.W.Schmidt,Maianthemum bifolium,Maianthemum,Asparagaceae,bifolium,(L.) F.W.Schmidt,,Not assessed
+431,Melilotus altissimus Thuill.,Melilotus altissimus,Melilotus,Fabaceae,altissimus,Thuill.,,Not assessed
+432,Melilotus neapolitanus Ten.,Melilotus neapolitanus,Melilotus,Fabaceae,spicatus,Ten.,,Not assessed
+433,Mercurialis tomentosa L.,Mercurialis tomentosa,Mercurialis,Euphorbiaceae,tomentosa,L.,,Not assessed
+434,Moehringia ciliata (Scop.) Dalla Torre,Moehringia ciliata,Moehringia,Caryophyllaceae,ciliata,(Scop.) Dalla Torre,,Not assessed
+435,Moehringia muscosa L.,Moehringia muscosa,Moehringia,Caryophyllaceae,muscosa,L.,,Not assessed
+436,Moehringia pentandra J.Gay,Moehringia pentandra,Moehringia,Caryophyllaceae,pentandra,J.Gay,,Not assessed
+437,Narthecium ossifragum (L.) Huds.,Narthecium ossifragum,Narthecium,Nartheciaceae,ossifragum,(L.) Huds.,,Not assessed
+438,"Neotinea lactea (Poir.) R.M.Bateman, Pridgeon & M.W.Chase",Neotinea lactea,Neotinea,Orchidaceae,lactea,"(Poir.) R.M.Bateman, Pridgeon & M.W.Chase",,LC
+439,"Neotinea ustulata (L.) R.M.Bateman, Pridgeon & M.W.Chase",Neotinea ustulata,Neotinea,Orchidaceae,ustulata,"(L.) R.M.Bateman, Pridgeon & M.W.Chase",,LC
+440,Noccaea caerulescens (J.Presl & C.Presl) F.K.Mey.,Noccaea caerulescens,Noccaea,Brassicaceae,caerulescens,(J.Presl & C.Presl) F.K.Mey.,,Not assessed
+441,Noccaea montana (L.) F.K.Mey.,Noccaea montana,Noccaea,Brassicaceae,montana,(L.) F.K.Mey.,,Not assessed
+442,Noccaea rotundifolia (L.) Moench,Noccaea rotundifolia,Noccaea,Brassicaceae,rotundifolia,(L.) Moench,,Not assessed
+443,Nymphaea candida C.Presl,Nymphaea candida,Nymphaea,Nymphaeaceae,candida,C.Presl,,LC
+444,Nymphoides peltata (S.G.Gmel.) Kuntze,Nymphoides peltata,Nymphoides,Menyanthaceae,peltata,(S.G.Gmel.) Kuntze,,LC
+445,Ophrys sphegodes Mill.,Ophrys sphegodes,Ophrys,Orchidaceae,sphegodes,Mill.,,Not assessed
+446,Ophrys sphegodes J.J.Wood,Ophrys sphegodes,Ophrys,Orchidaceae,aveyronensis,J.J.Wood,,Not assessed
+447,Bourreria andrieuxii (A.DC.) Hemsl.,Bourreria andrieuxii,Bourreria,Ehretiaceae,andrieuxii,(A.DC.) Hemsl.,,LC
+448,Ophrys bertolonii Moretti,Ophrys bertolonii,Ophrys,Orchidaceae,bertolonii,Moretti,,LC
+449,Ophrys × flavicans Vis.,Ophrys × flavicans,Ophrys,Orchidaceae,catalaunica,Vis.,,Not assessed
+450,Ophrys sphegodes (Rchb.f.) A.Bolòs,Ophrys sphegodes,Ophrys,Orchidaceae,incubacea,(Rchb.f.) A.Bolòs,,Not assessed
+451,Alibertia edulis (Rich.) A.Rich. ex DC.,Alibertia edulis,Alibertia,Rubiaceae,edulis,(Rich.) A.Rich. ex DC.,,LC
+452,Ophrys sphegodes (Sennen) Sanz & Nuet,Ophrys sphegodes,Ophrys,Orchidaceae,passionis,(Sennen) Sanz & Nuet,,Not assessed
+453,Ophrys sphegodes (H.Baumann & Künkele) P.J.Cribb,Ophrys sphegodes,Ophrys,Orchidaceae,provincialis,(H.Baumann & Künkele) P.J.Cribb,,Not assessed
+454,Ophrys fusca (Viv.) Arcang.,Ophrys fusca,Ophrys,Orchidaceae,sulcata,(Viv.) Arcang.,,Not assessed
+455,Thelypteris limbosperma (All.) H.P.Fuchs,Thelypteris limbosperma,Thelypteris,Thelypteridaceae,limbosperma,(All.) H.P.Fuchs,,LC
+456,Eriocapitella × hybrida (L.H.Bailey) Christenh. & Byng,Eriocapitella × hybrida,Eriocapitella,Ranunculaceae,hybrida,(L.H.Bailey) Christenh. & Byng,,Not assessed
+457,Pulsatilla alpina (L.) Chaz.,Pulsatilla alpina,Pulsatilla,Ranunculaceae,alpina,(L.) Chaz.,,Not assessed
+458,Pancratium illyricum L.,Pancratium illyricum,Pancratium,Amaryllidaceae,illyricum,L.,,LC
+459,Anemonoides apennina (L.) Holub,Anemonoides apennina,Anemonoides,Ranunculaceae,apennina,(L.) Holub,,Not assessed
+460,"Anemonoides baldensis (L.) Galasso, Banfi & Soldano",Anemonoides baldensis,Anemonoides,Ranunculaceae,baldensis,"(L.) Galasso, Banfi & Soldano",,Not assessed
+461,"Oreomecon alpina (L.) Banfi, Bartolucci, J.-M.Tison & Galasso",Oreomecon alpina,Oreomecon,Papaveraceae,alpinum,"(L.) Banfi, Bartolucci, J.-M.Tison & Galasso",,Not assessed
+462,"Oreomecon crocea (Ledeb.) Banfi, Bartolucci, J.-M.Tison & Galasso",Oreomecon crocea,Oreomecon,Papaveraceae,croceum,"(Ledeb.) Banfi, Bartolucci, J.-M.Tison & Galasso",,Not assessed
+463,Papaver orientale L.,Papaver orientale,Papaver,Papaveraceae,orientale,L.,,Not assessed
+464,Papaver setiferum Goldblatt,Papaver setiferum,Papaver,Papaveraceae,pseudo-orientale,Goldblatt,,Not assessed
+465,Didymopanax morototoni (Aubl.) Decne. & Planch.,Didymopanax morototoni,Didymopanax,Araliaceae,morototoni,(Aubl.) Decne. & Planch.,,LC
+466,Pulsatilla halleri (All.) Willd.,Pulsatilla halleri,Pulsatilla,Ranunculaceae,halleri,(All.) Willd.,,LC
+467,Hepatica nobilis Schreb.,Hepatica nobilis,Hepatica,Ranunculaceae,hepatica,Schreb.,,Not assessed
+468,Pelargonium × hybridum (L.) L'Hér.,Pelargonium × hybridum,Pelargonium,Geraniaceae,hybridum,(L.) L'Hér.,,Not assessed
+469,Pelargonium inquinans (L.) L'Hér.,Pelargonium inquinans,Pelargonium,Geraniaceae,inquinans,(L.) L'Hér.,,Not assessed
+470,Pulsatilla montana (Hoppe) Rchb.,Pulsatilla montana,Pulsatilla,Ranunculaceae,montana,(Hoppe) Rchb.,,Not assessed
+471,Anemonoides nemorosa (L.) Holub,Anemonoides nemorosa,Anemonoides,Ranunculaceae,nemorosa,(L.) Holub,,Not assessed
+472,Pulsatilla vulgaris Mill.,Pulsatilla vulgaris,Pulsatilla,Ranunculaceae,pulsatilla,Mill.,,Not assessed
+473,Pulsatilla rubra (Lam.) Delarbre,Pulsatilla rubra,Pulsatilla,Ranunculaceae,rubra,(Lam.) Delarbre,,Not assessed
+474,Phedimus stellatus (L.) Raf.,Phedimus stellatus,Phedimus,Crassulaceae,stellatus,(L.) Raf.,,Not assessed
+475,"Anemonoides sylvestris (L.) Galasso, Banfi & Soldano",Anemonoides sylvestris,Anemonoides,Ranunculaceae,sylvestris,"(L.) Galasso, Banfi & Soldano",,Not assessed
+476,Anemonoides trifolia (L.) Holub,Anemonoides trifolia,Anemonoides,Ranunculaceae,trifolia,(L.) Holub,,Not assessed
+477,Pulsatilla vernalis (L.) Mill.,Pulsatilla vernalis,Pulsatilla,Ranunculaceae,vernalis,(L.) Mill.,,LC
+478,Angelica heterocarpa M.J.Lloyd,Angelica heterocarpa,Angelica,Apiaceae,heterocarpa,M.J.Lloyd,,LC
+479,Angelica razulii Gouan,Angelica razulii,Angelica,Apiaceae,razulii,Gouan,,Not assessed
+480,Angelica sylvestris L.,Angelica sylvestris,Angelica,Apiaceae,sylvestris,L.,,LC
+481,Pleurospermum austriacum (L.) Hoffm.,Pleurospermum austriacum,Pleurospermum,Apiaceae,austriacum,(L.) Hoffm.,,Not assessed
+482,Sasa palmata (Burb.) E.G.Camus,Sasa palmata,Sasa,Poaceae,palmata,(Burb.) E.G.Camus,,Not assessed
+483,Anthericum ramosum L.,Anthericum ramosum,Anthericum,Asparagaceae,ramosum,L.,,Not assessed
+484,Pyracantha coccinea M.Roem.,Pyracantha coccinea,Pyracantha,Rosaceae,coccinea,M.Roem.,,Not assessed
+485,Pyracantha crenulata (D.Don) M.Roem.,Pyracantha crenulata,Pyracantha,Rosaceae,rogersiana,(D.Don) M.Roem.,,Not assessed
+486,Holodiscus discolor (Pursh) Maxim.,Holodiscus discolor,Holodiscus,Rosaceae,discolor,(Pursh) Maxim.,,Not assessed
+487,Sagittaria graminea Michx.,Sagittaria graminea,Sagittaria,Alismataceae,graminea,Michx.,,LC
+488,Sagittaria latifolia Willd.,Sagittaria latifolia,Sagittaria,Alismataceae,latifolia,Willd.,,LC
+489,Sagittaria sagittifolia L.,Sagittaria sagittifolia,Sagittaria,Alismataceae,sagittifolia,L.,,LC
+490,Diascia rigescens E.Mey. ex Benth.,Diascia rigescens,Diascia,Scrophulariaceae,rigescens,E.Mey. ex Benth.,,Not assessed
+491,Diascia vigilis Hilliard & B.L.Burtt,Diascia vigilis,Diascia,Scrophulariaceae,vigilis,Hilliard & B.L.Burtt,,Not assessed
+492,Sedum sarmentosum Bunge,Sedum sarmentosum,Sedum,Crassulaceae,sarmentosum,Bunge,,Not assessed
+493,Sedum alpestre Vill.,Sedum alpestre,Sedum,Crassulaceae,alpestre,Vill.,,Not assessed
+494,Sedum annuum L.,Sedum annuum,Sedum,Crassulaceae,annuum,L.,,Not assessed
+495,Phedimus kamtschaticus (Fisch.) 't Hart,Phedimus kamtschaticus,Phedimus,Crassulaceae,kamtschaticum,(Fisch.) 't Hart,,Not assessed
+496,Sedum mexicanum Britton,Sedum mexicanum,Sedum,Crassulaceae,mexicanum,Britton,,Not assessed
+497,Petrosedum ochroleucum (Chaix) Niederle,Petrosedum ochroleucum,Petrosedum,Crassulaceae,ochroleucum,(Chaix) Niederle,,Not assessed
+498,Sedum sexangulare L.,Sedum sexangulare,Sedum,Crassulaceae,sexangulare,L.,,Not assessed
+499,Metasequoia glyptostroboides Hu & W.C.Cheng,Metasequoia glyptostroboides,Metasequoia,Cupressaceae,glyptostroboides,Hu & W.C.Cheng,,EN
+500,Telekia speciosa (Schreb.) Baumg.,Telekia speciosa,Telekia,Asteraceae,speciosa,(Schreb.) Baumg.,,Not assessed
+501,Thesium alpinum L.,Thesium alpinum,Thesium,Thesiaceae,alpinum,L.,,Not assessed
+502,Thesium linophyllon L.,Thesium linophyllon,Thesium,Thesiaceae,linophyllon,L.,,Not assessed
+503,Tradescantia × andersoniana W.Ludw. & Rohweder,Tradescantia × andersoniana,Tradescantia,Commelinaceae,andersoniana,W.Ludw. & Rohweder,,Not assessed
+504,Tradescantia virginiana L.,Tradescantia virginiana,Tradescantia,Commelinaceae,virginiana,L.,,Not assessed
+505,Trifolium alpestre L.,Trifolium alpestre,Trifolium,Fabaceae,alpestre,L.,,LC
+506,Trifolium alpinum L.,Trifolium alpinum,Trifolium,Fabaceae,alpinum,L.,,LC
+507,Trifolium pallescens Schreb.,Trifolium pallescens,Trifolium,Fabaceae,pallescens,Schreb.,,Not assessed
+508,Trifolium spadiceum L.,Trifolium spadiceum,Trifolium,Fabaceae,spadiceum,L.,,Not assessed
+509,Trifolium thalii Vill.,Trifolium thalii,Trifolium,Fabaceae,thalii,Vill.,,Not assessed
+510,Viscaria alpina (L.) G.Don,Viscaria alpina,Viscaria,Caryophyllaceae,alpina,(L.) G.Don,,Not assessed
+511,Viscaria vulgaris Bernh.,Viscaria vulgaris,Viscaria,Caryophyllaceae,vulgaris,Bernh.,,Not assessed
+512,Eriocapitella hupehensis (É.Lemoine) Christenh. & Byng,Eriocapitella hupehensis,Eriocapitella,Ranunculaceae,hupehensis,(É.Lemoine) Christenh. & Byng,,Not assessed
+513,Eriocapitella vitifolia (Buch.-Ham. ex DC.) Nakai,Eriocapitella vitifolia,Eriocapitella,Ranunculaceae,vitifolia,(Buch.-Ham. ex DC.) Nakai,,Not assessed
+514,Adenostyles alpina (L.) Bluff & Fingerh.,Adenostyles alpina,Adenostyles,Asteraceae,alpina,(L.) Bluff & Fingerh.,,Not assessed
+515,Alcea biennis Winterl,Alcea biennis,Alcea,Malvaceae,biennis,Winterl,,Not assessed
+516,Anemonastrum narcissiflorum (L.) Holub,Anemonastrum narcissiflorum,Anemonastrum,Ranunculaceae,narcissiflora,(L.) Holub,,Not assessed
+517,Anemonoides ranunculoides (L.) Holub,Anemonoides ranunculoides,Anemonoides,Ranunculaceae,ranunculoides,(L.) Holub,,Not assessed
+518,Angelica archangelica L.,Angelica archangelica,Angelica,Apiaceae,archangelica,L.,,LC
+519,Chaerophyllum bulbosum L.,Chaerophyllum bulbosum,Chaerophyllum,Apiaceae,bulbosum,L.,,Not assessed
+520,Cirsium acaulon (L.) Scop.,Cirsium acaulon,Cirsium,Asteraceae,acaulon,(L.) Scop.,,Not assessed
+521,Cirsium spinosissimum (L.) Scop.,Cirsium spinosissimum,Cirsium,Asteraceae,spinosissimum,(L.) Scop.,,Not assessed
+522,"Cymbalaria muralis G.Gaertn., B.Mey. & Scherb.",Cymbalaria muralis,Cymbalaria,Plantaginaceae,muralis,"G.Gaertn., B.Mey. & Scherb.",,Not assessed
+523,Eritrichium nanum (L.) Gaudin,Eritrichium nanum,Eritrichium,Boraginaceae,nanum,(L.) Gaudin,,Not assessed
+524,Fragaria viridis Weston,Fragaria viridis,Fragaria,Rosaceae,viridis,Weston,,LC
+525,Honckenya peploides (L.) Ehrh.,Honckenya peploides,Honckenya,Caryophyllaceae,peploides,(L.) Ehrh.,,Not assessed
+526,Hypericum hyssopifolium Chaix,Hypericum hyssopifolium,Hypericum,Hypericaceae,hyssopifolium,Chaix,,Not assessed
+527,Hypericum mutilum L.,Hypericum mutilum,Hypericum,Hypericaceae,mutilum,L.,,Not assessed
+528,Lactuca perennis L.,Lactuca perennis,Lactuca,Asteraceae,perennis,L.,,DD
+529,Sedum atratum L.,Sedum atratum,Sedum,Crassulaceae,atratum,L.,,Not assessed
+530,Thesium pyrenaicum Pourr.,Thesium pyrenaicum,Thesium,Thesiaceae,pyrenaicum,Pourr.,,Not assessed
+531,Trifolium medium L.,Trifolium medium,Trifolium,Fabaceae,medium,L.,,Not assessed
+532,Trinia glauca (L.) Dumort.,Trinia glauca,Trinia,Apiaceae,glauca,(L.) Dumort.,,Not assessed
+533,Petrosedum montanum (Songeon & E.P.Perrier) Grulich,Petrosedum montanum,Petrosedum,Crassulaceae,montanum,(Songeon & E.P.Perrier) Grulich,,Not assessed
+534,Trifolium badium Schreb.,Trifolium badium,Trifolium,Fabaceae,badium,Schreb.,,Not assessed
+535,Freesia leichtlinii Klatt,Freesia leichtlinii,Freesia,Iridaceae,leichtlinii,Klatt,,Not assessed
+536,Cobaea scandens Cav.,Cobaea scandens,Cobaea,Polemoniaceae,scandens,Cav.,,Not assessed
+537,Fragaria virginiana Mill.,Fragaria virginiana,Fragaria,Rosaceae,virginiana,Mill.,,Not assessed
+538,Pulsatilla pratensis (L.) Mill.,Pulsatilla pratensis,Pulsatilla,Ranunculaceae,pratensis,(L.) Mill.,,Not assessed
+539,Sagittaria lancifolia L.,Sagittaria lancifolia,Sagittaria,Alismataceae,lancifolia,L.,,Not assessed
+540,"Neotinea tridentata (Scop.) R.M.Bateman, Pridgeon & M.W.Chase",Neotinea tridentata,Neotinea,Orchidaceae,tridentata,"(Scop.) R.M.Bateman, Pridgeon & M.W.Chase",,LC
+541,Adenostyles alliariae (Gouan) Kern.,Adenostyles alliariae,Adenostyles,Asteraceae,alliariae,(Gouan) Kern.,,Not assessed
+542,Ophrys × minuticauda Duffort,Ophrys × minuticauda,Ophrys,Orchidaceae,pseudoscolopax,Duffort,,Not assessed
+543,Sedum palmeri S.Watson,Sedum palmeri,Sedum,Crassulaceae,palmeri,S.Watson,,Not assessed
+544,Hypericum olympicum L.,Hypericum olympicum,Hypericum,Hypericaceae,olympicum,L.,,Not assessed
+545,Dryopteris erythrosora (D.C.Eaton) Kuntze,Dryopteris erythrosora,Dryopteris,Dryopteridaceae,erythrosora,(D.C.Eaton) Kuntze,,Not assessed
+546,Adenostyles leucophylla Rchb.,Adenostyles leucophylla,Adenostyles,Asteraceae,leucophylla,Rchb.,,Not assessed
+547,Calycanthus floridus L.,Calycanthus floridus,Calycanthus,Calycanthaceae,floridus,L.,,Not assessed
+548,Phyllanthus niruri L.,Phyllanthus niruri,Phyllanthus,Phyllanthaceae,niruri,L.,,Not assessed
+549,Ophrys sphegodes (Rchb.) M.Laínz,Ophrys sphegodes,Ophrys,Orchidaceae,araneola,(Rchb.) M.Laínz,sensu auct.plur.,Not assessed
+550,Anemonoides blanda (Schott & Kotschy) Holub,Anemonoides blanda,Anemonoides,Ranunculaceae,blanda,(Schott & Kotschy) Holub,,Not assessed
+551,Aralia elata (Miq.) Seem.,Aralia elata,Aralia,Araliaceae,elata,(Miq.) Seem.,,LC
+552,Clethra alnifolia L.,Clethra alnifolia,Clethra,Clethraceae,alnifolia,L.,,LC
+553,Corispermum pallasii Steven,Corispermum pallasii,Corispermum,Amaranthaceae,pallasii,Steven,,Not assessed
+554,Hypericum patulum Thunb.,Hypericum patulum,Hypericum,Hypericaceae,patulum,Thunb.,,Not assessed
+555,Hypericum × hidcoteense Geerinck,Hypericum × hidcoteense,Hypericum,Hypericaceae,hidcoteense,Geerinck,,Not assessed
+556,Lupinus nootkatensis Donn ex Sims,Lupinus nootkatensis,Lupinus,Fabaceae,nootkatensis,Donn ex Sims,,LC
+557,Smilax rotundifolia L.,Smilax rotundifolia,Smilax,Smilacaceae,rotundifolia,L.,,Not assessed
+558,Salvia yangii B.T.Drew,Salvia yangii,Salvia,Lamiaceae,atriplicifolia,B.T.Drew,,Not assessed
+559,Nothofagus antarctica (G.Forst.) Oerst.,Nothofagus antarctica,Nothofagus,Nothofagaceae,antarctica,(G.Forst.) Oerst.,,LC
+560,Iva annua L.,Iva annua,Iva,Asteraceae,annua,L.,,Not assessed
+561,Dryopteris fragrans (L.) Schott,Dryopteris fragrans,Dryopteris,Dryopteridaceae,fragrans,(L.) Schott,,LC
+562,Neotinea conica (Willd.) R.M.Bateman,Neotinea conica,Neotinea,Orchidaceae,conica,(Willd.) R.M.Bateman,,Not assessed
+563,Tetraclinis articulata (Vahl) Mast.,Tetraclinis articulata,Tetraclinis,Cupressaceae,articulata,(Vahl) Mast.,,EN
+564,Alcea setosa (Boiss.) Alef.,Alcea setosa,Alcea,Malvaceae,setosa,(Boiss.) Alef.,,Not assessed
+565,Chaerophyllum aromaticum L.,Chaerophyllum aromaticum,Chaerophyllum,Apiaceae,aromaticum,L.,,Not assessed
+566,Cucurbita moschata Duchesne,Cucurbita moschata,Cucurbita,Cucurbitaceae,moschata,Duchesne,,Not assessed
+567,Daphne sericea Vahl,Daphne sericea,Daphne,Thymelaeaceae,sericea,Vahl,,Not assessed
+568,Lamium orvala L.,Lamium orvala,Lamium,Lamiaceae,orvala,L.,,Not assessed
+569,Paederota bonarota (L.) L.,Paederota bonarota,Paederota,Plantaginaceae,bonarota,(L.) L.,,Not assessed
+570,Rhodothamnus chamaecistus (L.) Rchb.,Rhodothamnus chamaecistus,Rhodothamnus,Ericaceae,chamaecistus,(L.) Rchb.,,Not assessed
+571,Ophrys lunulata Parl.,Ophrys lunulata,Ophrys,Orchidaceae,lunulata,Parl.,,LC
+572,Astydamia latifolia (L.f.) Baill.,Astydamia latifolia,Astydamia,Apiaceae,latifolia,(L.f.) Baill.,,Not assessed
+573,Lavandula pinnata Lundmark,Lavandula pinnata,Lavandula,Lamiaceae,pinnata,Lundmark,,Not assessed
+574,Angelica atropurpurea L.,Angelica atropurpurea,Angelica,Apiaceae,atropurpurea,L.,,LC
+575,Acacia pravissima F.Muell. ex Benth.,Acacia pravissima,Acacia,Fabaceae,pravissima,F.Muell. ex Benth.,,LC
+576,Adonis pyrenaica DC.,Adonis pyrenaica,Adonis,Ranunculaceae,pyrenaica,DC.,,Not assessed
+577,Adonis vernalis L.,Adonis vernalis,Adonis,Ranunculaceae,vernalis,L.,,LC
+578,Barbarea rupicola Moris,Barbarea rupicola,Barbarea,Brassicaceae,rupicola,Moris,,LC
+579,Barbarea vulgaris W.T.Aiton,Barbarea vulgaris,Barbarea,Brassicaceae,vulgaris,W.T.Aiton,,LC
+580,Acacia baileyana F.Muell.,Acacia baileyana,Acacia,Fabaceae,baileyana,F.Muell.,,Not assessed
+581,Bellium bellidioides L.,Bellium bellidioides,Bellium,Asteraceae,bellidioides,L.,,LC
+582,Bocoa prouacensis Aubl.,Bocoa prouacensis,Bocoa,Fabaceae,prouacensis,Aubl.,,LC
+583,Nephrolepis biserrata (Sw.) Schott,Nephrolepis biserrata,Nephrolepis,Nephrolepidaceae,biserrata,(Sw.) Schott,,Not assessed
+584,Vanilla pompona Schiede,Vanilla pompona,Vanilla,Orchidaceae,pompona,Schiede,,EN
+585,Guatteria anteridifera Scharf & Maas,Guatteria anteridifera,Guatteria,Annonaceae,anteridifera,Scharf & Maas,,DD
+586,Caraipa densifolia Mart.,Caraipa densifolia,Caraipa,Calophyllaceae,densifolia,Mart.,,LC
+587,Caraipa punctulata Ducke,Caraipa punctulata,Caraipa,Calophyllaceae,punctulata,Ducke,,LC
+588,Vismia cayennensis (Jacq.) Pers.,Vismia cayennensis,Vismia,Hypericaceae,cayennensis,(Jacq.) Pers.,,LC
+589,Vismia macrophylla Kunth,Vismia macrophylla,Vismia,Hypericaceae,macrophylla,Kunth,,LC
+590,Vismia sessilifolia (Aubl.) Choisy,Vismia sessilifolia,Vismia,Hypericaceae,sessilifolia,(Aubl.) Choisy,,LC
+591,Dryopteris wallichiana (Spreng.) Hyl.,Dryopteris wallichiana,Dryopteris,Dryopteridaceae,wallichiana,(Spreng.) Hyl.,,Not assessed
+592,Xylopia frutescens Aubl.,Xylopia frutescens,Xylopia,Annonaceae,frutescens,Aubl.,,LC
+593,Xylopia nitida Dunal,Xylopia nitida,Xylopia,Annonaceae,nitida,Dunal,,LC
+594,Xylopia sericea A.St.-Hil.,Xylopia sericea,Xylopia,Annonaceae,sericea,A.St.-Hil.,,LC
+595,Phyllanthus urinaria L.,Phyllanthus urinaria,Phyllanthus,Phyllanthaceae,urinaria,L.,,Not assessed
+596,Pogonophora schomburgkiana Miers ex Benth.,Pogonophora schomburgkiana,Pogonophora,Peraceae,schomburgkiana,Miers ex Benth.,,LC
+597,Sagotia racemosa Baill.,Sagotia racemosa,Sagotia,Euphorbiaceae,racemosa,Baill.,,LC
+598,Tabernaemontana undulata Vahl,Tabernaemontana undulata,Tabernaemontana,Apocynaceae,undulata,Vahl,,LC
+599,Guarea gomma Pulle,Guarea gomma,Guarea,Meliaceae,gomma,Pulle,,LC
+600,Nymphoides indica (L.) Kuntze,Nymphoides indica,Nymphoides,Menyanthaceae,indica,(L.) Kuntze,,LC
+601,Anthurium hookeri Kunth,Anthurium hookeri,Anthurium,Araceae,hookeri,Kunth,,Not assessed
+602,Anthurium jenmanii Engl.,Anthurium jenmanii,Anthurium,Araceae,jenmanii,Engl.,,Not assessed
+603,Anthurium scandens (Aubl.) Engl.,Anthurium scandens,Anthurium,Araceae,scandens,(Aubl.) Engl.,,Not assessed
+604,Dracontium polyphyllum L.,Dracontium polyphyllum,Dracontium,Araceae,polyphyllum,L.,,Not assessed
+605,Crotalaria retusa L.,Crotalaria retusa,Crotalaria,Fabaceae,retusa,L.,,Not assessed
+606,Peperomia magnoliifolia (Jacq.) A.Dietr.,Peperomia magnoliifolia,Peperomia,Piperaceae,magnoliifolia,(Jacq.) A.Dietr.,,Not assessed
+607,Peperomia obtusifolia (L.) A.Dietr.,Peperomia obtusifolia,Peperomia,Piperaceae,obtusifolia,(L.) A.Dietr.,,Not assessed
+608,Peperomia quadrangularis (J.V.Thomps.) A.Dietr.,Peperomia quadrangularis,Peperomia,Piperaceae,quadrangularis,(J.V.Thomps.) A.Dietr.,,Not assessed
+609,Peperomia rotundifolia (L.) Kunth,Peperomia rotundifolia,Peperomia,Piperaceae,rotundifolia,(L.) Kunth,,Not assessed
+610,Peperomia serpens (Sw.) G.Don,Peperomia serpens,Peperomia,Piperaceae,serpens,(Sw.) G.Don,,Not assessed
+611,Declieuxia fruticosa (Willd.) Kuntze,Declieuxia fruticosa,Declieuxia,Rubiaceae,fruticosa,(Willd.) Kuntze,,Not assessed
+612,Mauritia flexuosa L.f.,Mauritia flexuosa,Mauritia,Arecaceae,flexuosa,L.f.,,LC
+613,Urera baccifera (L.) Gaudich. ex Wedd.,Urera baccifera,Urera,Urticaceae,baccifera,(L.) Gaudich. ex Wedd.,,LC
+614,Leuenbergeria bleo (Kunth) Lodé,Leuenbergeria bleo,Leuenbergeria,Cactaceae,bleo,(Kunth) Lodé,,Not assessed
+615,Cereus hexagonus (L.) Mill.,Cereus hexagonus,Cereus,Cactaceae,hexagonus,(L.) Mill.,,LC
+616,Xylopia crinita R.E.Fr.,Xylopia crinita,Xylopia,Annonaceae,crinita,R.E.Fr.,,LC
+617,Aciotis rubricaulis (Mart. ex DC.) Triana,Aciotis rubricaulis,Aciotis,Melastomataceae,rubricaulis,(Mart. ex DC.) Triana,,Not assessed
+618,Guatteria amplifolia Triana & Planch.,Guatteria amplifolia,Guatteria,Annonaceae,amplifolia,Triana & Planch.,,LC
+619,Cucumis melo L.,Cucumis melo,Cucumis,Cucurbitaceae,cylindrica,L.,,Not assessed
+620,Cryptostegia madagascariensis Bojer ex Decne.,Cryptostegia madagascariensis,Cryptostegia,Apocynaceae,madagascariensis,Bojer ex Decne.,,Not assessed
+621,Didymopanax decaphyllus (Seem.) Fiaschi & G.M.Plunkett,Didymopanax decaphyllus,Didymopanax,Araliaceae,decaphylla,(Seem.) Fiaschi & G.M.Plunkett,,Not assessed
+622,Aphelandra scabra (Vahl) Sm.,Aphelandra scabra,Aphelandra,Acanthaceae,scabra,(Vahl) Sm.,,LC
+623,Piriqueta cistoides (L.) Griseb.,Piriqueta cistoides,Piriqueta,Turneraceae,cistoides,(L.) Griseb.,,Not assessed
+624,Acalypha wilkesiana Müll.Arg.,Acalypha wilkesiana,Acalypha,Euphorbiaceae,wilkesiana,Müll.Arg.,,LC
+625,Breynia disticha J.R.Forst. & G.Forst.,Breynia disticha,Breynia,Phyllanthaceae,disticha,J.R.Forst. & G.Forst.,,LC
+626,Crotalaria incana L.,Crotalaria incana,Crotalaria,Fabaceae,incana,L.,,Not assessed
+627,Crotalaria pallida Aiton,Crotalaria pallida,Crotalaria,Fabaceae,pallida,Aiton,,Not assessed
+628,Kigelia africana (Lam.) Benth.,Kigelia africana,Kigelia,Bignoniaceae,africana,(Lam.) Benth.,,LC
+629,Guatteria citriodora Ducke,Guatteria citriodora,Guatteria,Annonaceae,citriodora,Ducke,,LC
+630,Acalypha indica L.,Acalypha indica,Acalypha,Euphorbiaceae,indica,L.,,Not assessed
+631,Guatteria punctata (Aubl.) R.A.Howard,Guatteria punctata,Guatteria,Annonaceae,punctata,(Aubl.) R.A.Howard,,LC
+632,Anthurium crystallinum Linden & André,Anthurium crystallinum,Anthurium,Araceae,crystallinum,Linden & André,,Not assessed
+633,Cryptopus elatus (Thouars) Lindl.,Cryptopus elatus,Cryptopus,Orchidaceae,elatus,(Thouars) Lindl.,,Not assessed
+634,Cryptostegia grandiflora Roxb. ex R.Br.,Cryptostegia grandiflora,Cryptostegia,Apocynaceae,grandiflora,Roxb. ex R.Br.,,Not assessed
+635,Eranthemum pulchellum Andrews,Eranthemum pulchellum,Eranthemum,Acanthaceae,pulchellum,Andrews,,Not assessed
+636,Alocasia cucullata (Lour.) G.Don,Alocasia cucullata,Alocasia,Araceae,cucullata,(Lour.) G.Don,,Not assessed
+637,Alocasia longiloba Miq.,Alocasia longiloba,Alocasia,Araceae,longiloba,Miq.,,Not assessed
+638,Alocasia macrorrhizos (L.) G.Don,Alocasia macrorrhizos,Alocasia,Araceae,macrorrhizos,(L.) G.Don,,Not assessed
+639,Faujasia salicifolia (Juss. ex Pers.) C.Jeffrey,Faujasia salicifolia,Faujasia,Asteraceae,salicifolia,(Juss. ex Pers.) C.Jeffrey,,Not assessed
+640,Fernelia buxifolia Lam.,Fernelia buxifolia,Fernelia,Rubiaceae,buxifolia,Lam.,,Not assessed
+641,Fragaria × ananassa (Duchesne ex Weston) Duchesne ex Rozier,Fragaria × ananassa,Fragaria,Rosaceae,ananassa,(Duchesne ex Weston) Duchesne ex Rozier,,Not assessed
+642,Geniostoma borbonicum (Lam.) Spreng.,Geniostoma borbonicum,Geniostoma,Loganiaceae,borbonicum,(Lam.) Spreng.,,Not assessed
+643,Hernandia mascarenensis (Meisn.) Kubitzki,Hernandia mascarenensis,Hernandia,Hernandiaceae,mascarenensis,(Meisn.) Kubitzki,,EN
+644,Hypericum lanceolatum Lam.,Hypericum lanceolatum,Hypericum,Hypericaceae,lanceolatum,Lam.,,Not assessed
+645,Acacia auriculiformis A.Cunn. ex Benth.,Acacia auriculiformis,Acacia,Fabaceae,auriculiformis,A.Cunn. ex Benth.,,LC
+646,Leonotis nepetifolia (L.) R.Br.,Leonotis nepetifolia,Leonotis,Lamiaceae,nepetifolia,(L.) R.Br.,,Not assessed
+647,Mussaenda arcuata Poir.,Mussaenda arcuata,Mussaenda,Rubiaceae,arcuata,Poir.,,Not assessed
+648,Nephrolepis abrupta (Bory) Mett.,Nephrolepis abrupta,Nephrolepis,Nephrolepidaceae,abrupta,(Bory) Mett.,,Not assessed
+649,Acacia heterophylla (Lam.) Willd.,Acacia heterophylla,Acacia,Fabaceae,heterophylla,(Lam.) Willd.,,Not assessed
+650,Paederia foetida L.,Paederia foetida,Paederia,Rubiaceae,foetida,L.,,Not assessed
+651,Rhodocactus grandifolius (Haw.) F.M.Knuth,Rhodocactus grandifolius,Rhodocactus,Cactaceae,grandifolia,(Haw.) F.M.Knuth,,Not assessed
+652,Antirhea borbonica J.F.Gmel.,Antirhea borbonica,Antirhea,Rubiaceae,borbonica,J.F.Gmel.,,LC
+653,Phyllanthus emblica L.,Phyllanthus emblica,Phyllanthus,Phyllanthaceae,emblica,L.,,LC
+654,Phyllanthus niruroides Müll.Arg.,Phyllanthus niruroides,Phyllanthus,Phyllanthaceae,niruroides,Müll.Arg.,,Not assessed
+655,Phyllanthus phillyreifolius Poir.,Phyllanthus phillyreifolius,Phyllanthus,Phyllanthaceae,phillyreifolius,Poir.,,Not assessed
+656,Pongamia pinnata (L.) Pierre,Pongamia pinnata,Pongamia,Fabaceae,pinnata,(L.) Pierre,,LC
+657,Acacia podalyriifolia A.Cunn. ex G.Don,Acacia podalyriifolia,Acacia,Fabaceae,podalyriifolia,A.Cunn. ex G.Don,,LC
+658,Acalypha integrifolia Willd.,Acalypha integrifolia,Acalypha,Euphorbiaceae,integrifolia,Willd.,,Not assessed
+659,Stemodia verticillata (Mill.) Hassl.,Stemodia verticillata,Stemodia,Plantaginaceae,verticillata,(Mill.) Hassl.,,Not assessed
+660,Seriphium passerinoides Lam.,Seriphium passerinoides,Seriphium,Asteraceae,passerinoides,Lam.,,Not assessed
+661,Strongylodon macrobotrys A.Gray,Strongylodon macrobotrys,Strongylodon,Fabaceae,macrobotrys,A.Gray,,Not assessed
+662,Trimezia martinicensis (Jacq.) Herb.,Trimezia martinicensis,Trimezia,Iridaceae,martinicensis,(Jacq.) Herb.,,Not assessed
+663,Vangueria madagascariensis J.F.Gmel.,Vangueria madagascariensis,Vangueria,Rubiaceae,madagascariensis,J.F.Gmel.,,LC
+664,Vepris lanceolata (Lam.) G.Don,Vepris lanceolata,Vepris,Rutaceae,lanceolata,(Lam.) G.Don,,Not assessed
+665,Zaleya pentandra (L.) C.Jeffrey,Zaleya pentandra,Zaleya,Aizoaceae,pentandra,(L.) C.Jeffrey,,Not assessed
+666,Cereus repandus (L.) Mill.,Cereus repandus,Cereus,Cactaceae,repandus,(L.) Mill.,,LC
+667,Bismarckia nobilis Hildebrandt & H.Wendl.,Bismarckia nobilis,Bismarckia,Arecaceae,nobilis,Hildebrandt & H.Wendl.,,LC
+668,Vachellia nilotica (L.) P.J.H.Hurter & Mabb.,Vachellia nilotica,Vachellia,Fabaceae,nilotica,(L.) P.J.H.Hurter & Mabb.,,LC
+669,Heptapleurum arboricola Hayata,Heptapleurum arboricola,Heptapleurum,Araliaceae,arboricola,Hayata,,Not assessed
+670,Fragaria chiloensis (L.) Mill.,Fragaria chiloensis,Fragaria,Rosaceae,chiloensis,(L.) Mill.,,Not assessed
+671,Aphelandra squarrosa Nees,Aphelandra squarrosa,Aphelandra,Acanthaceae,squarrosa,Nees,,Not assessed
+672,Pereskia aculeata Mill.,Pereskia aculeata,Pereskia,Cactaceae,aculeata,Mill.,,LC
+673,Peperomia argyraea W.Bull,Peperomia argyraea,Peperomia,Piperaceae,argyreia,W.Bull,,Not assessed
+674,Peperomia caperata Yunck.,Peperomia caperata,Peperomia,Piperaceae,caperata,Yunck.,,Not assessed
+675,Anthurium andraeanum Linden ex André,Anthurium andraeanum,Anthurium,Araceae,andraeanum,Linden ex André,,Not assessed
+676,Anthurium scherzerianum Schott,Anthurium scherzerianum,Anthurium,Araceae,scherzerianum,Schott,,Not assessed
+677,Zamia furfuracea L.f. ex Aiton,Zamia furfuracea,Zamia,Zamiaceae,furfuracea,L.f. ex Aiton,,EN
+678,Dendrobium nobile Lindl.,Dendrobium nobile,Dendrobium,Orchidaceae,nobile,Lindl.,,Not assessed
+679,Nandina domestica Thunb.,Nandina domestica,Nandina,Berberidaceae,domestica,Thunb.,,Not assessed
+680,Falcataria falcata (L.) Greuter & R.Rankin,Falcataria falcata,Falcataria,Fabaceae,moluccana,(L.) Greuter & R.Rankin,,LC
+681,Vachellia tortuosa (L.) Seigler & Ebinger,Vachellia tortuosa,Vachellia,Fabaceae,tortuosa,(L.) Seigler & Ebinger,,LC
+682,Bourreria succulenta Jacq.,Bourreria succulenta,Bourreria,Ehretiaceae,succulenta,Jacq.,,LC
+683,Crotalaria brevidens Benth.,Crotalaria brevidens,Crotalaria,Fabaceae,brevidens,Benth.,,Not assessed
+684,Crotalaria pumila Ortega,Crotalaria pumila,Crotalaria,Fabaceae,pumila,Ortega,,LC
+685,Dendrobium chrysotoxum Lindl.,Dendrobium chrysotoxum,Dendrobium,Orchidaceae,chrysotoxum,Lindl.,,Not assessed
+686,Dendrobium crumenatum Sw.,Dendrobium crumenatum,Dendrobium,Orchidaceae,crumenatum,Sw.,,Not assessed
+687,Dendrobium moschatum (Banks) Sw.,Dendrobium moschatum,Dendrobium,Orchidaceae,moschatum,(Banks) Sw.,,Not assessed
+688,Entada gigas (L.) Fawc. & Rendle,Entada gigas,Entada,Fabaceae,gigas,(L.) Fawc. & Rendle,,Not assessed
+689,Fittonia albivenis (Lindl. ex Veitch) Brummitt,Fittonia albivenis,Fittonia,Acanthaceae,albivenis,(Lindl. ex Veitch) Brummitt,,Not assessed
+690,Illicium verum Hook.f.,Illicium verum,Illicium,Schisandraceae,verum,Hook.f.,,Not assessed
+691,Lactuca floridana (L.) Gaertn.,Lactuca floridana,Lactuca,Asteraceae,floridana,(L.) Gaertn.,,Not assessed
+692,Mussaenda pubescens Dryand.,Mussaenda pubescens,Mussaenda,Rubiaceae,pubescens,Dryand.,,Not assessed
+693,Neolamarckia cadamba (Roxb.) Bosser,Neolamarckia cadamba,Neolamarckia,Rubiaceae,cadamba,(Roxb.) Bosser,,Not assessed
+694,Nymphaea ampla (Salisb.) DC.,Nymphaea ampla,Nymphaea,Nymphaeaceae,ampla,(Salisb.) DC.,,Not assessed
+695,Phyllanthus epiphyllanthus L.,Phyllanthus epiphyllanthus,Phyllanthus,Phyllanthaceae,epiphyllanthus,L.,,LC
+696,Phyllanthus mimosoides Sw.,Phyllanthus mimosoides,Phyllanthus,Phyllanthaceae,mimosoides,Sw.,,Not assessed
+697,Pilosocereus polygonus (Lam.) Byles & G.D.Rowley,Pilosocereus polygonus,Pilosocereus,Cactaceae,royenii,(Lam.) Byles & G.D.Rowley,,LC
+698,Selenicereus anthonyanus (Alexander) D.R.Hunt,Selenicereus anthonyanus,Selenicereus,Cactaceae,anthonyanus,(Alexander) D.R.Hunt,,LC
+699,Selenicereus grandiflorus (L.) Britton & Rose,Selenicereus grandiflorus,Selenicereus,Cactaceae,grandiflorus,(L.) Britton & Rose,,LC
+700,Zamia pumila L.,Zamia pumila,Zamia,Zamiaceae,pumila,L.,,VU
+701,Acalypha alopecuroidea Jacq.,Acalypha alopecuroidea,Acalypha,Euphorbiaceae,aristata,Jacq.,,Not assessed
+702,Epilobium latifolium L.,Epilobium latifolium,Epilobium,Onagraceae,latifolium,L.,,LC
+703,Cirsium discolor (Muhl. ex Willd.) Spreng.,Cirsium discolor,Cirsium,Asteraceae,discolor,(Muhl. ex Willd.) Spreng.,,Not assessed
+704,Cirsium foliosum DC.,Cirsium foliosum,Cirsium,Asteraceae,foliosum,DC.,,Not assessed
+705,Cirsium muticum Michx.,Cirsium muticum,Cirsium,Asteraceae,muticum,Michx.,,Not assessed
+706,Cirsium undulatum (Nutt.) Spreng.,Cirsium undulatum,Cirsium,Asteraceae,undulatum,(Nutt.) Spreng. ,,Not assessed
+707,Comptonia peregrina (L.) Coult.,Comptonia peregrina,Comptonia,Myricaceae,peregrina,(L.) Coult.,,Not assessed
+708,Conoclinium coelestinum (L.) DC.,Conoclinium coelestinum,Conoclinium,Asteraceae,coelestinum,(L.) DC.,,Not assessed
+709,Dalea purpurea Vent.,Dalea purpurea,Dalea,Fabaceae,purpurea,Vent.,,Not assessed
+710,Daucus pusillus Michx.,Daucus pusillus,Daucus,Apiaceae,pusillus,Michx.,,LC
+711,Diervilla lonicera Mill.,Diervilla lonicera,Diervilla,Caprifoliaceae,lonicera,Mill.,,Not assessed
+712,Dryopteris intermedia A.Gray,Dryopteris intermedia,Dryopteris,Dryopteridaceae,intermedia,A.Gray,,LC
+713,Dryopteris marginalis (L.) A.Gray,Dryopteris marginalis,Dryopteris,Dryopteridaceae,marginalis,(L.) A.Gray,,Not assessed
+714,Epipactis gigantea Douglas,Epipactis gigantea,Epipactis,Orchidaceae,gigantea,Douglas,,LC
+715,Hypericum kalmianum L.,Hypericum kalmianum,Hypericum,Hypericaceae,kalmianum,L.,,Not assessed
+716,Hypericum prolificum L.,Hypericum prolificum,Hypericum,Hypericaceae,prolificum,L.,,Not assessed
+717,Hypericum punctatum Lam.,Hypericum punctatum,Hypericum,Hypericaceae,punctatum,Lam.,,Not assessed
+718,Anemonastrum canadense (L.) Mosyakin,Anemonastrum canadense,Anemonastrum,Ranunculaceae,canadensis,(L.) Mosyakin,,Not assessed
+719,Iva frutescens L.,Iva frutescens,Iva,Asteraceae,frutescens,L.,,Not assessed
+720,Anemone multifida Poir.,Anemone multifida,Anemone,Ranunculaceae,multifida,Poir.,,Not assessed
+721,Anemone virginiana L.,Anemone virginiana,Anemone,Ranunculaceae,virginiana,L.,,Not assessed
+722,Lactuca biennis (Moench) Fernald,Lactuca biennis,Lactuca,Asteraceae,biennis,(Moench) Fernald,,Not assessed
+723,Lactuca canadensis L.,Lactuca canadensis,Lactuca,Asteraceae,canadensis,L.,,Not assessed
+724,Leersia virginica Willd.,Leersia virginica,Leersia,Poaceae,virginica,Willd.,,LC
+725,Angelica lucida L.,Angelica lucida,Angelica,Apiaceae,lucida,L.,,Not assessed
+726,Lupinus argenteus Pursh,Lupinus argenteus,Lupinus,Fabaceae,argenteus,Pursh,,LC
+727,Lupinus bicolor Lindl.,Lupinus bicolor,Lupinus,Fabaceae,bicolor,Lindl.,,Not assessed
+728,Maianthemum canadense Desf.,Maianthemum canadense,Maianthemum,Asparagaceae,canadense,Desf.,,Not assessed
+729,Maianthemum racemosum (L.) Link,Maianthemum racemosum,Maianthemum,Asparagaceae,racemosum,(L.) Link,,Not assessed
+730,Maianthemum stellatum (L.) Link,Maianthemum stellatum,Maianthemum,Asparagaceae,stellatum,(L.) Link,,Not assessed
+731,Maianthemum trifolium (L.) Sloboda,Maianthemum trifolium,Maianthemum,Asparagaceae,trifolium,(L.) Sloboda,,Not assessed
+732,Mertensia maritima (L.) Gray,Mertensia maritima,Mertensia,Boraginaceae,maritima,(L.) Gray,,Not assessed
+733,Mertensia paniculata (Aiton) G.Don,Mertensia paniculata,Mertensia,Boraginaceae,paniculata,(Aiton) G.Don,,Not assessed
+734,Mertensia virginica (L.) Pers. ex Link,Mertensia virginica,Mertensia,Boraginaceae,virginica,(L.) Pers. ex Link,,Not assessed
+735,Mitella diphylla L.,Mitella diphylla,Mitella,Saxifragaceae,diphylla,L.,,Not assessed
+736,Moehringia lateriflora (L.) Fenzl,Moehringia lateriflora,Moehringia,Caryophyllaceae,lateriflora,(L.) Fenzl,,LC
+737,Nymphaea mexicana Zucc.,Nymphaea mexicana,Nymphaea,Nymphaeaceae,mexicana,Zucc.,,Not assessed
+738,Nymphaea odorata Aiton,Nymphaea odorata,Nymphaea,Nymphaeaceae,odorata,Aiton,,LC
+739,Nymphaea tetragona Georgi,Nymphaea tetragona,Nymphaea,Nymphaeaceae,tetragona,Georgi,,LC
+740,Osmundastrum cinnamomeum (L.) C.Presl,Osmundastrum cinnamomeum,Osmundastrum,Osmundaceae,cinnamomea,(L.) C.Presl,,Not assessed
+741,Osmunda claytoniana L.,Osmunda claytoniana,Osmunda,Osmundaceae,claytoniana,L.,,Not assessed
+742,"Oreomecon nudicaulis (L.) Banfi, Bartolucci, J.-M.Tison & Galasso",Oreomecon nudicaulis,Oreomecon,Papaveraceae,nudicaule,"(L.) Banfi, Bartolucci, J.-M.Tison & Galasso",,Not assessed
+743,Aralia hispida Vent.,Aralia hispida,Aralia,Araliaceae,hispida,Vent.,,Not assessed
+744,Aralia nudicaulis L.,Aralia nudicaulis,Aralia,Araliaceae,nudicaulis,L.,,Not assessed
+745,Aralia racemosa L.,Aralia racemosa,Aralia,Araliaceae,racemosa,L.,,Not assessed
+746,Sedum divergens S.Watson,Sedum divergens,Sedum,Crassulaceae,divergens,S.Watson,,Not assessed
+747,Sedum lanceolatum Torr.,Sedum lanceolatum,Sedum,Crassulaceae,lanceolatum,Torr.,,Not assessed
+748,Sedum oreganum Nutt.,Sedum oreganum,Sedum,Crassulaceae,oreganum,Nutt.,,Not assessed
+749,Sedum spathulifolium Hook.,Sedum spathulifolium,Sedum,Crassulaceae,spathulifolium,Hook.,,Not assessed
+750,Sedum ternatum Michx.,Sedum ternatum,Sedum,Crassulaceae,ternatum,Michx.,,Not assessed
+751,Smilax herbacea L.,Smilax herbacea,Smilax,Smilacaceae,herbacea,L.,,Not assessed
+752,Smilax tamnoides L.,Smilax tamnoides,Smilax,Smilacaceae,tamnoides,L.,,Not assessed
+753,Tradescantia occidentalis (Britton) Smyth,Tradescantia occidentalis,Tradescantia,Commelinaceae,occidentalis,(Britton) Smyth,,LC
+754,Tradescantia ohiensis Raf.,Tradescantia ohiensis,Tradescantia,Commelinaceae,ohiensis,Raf.,,Not assessed
+755,Wyethia sagittata (Pursh) Mabb.,Wyethia sagittata,Wyethia,Asteraceae,sagittata,(Pursh) Mabb.,,Not assessed
+756,Barbarea orthoceras Ledeb.,Barbarea orthoceras,Barbarea,Brassicaceae,orthoceras,Ledeb.,,Not assessed
+757,Calochortus macrocarpus Douglas,Calochortus macrocarpus,Calochortus,Liliaceae,macrocarpus,Douglas,,Not assessed
+758,Entada phaseoloides (L.) Merr.,Entada phaseoloides,Entada,Fabaceae,phaseoloides,(L.) Merr.,,Not assessed
+759,Cerbera manghas L.,Cerbera manghas,Cerbera,Apocynaceae,manghas,L.,,LC
+760,Hernandia cordigera Vieill.,Hernandia cordigera,Hernandia,Hernandiaceae,cordigera,Vieill.,,LC
+761,Acacia simplex (Sparrm.) Pedley,Acacia simplex,Acacia,Fabaceae,simplex,(Sparrm.) Pedley,,LC
+762,Dubouzetia confusa Guillaumin & Virot,Dubouzetia confusa,Dubouzetia,Elaeocarpaceae,confusa,Guillaumin & Virot,,LC
+763,Dubouzetia campanulata Pancher ex Brongn. & Gris,Dubouzetia campanulata,Dubouzetia,Elaeocarpaceae,campanulata,Pancher ex Brongn. & Gris,,LC
+764,Acacia spirorbis Labill.,Acacia spirorbis,Acacia,Fabaceae,spirorbis,Labill.,,LC
+765,Atractocarpus platixylon (Vieill. ex Pancher & Sebert) Guillaumin,Atractocarpus platixylon,Atractocarpus,Rubiaceae,platixylon,(Vieill. ex Pancher & Sebert) Guillaumin,,Not assessed
+766,Nepenthes vieillardii Hook.f.,Nepenthes vieillardii,Nepenthes,Nepenthaceae,vieillardii,Hook.f.,,LC
+767,Dendrobium closterium Rchb.f.,Dendrobium closterium,Dendrobium,Orchidaceae,closterium,Rchb.f.,,LC
+768,Dracophyllum verticillatum Labill.,Dracophyllum verticillatum,Dracophyllum,Ericaceae,verticillatum,Labill.,,LC
+769,Schefflera spp.,Schefflera spp.,Schefflera,Araliaceae,,J.R.Forst. & G.Forst.,spp.,Not assessed
+770,Tagetes lucida Cav.,Tagetes lucida,Tagetes,Asteraceae,lucida,Cav.,,Not assessed
+771,Athyrium niponicum (Mett.) Hance,Athyrium niponicum,Athyrium,Athyriaceae,niponicum,(Mett.) Hance,,Not assessed
+772,Mertensia ciliata (E.James ex Torr.) G.Don,Mertensia ciliata,Mertensia,Boraginaceae,ciliata,(E.James ex Torr.) G.Don,,Not assessed
+773,Lithops fulviceps (N.E.Br.) N.E.Br.,Lithops fulviceps,Lithops,Aizoaceae,fulviceps,(N.E.Br.) N.E.Br.,,LC
+774,Lithops karasmontana (Dinter & Schwantes) N.E.Br.,Lithops karasmontana,Lithops,Aizoaceae,karasmontana,(Dinter & Schwantes) N.E.Br.,,Not assessed
+775,Lithops marmorata (N.E.Br.) N.E.Br.,Lithops marmorata,Lithops,Aizoaceae,marmorata,(N.E.Br.) N.E.Br.,,Not assessed
+776,Lithops pseudotruncatella (A.Berger) N.E.Br.,Lithops pseudotruncatella,Lithops,Aizoaceae,pseudotruncatella,(A.Berger) N.E.Br.,,Not assessed
+777,Lithops spp.,Lithops spp.,Lithops,Aizoaceae,,N.E.Br.,spp.,Not assessed
+778,Cereus hildmannianus K.Schum.,Cereus hildmannianus,Cereus,Cactaceae,hildmannianus,K.Schum.,,LC
+779,Cephalocereus polylophus (DC.) Britton & Rose,Cephalocereus polylophus,Cephalocereus,Cactaceae,polylopha,(DC.) Britton & Rose,,Not assessed
+780,Calycanthus occidentalis Hook. & Arn.,Calycanthus occidentalis,Calycanthus,Calycanthaceae,occidentalis,Hook. & Arn.,,Not assessed
+781,Tradescantia subaspera Ker Gawl.,Tradescantia subaspera,Tradescantia,Commelinaceae,subaspera,Ker Gawl.,,Not assessed
+782,Sedum lineare Thunb.,Sedum lineare,Sedum,Crassulaceae,lineare,Thunb.,,Not assessed
+783,Sedum morganianum E.Walther,Sedum morganianum,Sedum,Crassulaceae,morganianum,E.Walther,,Not assessed
+784,Cucurbita foetidissima Kunth,Cucurbita foetidissima,Cucurbita,Cucurbitaceae,foetidissima,Kunth,,LC
+785,Eucryphia cordifolia Cav.,Eucryphia cordifolia,Eucryphia,Cunoniaceae,cordifolia,Cav.,,LR/nt
+786,Dryopteris cycadina (Franch. & Sav.) C.Chr.,Dryopteris cycadina,Dryopteris,Dryopteridaceae,cycadina,(Franch. & Sav.) C.Chr.,,Not assessed
+787,Dryopteris sieboldii (T.Moore) Kuntze,Dryopteris sieboldii,Dryopteris,Dryopteridaceae,sieboldii,(T.Moore) Kuntze,,Not assessed
+788,Rumohra adiantiformis (G.Forst.) Ching,Rumohra adiantiformis,Rumohra,Dryopteridaceae,adiantiformis,(G.Forst.) Ching,,LC
+789,Oxydendrum arboreum (L.) DC.,Oxydendrum arboreum,Oxydendrum,Ericaceae,arboreum,(L.) DC.,,LC
+790,Lupinus albifrons Benth.,Lupinus albifrons,Lupinus,Fabaceae,albifrons,Benth.,,Not assessed
+791,Lycoris radiata (L'Hér.) Herb.,Lycoris radiata,Lycoris,Amaryllidaceae,radiata,(L'Hér.) Herb.,,Not assessed
+792,Garrya elliptica Douglas ex Lindl.,Garrya elliptica,Garrya,Garryaceae,elliptica,Douglas ex Lindl.,,LC
+793,Lycoris squamigera Maxim.,Lycoris squamigera,Lycoris,Amaryllidaceae,squamigera,Maxim.,,Not assessed
+794,Pelargonium crispum (P.J.Bergius) L'Hér.,Pelargonium crispum,Pelargonium,Geraniaceae,crispum,(P.J.Bergius) L'Hér.,,Not assessed
+795,Loropetalum chinense (R.Br.) Oliv.,Loropetalum chinense,Loropetalum,Hamamelidaceae,chinense,(R.Br.) Oliv.,,Not assessed
+796,Hypericum frondosum Michx.,Hypericum frondosum,Hypericum,Hypericaceae,frondosum,Michx.,,Not assessed
+797,Liriope muscari (Decne.) L.H.Bailey,Liriope muscari,Liriope,Asparagaceae,muscari,(Decne.) L.H.Bailey,,Not assessed
+798,Nothofagus alpina (Poepp. & Endl.) Oerst.,Nothofagus alpina,Nothofagus,Nothofagaceae,alpina,(Poepp. & Endl.) Oerst.,,LC
+799,Nothofagus pumilio (Poepp. & Endl.) Krasser,Nothofagus pumilio,Nothofagus,Nothofagaceae,pumilio,(Poepp. & Endl.) Krasser,,LC
+800,Abeliophyllum distichum Nakai,Abeliophyllum distichum,Abeliophyllum,Oleaceae,distichum,Nakai,,EN
+801,Dendrobium aphyllum (Roxb.) C.E.C.Fisch.,Dendrobium aphyllum,Dendrobium,Orchidaceae,aphyllum,(Roxb.) C.E.C.Fisch.,,LC
+802,Dendrobium spp.,Dendrobium spp.,Dendrobium,Orchidaceae,,Sw.,spp.,Not assessed
+803,Heteromorpha arborescens (Spreng.) Cham. & Schltdl.,Heteromorpha arborescens,Heteromorpha,Apiaceae,arborescens,(Spreng.) Cham. & Schltdl.,,LC
+804,Lapageria rosea Ruiz & Pav.,Lapageria rosea,Lapageria,Philesiaceae,rosea,Ruiz & Pav.,,Not assessed
+805,Peperomia dolabriformis Kunth,Peperomia dolabriformis,Peperomia,Piperaceae,dolabriformis,Kunth,,Not assessed
+806,Veronica × franciscana Eastw.,Veronica × franciscana,Veronica,Plantaginaceae,franciscana,Eastw.,,Not assessed
+807,Maurandya barclayana Lindl.,Maurandya barclayana,Maurandya,Plantaginaceae,barclayana,Lindl.,,Not assessed
+808,Pulsatilla patens (L.) Mill.,Pulsatilla patens,Pulsatilla,Ranunculaceae,patens,(L.) Mill.,,DD
+809,Senegalia senegal (L.) Britton,Senegalia senegal,Senegalia,Fabaceae,senegalensis,(L.) Britton,,Not assessed
+810,Limonia acidissima L.,Limonia acidissima,Limonia,Rutaceae,acidissima,L.,,Not assessed
+811,Illicium floridanum J.Ellis,Illicium floridanum,Illicium,Schisandraceae,floridanum,J.Ellis,,LC
+812,Browallia speciosa Hook.,Browallia speciosa,Browallia,Solanaceae,speciosa,Hook.,,Not assessed
+813,Alocasia cuprea (K.Koch & C.D.Bouché) K.Koch,Alocasia cuprea,Alocasia,Araceae,cuprea,(K.Koch & C.D.Bouché) K.Koch,,Not assessed
+814,Alocasia micholitziana Sander,Alocasia micholitziana,Alocasia,Araceae,micholitziana,Sander,,Not assessed
+815,Alocasia odora (G.Lodd.) Spach,Alocasia odora,Alocasia,Araceae,odora,(G.Lodd.) Spach,,LC
+816,Daphne odora Thunb.,Daphne odora,Daphne,Thymelaeaceae,odora,Thunb.,,Not assessed
+817,Alocasia sanderiana W.Bull,Alocasia sanderiana,Alocasia,Araceae,sanderiana,W.Bull,,CR
+818,Daphne tangutica Maxim.,Daphne tangutica,Daphne,Thymelaeaceae,tangutica,Maxim.,,Not assessed
+819,Guaiacum sanctum L.,Guaiacum sanctum,Guaiacum,Zygophyllaceae,sanctum,L.,,NT
+820,Nepenthes spp.,Nepenthes spp.,Nepenthes,Nepenthaceae,,L.,spp.,Not assessed
+821,Pelargonium spp.,Pelargonium spp.,Pelargonium,Geraniaceae,,L'Hér. ex Aiton,spp.,Not assessed
+822,Aphelandra sinclairiana Nees,Aphelandra sinclairiana,Aphelandra,Acanthaceae,sinclairiana,Nees,,Not assessed
+823,Acacia confusa Merr.,Acacia confusa,Acacia,Fabaceae,confusa,Merr.,,LC
+824,Acacia koa A.Gray,Acacia koa,Acacia,Fabaceae,koaia,A.Gray,,VU
+825,Nephrolepis falcata (Cav.) C.Chr.,Nephrolepis falcata,Nephrolepis,Nephrolepidaceae,falcata,(Cav.) C.Chr.,,Not assessed
+826,Calodendrum capense (L.f.) Thunb.,Calodendrum capense,Calodendrum,Rutaceae,capense,(L.f.) Thunb.,,LC
+827,Pelargonium grandiflorum Willd.,Pelargonium grandiflorum,Pelargonium,Geraniaceae,grandiflorum,Willd.,,Not assessed
+828,Hypericum revolutum Vahl,Hypericum revolutum,Hypericum,Hypericaceae,revolutum,Vahl,,LC
+829,Maytenus boaria Molina,Maytenus boaria,Maytenus,Celastraceae,boaria,Molina,,LC
+830,Melampodium perfoliatum (Cav.) Kunth,Melampodium perfoliatum,Melampodium,Asteraceae,perfoliatum,(Cav.) Kunth,,Not assessed
+831,Hernandia nymphaeifolia (C.Presl) Kubitzki,Hernandia nymphaeifolia,Hernandia,Hernandiaceae,nymphaeifolia,(C.Presl) Kubitzki,,LC
+832,Mazus pumilus (Burm.f.) Steenis,Mazus pumilus,Mazus,Mazaceae,pumilus,(Burm.f.) Steenis,,Not assessed
+833,Melampodium divaricatum (Rich.) DC.,Melampodium divaricatum,Melampodium,Asteraceae,divaricatum,(Rich.) DC.,,Not assessed
+834,Breynia vitis-idaea (Burm.f.) C.E.C.Fisch.,Breynia vitis-idaea,Breynia,Phyllanthaceae,vitis-idaea,(Burm.f.) C.E.C.Fisch.,,LC
+835,Prosopis farcta (Banks & Sol.) J.F.Macbr.,Prosopis farcta,Prosopis,Fabaceae,farcta,(Banks & Sol.) J.F.Macbr.,,LC
+836,Vachellia farnesiana (L.) Wight & Arn.,Vachellia farnesiana,Vachellia,Fabaceae,farnesiana,(L.) Wight & Arn.,,LC
+837,Freycinetia cumingiana Gaudich.,Freycinetia cumingiana,Freycinetia,Pandanaceae,cumingiana,Gaudich.,,Not assessed
+838,Crotalaria laburnifolia L.,Crotalaria laburnifolia,Crotalaria,Fabaceae,laburnifolia,L.,,Not assessed
+839,Dalbergia sissoo Roxb. ex DC.,Dalbergia sissoo,Dalbergia,Fabaceae,sissoo,Roxb. ex DC.,,LC
+840,Dischidia nummularia R.Br.,Dischidia nummularia,Dischidia,Apocynaceae,nummularia,R.Br.,,Not assessed
+841,Heptapleurum heptaphyllum (L.) Y.F.Deng,Heptapleurum heptaphyllum,Heptapleurum,Araliaceae,heptaphylla,(L.) Y.F.Deng,,Not assessed
+842,Schinopsis balansae Engl.,Schinopsis balansae,Schinopsis,Anacardiaceae,balansae,Engl.,,LR/lc
+843,Smilax china L.,Smilax china,Smilax,Smilacaceae,china,L.,,Not assessed
+844,Barringtonia acutangula (L.) Gaertn.,Barringtonia acutangula,Barringtonia,Lecythidaceae,acutangula,(L.) Gaertn.,,LC
+845,Maerua triphylla A.Rich.,Maerua triphylla,Maerua,Capparaceae,triphylla,A.Rich.,,LC
+846,Asystasia mysorensis (Roth) T.Anderson,Asystasia mysorensis,Asystasia,Acanthaceae,mysorensis,(Roth) T.Anderson,,Not assessed
+847,Herbertia lahue (Molina) Goldblatt,Herbertia lahue,Herbertia,Iridaceae,lahue,(Molina) Goldblatt,,Not assessed
+848,Hypericum hypericoides (L.) Crantz,Hypericum hypericoides,Hypericum,Hypericaceae,hypericoides,(L.) Crantz,,LC
+849,Hypericum tetrapetalum Lam.,Hypericum tetrapetalum,Hypericum,Hypericaceae,tetrapetalum,Lam.,,Not assessed
+850,Keckiella cordifolia (Benth.) Straw,Keckiella cordifolia,Keckiella,Plantaginaceae,cordifolia,(Benth.) Straw,,Not assessed
+851,Lupinus chamissonis Eschsch.,Lupinus chamissonis,Lupinus,Fabaceae,chamissonis,Eschsch.,,Not assessed
+852,Lupinus diffusus Nutt.,Lupinus diffusus,Lupinus,Fabaceae,diffusus,Nutt.,,LC
+853,Lupinus formosus Greene,Lupinus formosus,Lupinus,Fabaceae,formosus,Greene,,Not assessed
+854,Lupinus hirsutissimus Benth.,Lupinus hirsutissimus,Lupinus,Fabaceae,hirsutissimus,Benth.,,Not assessed
+855,Lupinus subcarnosus Hook.,Lupinus subcarnosus,Lupinus,Fabaceae,subcarnosus,Hook.,,Not assessed
+856,Lupinus texensis Hook.,Lupinus texensis,Lupinus,Fabaceae,texensis,Hook.,,LC
+857,Lyonothamnus floribundus A.Gray,Lyonothamnus floribundus,Lyonothamnus,Rosaceae,floribundus,A.Gray,,EN
+858,Melampodium leucanthum Torr. & A.Gray,Melampodium leucanthum,Melampodium,Asteraceae,leucanthum,Torr. & A.Gray,,Not assessed
+859,Aralia californica S.Watson,Aralia californica,Aralia,Araliaceae,californica,S.Watson,,Not assessed
+860,Nyctaginia capitata Choisy,Nyctaginia capitata,Nyctaginia,Nyctaginaceae,capitata,Choisy,,Not assessed
+861,Aralia spinosa L.,Aralia spinosa,Aralia,Araliaceae,spinosa,L.,,LC
+862,Pelargonium panduriforme Eckl. & Zeyh.,Pelargonium panduriforme,Pelargonium,Geraniaceae,panduriforme,Eckl. & Zeyh.,,Not assessed
+863,Neltuma glandulosa (Torr.) Britton & Rose,Neltuma glandulosa,Neltuma,Fabaceae,glandulosa,(Torr.) Britton & Rose,,LC
+864,Strombocarpa pubescens (Benth.) A.Gray,Strombocarpa pubescens,Strombocarpa,Fabaceae,pubescens,(Benth.) A.Gray,,LC
+865,Sagittaria montevidensis Cham. & Schltdl.,Sagittaria montevidensis,Sagittaria,Alismataceae,montevidensis,Cham. & Schltdl.,,Not assessed
+866,Sedum albomarginatum R.T.Clausen,Sedum albomarginatum,Sedum,Crassulaceae,albomarginatum,R.T.Clausen,,Not assessed
+867,Sedum glaucophyllum R.T.Clausen,Sedum glaucophyllum,Sedum,Crassulaceae,glaucophyllum,R.T.Clausen,,Not assessed
+868,Sedum laxum (Britton) A.Berger,Sedum laxum,Sedum,Crassulaceae,laxum,(Britton) A.Berger,,Not assessed
+869,Sedum moranense Kunth,Sedum moranense,Sedum,Crassulaceae,moranense,Kunth,,Not assessed
+870,Sedum niveum Davidson,Sedum niveum,Sedum,Crassulaceae,niveum,Davidson,,Not assessed
+871,Sedum obtusatum A.Gray,Sedum obtusatum,Sedum,Crassulaceae,obtusatum,A.Gray,,Not assessed
+872,Sedum pulchellum Michx.,Sedum pulchellum,Sedum,Crassulaceae,pulchellum,Michx.,,Not assessed
+873,Smilax bona-nox L.,Smilax bona-nox,Smilax,Smilacaceae,bona-nox,L.,L.,Not assessed
+874,Smilax glauca Walter,Smilax glauca,Smilax,Smilacaceae,glauca,Walter,,Not assessed
+875,Smilax laurifolia L.,Smilax laurifolia,Smilax,Smilacaceae,laurifolia,L.,,Not assessed
+876,Stanleya pinnata (Pursh) Britton,Stanleya pinnata,Stanleya,Brassicaceae,pinnata,(Pursh) Britton,,Not assessed
+877,Tagetes lemmonii A.Gray,Tagetes lemmonii,Tagetes,Asteraceae,lemmonii,A.Gray,,Not assessed
+878,Tradescantia crassifolia Cav.,Tradescantia crassifolia,Tradescantia,Commelinaceae,crassifolia,Cav.,,Not assessed
+879,Xylococcus bicolor Nutt.,Xylococcus bicolor,Xylococcus,Ericaceae,bicolor,Nutt.,,Not assessed
+880,Brodiaea elegans Hoover,Brodiaea elegans,Brodiaea,Asparagaceae,elegans,Hoover,,Not assessed
+881,Calochortus eurycarpus S.Watson,Calochortus eurycarpus,Calochortus,Liliaceae,eurycarpus,S.Watson,,Not assessed
+882,Calochortus gunnisonii S.Watson,Calochortus gunnisonii,Calochortus,Liliaceae,gunnisonii,S.Watson,,Not assessed
+883,Calochortus leichtlinii Hook.f.,Calochortus leichtlinii,Calochortus,Liliaceae,leichtlinii,Hook.f.,,Not assessed
+884,Calochortus luteus Douglas ex Lindl.,Calochortus luteus,Calochortus,Liliaceae,luteus,Douglas ex Lindl.,,Not assessed
+885,Calochortus splendens Douglas ex Benth.,Calochortus splendens,Calochortus,Liliaceae,splendens,Douglas ex Benth.,,Not assessed
+886,Calochortus tolmiei Hook. & Arn.,Calochortus tolmiei,Calochortus,Liliaceae,tolmiei,Hook. & Arn.,,Not assessed
+887,Oenothera hartwegii Benth.,Oenothera hartwegii,Oenothera,Onagraceae,hartwegii,Benth.,,Not assessed
+888,Chaerophyllum tainturieri Hook. & Arn.,Chaerophyllum tainturieri,Chaerophyllum,Apiaceae,tainturieri,Hook. & Arn.,,Not assessed
+889,Cirsium altissimum (L.) Spreng.,Cirsium altissimum,Cirsium,Asteraceae,altissimum,(L.) Spreng.,,Not assessed
+890,Cirsium horridulum Michx.,Cirsium horridulum,Cirsium,Asteraceae,horridulum,Michx.,,Not assessed
+891,Cirsium texanum Buckley,Cirsium texanum,Cirsium,Asteraceae,texanum,Buckley,,Not assessed
+892,Diervilla sessilifolia Buckley,Diervilla sessilifolia,Diervilla,Caprifoliaceae,sessilifolia,Buckley,,Not assessed
+893,Senegalia berlandieri (Benth.) Britton & Rose,Senegalia berlandieri,Senegalia,Fabaceae,berlandieri,(Benth.) Britton & Rose,,LC
+894,Elephantopus elatus Bertol.,Elephantopus elatus,Elephantopus,Asteraceae,elatus,Bertol.,,Not assessed
+895,Acacia redolens Maslin,Acacia redolens,Acacia,Fabaceae,redolens,Maslin,,LC
+896,Vachellia rigidula (Benth.) Seigler & Ebinger,Vachellia rigidula,Vachellia,Fabaceae,rigidula,(Benth.) Seigler & Ebinger,,LC
+897,Hackelia velutina (Piper) I.M.Johnst.,Hackelia velutina,Hackelia,Boraginaceae,velutina,(Piper) I.M.Johnst.,,Not assessed
+898,Haplophyton crooksii (L.D.Benson) L.D.Benson,Haplophyton crooksii,Haplophyton,Apocynaceae,crooksii,(L.D.Benson) L.D.Benson,,Not assessed
+899,Aextoxicon punctatum Ruiz & Pav.,Aextoxicon punctatum,Aextoxicon,Aextoxicaceae,punctatum,Ruiz & Pav.,,LC
+900,Lithops aucampiae L.Bolus,Lithops aucampiae,Lithops,Aizoaceae,aucampiae,L.Bolus,,Not assessed
+901,Lithops olivacea L.Bolus,Lithops olivacea,Lithops,Aizoaceae,olivacea,L.Bolus,,Not assessed
+902,Cyrtanthus elatus (Jacq.) Traub,Cyrtanthus elatus,Cyrtanthus,Amaryllidaceae,elatus,(Jacq.) Traub,,Not assessed
+903,Guatteria aeruginosa Standl.,Guatteria aeruginosa,Guatteria,Annonaceae,aeruginosa,Standl.,,LC
+904,Dischidia ovata Benth.,Dischidia ovata,Dischidia,Apocynaceae,ovata,Benth.,,Not assessed
+905,Trachelospermum asiaticum (Siebold & Zucc.) Nakai,Trachelospermum asiaticum,Trachelospermum,Apocynaceae,asiaticum,(Siebold & Zucc.) Nakai,,Not assessed
+906,Alocasia baginda Kurniawan & P.C.Boyce,Alocasia baginda,Alocasia,Araceae,baginda,Kurniawan & P.C.Boyce,,Not assessed
+907,Alocasia lauterbachiana (Engl.) A.Hay,Alocasia lauterbachiana,Alocasia,Araceae,lauterbachiana,(Engl.) A.Hay,,Not assessed
+908,Alocasia reginula A.Hay,Alocasia reginula,Alocasia,Araceae,reginula,A.Hay,,Not assessed
+909,Alocasia wentii Engl. & K.Krause,Alocasia wentii,Alocasia,Araceae,wentii,Engl. & K.Krause,,Not assessed
+910,Alocasia zebrina G.W.Johnson & R.Hogg,Alocasia zebrina,Alocasia,Araceae,zebrina,G.W.Johnson & R.Hogg,,Not assessed
+911,Anthurium clarinervium Matuda,Anthurium clarinervium,Anthurium,Araceae,clarinervium,Matuda,,Not assessed
+912,Anthurium faustomirandae Pérez-Farr. & Croat,Anthurium faustomirandae,Anthurium,Araceae,faustomirandae,Pérez-Farr. & Croat,,Not assessed
+913,Anthurium salvinii Hemsl.,Anthurium salvinii,Anthurium,Araceae,salvinii,Hemsl.,,Not assessed
+914,Anthurium schlechtendalii Kunth,Anthurium schlechtendalii,Anthurium,Araceae,schlechtendalii,Kunth,,Not assessed
+915,Anthurium veitchii Mast.,Anthurium veitchii,Anthurium,Araceae,veitchii,Mast.,,Not assessed
+916,Anthurium warocqueanum T.Moore,Anthurium warocqueanum,Anthurium,Araceae,warocqueanum,T.Moore,,Not assessed
+917,Wodyetia bifurcata A.K.Irvine,Wodyetia bifurcata,Wodyetia,Arecaceae,bifurcata,A.K.Irvine,,LR/cd
+918,Cereus forbesii C.F.Först.,Cereus forbesii,Cereus,Cactaceae,forbesii,C.F.Först.,,Not assessed
+919,Bourreria costaricensis (Standl.) A.H.Gentry,Bourreria costaricensis,Bourreria,Ehretiaceae,costaricensis,(Standl.) A.H.Gentry,,LC
+920,Coryphantha elephantidens (Lem.) Lem.,Coryphantha elephantidens,Coryphantha,Cactaceae,elephantidens,(Lem.) Lem.,,LC
+921,Pilosocereus chrysostele (Vaupel) Byles & G.D.Rowley,Pilosocereus chrysostele,Pilosocereus,Cactaceae,chrysostele,(Vaupel) Byles & G.D.Rowley,,NT
+922,Pilosocereus pachycladus F.Ritter,Pilosocereus pachycladus,Pilosocereus,Cactaceae,pachycladus,F.Ritter,,LC
+923,Stenocactus multicostatus (Daul) A.Berger,Stenocactus multicostatus,Stenocactus,Cactaceae,multicostatus,(Daul) A.Berger,,DD
+924,Tephrocactus alexanderi (Britton & Rose) Backeb.,Tephrocactus alexanderi,Tephrocactus,Cactaceae,geometricus,(Britton & Rose) Backeb.,,Not assessed
+925,Pterocephalus pterocephala (L.) Dörfl.,Pterocephalus pterocephala,Pterocephalus,Caprifoliaceae,perennis,(L.) Dörfl.,,Not assessed
+926,Maytenus ilicifolia Mart. ex Reissek,Maytenus ilicifolia,Maytenus,Celastraceae,ilicifolia,Mart. ex Reissek,,Not assessed
+927,Cyanotis somaliensis C.B.Clarke,Cyanotis somaliensis,Cyanotis,Commelinaceae,somaliensis,C.B.Clarke,,Not assessed
+928,Tradescantia sillamontana Matuda,Tradescantia sillamontana,Tradescantia,Commelinaceae,sillamontana,Matuda,,Not assessed
+929,Senecio minimus Poir.,Senecio minimus,Senecio,Asteraceae,minimus,Poir.,,Not assessed
+930,Leptinella potentillina F.Muell.,Leptinella potentillina,Leptinella,Asteraceae,potentillina,F.Muell.,,Not assessed
+931,Leucophyta brownii Cass.,Leucophyta brownii,Leucophyta,Asteraceae,brownii,Cass.,,Not assessed
+932,Crassothonna capensis (L.H.Bailey) B.Nord.,Crassothonna capensis,Crassothonna,Asteraceae,capensis,(L.H.Bailey) B.Nord.,,Not assessed
+933,Rhodanthe chlorocephala (Turcz.) Paul G.Wilson,Rhodanthe chlorocephala,Rhodanthe,Asteraceae,chlorocephala,(Turcz.) Paul G.Wilson,,Not assessed
+934,Tagetes lunulata Ortega,Tagetes lunulata,Tagetes,Asteraceae,lunulata,Ortega,,Not assessed
+935,Sedum adolphi Raym.-Hamet,Sedum adolphi,Sedum,Crassulaceae,adolphi,Raym.-Hamet,,Not assessed
+936,Sedum allantoides Rose,Sedum allantoides,Sedum,Crassulaceae,allantoides,Rose,,Not assessed
+937,Sedum burrito Moran,Sedum burrito,Sedum,Crassulaceae,burrito,Moran,,Not assessed
+938,Sedum clavatum R.T.Clausen,Sedum clavatum,Sedum,Crassulaceae,clavatum,R.T.Clausen,,Not assessed
+939,Hylotelephium cyaneum (Rudolph) H.Ohba,Hylotelephium cyaneum,Hylotelephium,Crassulaceae,cyaneum,(Rudolph) H.Ohba,,Not assessed
+940,Sedum kimnachii V.V.Byalt,Sedum kimnachii,Sedum,Crassulaceae,decumbens,V.V.Byalt,,Not assessed
+941,Sedum furfuraceum Moran,Sedum furfuraceum,Sedum,Crassulaceae,furfuraceum,Moran,,Not assessed
+942,Sedum hernandezii J.Meyrán,Sedum hernandezii,Sedum,Crassulaceae,hernandezii,J.Meyrán,,Not assessed
+943,Sedum japonicum Siebold ex Miq.,Sedum japonicum,Sedum,Crassulaceae,japonicum,Siebold ex Miq.,,Not assessed
+944,Sedum makinoi Maxim.,Sedum makinoi,Sedum,Crassulaceae,makinoi,Maxim.,,Not assessed
+945,Sedum praealtum A.DC.,Sedum praealtum,Sedum,Crassulaceae,praealtum,A.DC.,,Not assessed
+946,Sedum × rubrotinctum R.T.Clausen,Sedum × rubrotinctum,Sedum,Crassulaceae,rubrotinctum,R.T.Clausen,,Not assessed
+947,Carex punicea K.A.Ford,Carex punicea,Carex,Cyperaceae,rubra,K.A.Ford,,Not assessed
+948,Empetrum rubrum Vahl ex Willd.,Empetrum rubrum,Empetrum,Ericaceae,rubrum,Vahl ex Willd.,,Not assessed
+949,Acalypha macrostachya Jacq.,Acalypha macrostachya,Acalypha,Euphorbiaceae,macrostachya,Jacq.,,LC
+950,Pelargonium echinatum Curtis,Pelargonium echinatum,Pelargonium,Geraniaceae,echinatum,Curtis,,Not assessed
+951,Pelargonium sidoides DC.,Pelargonium sidoides,Pelargonium,Geraniaceae,sidoides,DC.,,LC
+952,Pelargonium tomentosum Jacq.,Pelargonium tomentosum,Pelargonium,Geraniaceae,tomentosum,Jacq.,,Not assessed
+953,Senegalia brevispica (Harms) Seigler & Ebinger,Senegalia brevispica,Senegalia,Fabaceae,brevispica,(Harms) Seigler & Ebinger,,LC
+954,Vachellia caven (Molina) Seigler & Ebinger,Vachellia caven,Vachellia,Fabaceae,caven,(Molina) Seigler & Ebinger,,LC
+955,Acacia cognata Domin,Acacia cognata,Acacia,Fabaceae,cognata,Domin,,LC
+956,Acacia confluens Maiden & Blakely,Acacia confluens,Acacia,Fabaceae,confluens,Maiden & Blakely,,LC
+957,Dalbergia retusa Hemsl.,Dalbergia retusa,Dalbergia,Fabaceae,retusa,Hemsl.,,CR
+958,Neltuma pallida (Humb. & Bonpl. ex Willd.) C.E.Hughes & G.P.Lewis,Neltuma pallida,Neltuma,Fabaceae,pallida,(Humb. & Bonpl. ex Willd.) C.E.Hughes & G.P.Lewis,,LC
+959,Cedrela fissilis Vell.,Cedrela fissilis,Cedrela,Meliaceae,fissilis,Vell.,,VU
+960,Nepenthes mirabilis (Lour.) Druce,Nepenthes mirabilis,Nepenthes,Nepenthaceae,mirabilis,(Lour.) Druce,,LC
+961,Nepenthes × neglecta Macfarl.,Nepenthes × neglecta,Nepenthes,Nepenthaceae,neglecta,Macfarl.,,Not assessed
+962,Nothofagus betuloides (Mirb.) Oerst.,Nothofagus betuloides,Nothofagus,Nothofagaceae,betuloides,(Mirb.) Oerst.,,LC
+963,Nothofagus dombeyi (Mirb.) Oerst.,Nothofagus dombeyi,Nothofagus,Nothofagaceae,dombeyi,(Mirb.) Oerst.,,LC
+964,Nothofagus nitida (Phil.) Krasser,Nothofagus nitida,Nothofagus,Nothofagaceae,nitida,(Phil.) Krasser,,LC
+965,Nymphaea rubra Roxb. ex Andrews,Nymphaea rubra,Nymphaea,Nymphaeaceae,rubra,Roxb. ex Andrews,,LC
+966,Dendrobium anosmum Lindl.,Dendrobium anosmum,Dendrobium,Orchidaceae,anosmum,Lindl.,,Not assessed
+967,Dendrobium kingianum Bidwill ex Lindl.,Dendrobium kingianum,Dendrobium,Orchidaceae,kingianum,Bidwill ex Lindl.,,Not assessed
+968,Dendrobium munificum (Finet) Schltr.,Dendrobium munificum,Dendrobium,Orchidaceae,munificum,(Finet) Schltr.,,Not assessed
+969,Dendrobium thyrsiflorum B.S.Williams,Dendrobium thyrsiflorum,Dendrobium,Orchidaceae,thyrsiflorum,B.S.Williams,,Not assessed
+970,Dendrobium victoriae-reginae Loher,Dendrobium victoriae-reginae,Dendrobium,Orchidaceae,victoriae-reginae,Loher,,Not assessed
+971,Erycina pusilla (L.) N.H.Williams & M.W.Chase,Erycina pusilla,Erycina,Orchidaceae,pusilla,(L.) N.H.Williams & M.W.Chase,,Not assessed
+972,"Adlumia fungosa (Aiton) Britton, Sterns & Poggenb.",Adlumia fungosa,Adlumia,Papaveraceae,fungosa,"(Aiton) Britton, Sterns & Poggenb.",,Not assessed
+973,Peperomia albovittata C.DC.,Peperomia albovittata,Peperomia,Piperaceae,albovittata,C.DC.,,CR
+974,Peperomia clusiifolia (Jacq.) Hook.,Peperomia clusiifolia,Peperomia,Piperaceae,clusiifolia,(Jacq.) Hook.,,Not assessed
+975,Peperomia columella Rauh & Hutchison,Peperomia columella,Peperomia,Piperaceae,columella,Rauh & Hutchison,,Not assessed
+976,Peperomia ferreyrae Yunck.,Peperomia ferreyrae,Peperomia,Piperaceae,ferreyrae,Yunck.,,Not assessed
+977,Peperomia graveolens Rauh & Barthlott,Peperomia graveolens,Peperomia,Piperaceae,graveolens,Rauh & Barthlott,,VU
+978,Peperomia maculosa (L.) Hook.,Peperomia maculosa,Peperomia,Piperaceae,maculosa,(L.) Hook.,,Not assessed
+979,Peperomia pecuniifolia Trel. & Standl.,Peperomia pecuniifolia,Peperomia,Piperaceae,pecuniifolia,Trel. & Standl.,,Not assessed
+980,Peperomia polybotrya Kunth,Peperomia polybotrya,Peperomia,Piperaceae,polybotrya,Kunth,,Not assessed
+981,Peperomia prostrata B.S.Williams ex Mast. & T.Moore,Peperomia prostrata,Peperomia,Piperaceae,prostrata,B.S.Williams ex Mast. & T.Moore,,Not assessed
+982,Peperomia tetragona Ruiz & Pav.,Peperomia tetragona,Peperomia,Piperaceae,tetragona,Ruiz & Pav.,,Not assessed
+983,Peperomia verticillata (L.) A.Dietr.,Peperomia verticillata,Peperomia,Piperaceae,verticillata,(L.) A.Dietr.,,Not assessed
+984,Lomatia ferruginea (Cav.) R.Br.,Lomatia ferruginea,Lomatia,Proteaceae,ferruginea,(Cav.) R.Br.,,LC
+985,Anemone pavoniana Boiss.,Anemone pavoniana,Anemone,Ranunculaceae,pavoniana,Boiss.,,Not assessed
+986,Eriocapitella tomentosa (Maxim.) Christenh. & Byng,Eriocapitella tomentosa,Eriocapitella,Ranunculaceae,tomentosa,(Maxim.) Christenh. & Byng,,Not assessed
+987,Eumachia haematocarpa (Standl.) C.M.Taylor & Razafim.,Eumachia haematocarpa,Eumachia,Rubiaceae,haematocarpa,(Standl.) C.M.Taylor & Razafim.,,Not assessed
+988,Angostura granulosa (Kallunki) Kallunki,Angostura granulosa,Angostura,Rutaceae,granulosa,(Kallunki) Kallunki,,LC
+989,Smilax excelsa L.,Smilax excelsa,Smilax,Smilacaceae,excelsa,L.,,Not assessed
+990,Coussapoa villosa Poepp. & Endl.,Coussapoa villosa,Coussapoa,Urticaceae,villosa,Poepp. & Endl.,,LC
+991,Cyphostemma cyphopetalum (Fresen.) Desc. ex Wild & R.B.Drumm.,Cyphostemma cyphopetalum,Cyphostemma,Vitaceae,cyphopetalum,(Fresen.) Desc. ex Wild & R.B.Drumm.,,Not assessed
+992,Cyphostemma juttae (Dinter & Gilg) Desc.,Cyphostemma juttae,Cyphostemma,Vitaceae,juttae,(Dinter & Gilg) Desc.,,LC
+993,Cyphostemma serpens (Hochst. ex A.Rich.) Desc.,Cyphostemma serpens,Cyphostemma,Vitaceae,serpens,(Hochst. ex A.Rich.) Desc.,,LC
+994,Nepenthes alata Blanco,Nepenthes alata,Nepenthes,Nepenthaceae,alata,Blanco,,LC
+995,Nepenthes truncata Macfarl.,Nepenthes truncata,Nepenthes,Nepenthaceae,truncata,Macfarl.,,EN
+996,Lavandula spp.,Lavandula spp.,Lavandula,Lamiaceae,,L.,spp.,Not assessed
+997,Aphelandra aurantiaca (Scheidw.) Lindl.,Aphelandra aurantiaca,Aphelandra,Acanthaceae,aurantiaca,(Scheidw.) Lindl.,,Not assessed
+998,Guatteria dolichopoda Donn.Sm.,Guatteria dolichopoda,Guatteria,Annonaceae,dolichopoda,Donn.Sm.,,LC
+999,Stenanona costaricensis R.E.Fr.,Stenanona costaricensis,Stenanona,Annonaceae,costaricensis,R.E.Fr.,,LC

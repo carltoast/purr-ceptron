@@ -41,7 +41,9 @@ def fake_checkpoints(tmp_path, monkeypatch):
         adaptive pooling handles any input size, so this never needs
         to match ``build_transforms``' exact crop dimensions."""
 
-        def __init__(self, num_classes):
+        def __init__(self, num_classes, model="resnet18", pretrained=True):
+            # Mirrors build_model's signature, including the arguments
+            # it ignores here, so a caller passing them still works.
             super().__init__()
             self.squeeze = nn.Conv2d(3, 4, kernel_size=1)
             self.pool = nn.AdaptiveAvgPool2d(1)

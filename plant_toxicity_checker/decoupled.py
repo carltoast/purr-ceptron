@@ -82,7 +82,7 @@ def extract_features(backbone_run, split, batch_size=64, log_every=100):
     state = torch.load(
         CHECKPOINTS_DIR / backbone_run / "latest.pt", map_location="cpu",
     )
-    model = build_model(len(labels_obj))
+    model = build_model(len(labels_obj), pretrained=False)
     model.load_state_dict(state["model_state_dict"])
     model.fc = nn.Identity()
 
@@ -134,7 +134,7 @@ def _load_backbone_fc(backbone_run):
     state = torch.load(
         CHECKPOINTS_DIR / backbone_run / "latest.pt", map_location="cpu",
     )
-    model = build_model(len(labels_obj))
+    model = build_model(len(labels_obj), pretrained=False)
     model.load_state_dict(state["model_state_dict"])
     model.eval()
     return model, labels_obj
